@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Maison Lumière — El Arte de las Uñas</title>
+<style>
+/* ====================== TIPOGRAFÍA ====================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ====================== PALETA ====================== */
+:root{
+  --blush:#FBF6F3;
+  --blush-2:#F6E9E4;
+  --rose:#C58A98;
+  --rose-deep:#B0697A;
+  --rosegold:#C39A82;
+  --gold:#C2A14D;
+  --gold-soft:#E7D7AE;
+  --plum:#3C2A35;
+  --plum-soft:#6A5560;
+  --ink:#2E2129;
+  --line:#E7D5CE;
+  --mauve:#9E7C8C;
+  --cream:#FFFDFB;
+}
+
+/* ====================== PÁGINA ====================== */
+@page{
+  size:A4;
+  margin:22mm 18mm 20mm 18mm;
+  background:var(--blush);
+  @bottom-center{
+    content:counter(page);
+    font-family:'Montserrat',sans-serif;
+    font-size:8.5pt;
+    color:var(--mauve);
+    letter-spacing:2px;
+  }
+  @top-right{
+    content:string(modtitle);
+    font-family:'Montserrat',sans-serif;
+    font-size:7.5pt;
+    letter-spacing:3px;
+    color:var(--rosegold);
+    text-transform:uppercase;
+  }
+  @bottom-right{
+    content:"MAISON LUMIÈRE";
+    font-family:'Montserrat',sans-serif;
+    font-size:7pt;
+    letter-spacing:3px;
+    color:var(--gold);
+  }
+}
+@page cover{ margin:0; background:var(--plum);
+  @bottom-center{content:none;} @top-right{content:none;} @bottom-right{content:none;}
+}
+@page divider{ margin:0; background:var(--plum);
+  @bottom-center{content:none;} @top-right{content:none;} @bottom-right{content:none;}
+}
+@page nochrome{
+  @top-right{content:none;}
+}
+
+/* ====================== BASE ====================== */
+*{box-sizing:border-box;}
+html{ -weasy-hyphens:auto; }
+body{
+  font-family:'Poppins',sans-serif;
+  color:var(--ink);
+  font-size:10.5pt;
+  line-height:1.62;
+  font-weight:300;
+  margin:0;
+}
+p{margin:0 0 9pt 0; text-align:justify;}
+h1,h2,h3,h4{font-family:'Playfair Display',serif; color:var(--plum); font-weight:700; line-height:1.18;}
+strong,b{font-weight:600; color:var(--plum);}
+em{color:var(--rose-deep);}
+a{color:var(--rose-deep); text-decoration:none;}
+
+/* ====================== PORTADA ====================== */
+.cover{ page:cover; height:297mm; position:relative; overflow:hidden; color:#fff;
+  background:
+    radial-gradient(120% 80% at 80% 12%, rgba(195,154,130,.45), transparent 60%),
+    radial-gradient(120% 90% at 12% 95%, rgba(178,105,122,.55), transparent 55%),
+    linear-gradient(160deg,#2A1C25 0%,#3C2A35 45%,#553B49 100%);
+}
+.cover .frame{ position:absolute; inset:14mm; border:1px solid rgba(231,215,174,.55);}
+.cover .frame:after{ content:""; position:absolute; inset:3mm; border:1px solid rgba(231,215,174,.28);}
+.cover-inner{ position:absolute; inset:0; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center; padding:0 26mm;}
+.cover .eyebrow{ font-family:'Montserrat',sans-serif; letter-spacing:9px; font-size:9pt;
+  color:var(--gold-soft); text-transform:uppercase; margin-bottom:10mm;}
+.cover .maison{ font-family:'Cormorant Garamond',serif; font-size:16pt; letter-spacing:6px;
+  color:#fff; text-transform:uppercase; margin-bottom:4mm; font-weight:500;}
+.cover h1{ font-family:'Playfair Display',serif; color:#fff; font-size:50pt; line-height:1.04;
+  font-weight:800; margin:0; text-shadow:0 2px 18px rgba(0,0,0,.35);}
+.cover h1 .it{ font-style:italic; font-weight:600; color:var(--gold-soft); }
+.cover .sub{ font-family:'Cormorant Garamond',serif; font-size:18pt; color:#F2E5DE;
+  margin-top:8mm; font-weight:400; font-style:italic; max-width:150mm;}
+.cover .rule{ width:46mm; height:1.4pt; background:linear-gradient(90deg,transparent,var(--gold-soft),transparent); margin:11mm 0;}
+.cover .tagline{ font-family:'Montserrat',sans-serif; font-size:8.5pt; letter-spacing:5px;
+  text-transform:uppercase; color:#E7D7AE; }
+.cover .edition{ position:absolute; bottom:20mm; left:0; right:0; text-align:center;
+  font-family:'Montserrat',sans-serif; font-size:7.5pt; letter-spacing:4px; color:rgba(255,255,255,.6);}
+.cover .nailfan{ position:absolute; bottom:0; right:0; width:120mm; opacity:.9;}
+
+/* ====================== CRÉDITOS ====================== */
+.credits{ padding-top:60mm; text-align:center; page:nochrome;}
+.credits .m{ font-family:'Cormorant Garamond',serif; letter-spacing:5px; font-size:13pt; color:var(--rosegold); text-transform:uppercase;}
+.credits p{ text-align:center; color:var(--plum-soft); font-size:9.5pt;}
+.credits .disc{ margin-top:30mm; font-size:8pt; color:var(--mauve); line-height:1.7;}
+
+/* ====================== DIVIDERS DE MÓDULO ====================== */
+.divider{ page:divider; height:297mm; position:relative; color:#fff; overflow:hidden;
+  background:
+    radial-gradient(90% 70% at 85% 85%, rgba(178,105,122,.5), transparent 60%),
+    linear-gradient(155deg,#2A1C25,#4A3340 70%,#5E4350);
+}
+.divider .frame{ position:absolute; inset:16mm; border:1px solid rgba(231,215,174,.4);}
+.divider .d-inner{ position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 32mm;}
+.divider .modnum{ font-family:'Playfair Display',serif; font-style:italic; font-size:120pt;
+  color:rgba(231,215,174,.18); line-height:.8; margin:0;}
+.divider .modlabel{ font-family:'Montserrat',sans-serif; letter-spacing:8px; font-size:9pt;
+  color:var(--gold-soft); text-transform:uppercase; margin:6mm 0 4mm;}
+.divider h2{ color:#fff; font-size:34pt; line-height:1.1; margin:0; font-weight:700;}
+.divider .d-rule{ width:40mm; height:1.2pt; background:var(--gold-soft); margin:9mm 0;}
+.divider .d-desc{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15pt; color:#EEDDD6; max-width:120mm;}
+
+/* ====================== ENCABEZADOS DE SECCIÓN ====================== */
+h2.sec{ string-set:modtitle content(); font-size:23pt; margin:0 0 2mm; padding-top:2mm;}
+.kicker{ font-family:'Montserrat',sans-serif; letter-spacing:5px; font-size:8pt;
+  text-transform:uppercase; color:var(--rosegold); margin-bottom:3mm;}
+.sec-rule{ width:100%; height:1pt; background:linear-gradient(90deg,var(--rose),var(--gold-soft),transparent); margin:0 0 8mm;}
+h3{ font-size:15pt; margin:9mm 0 3mm; color:var(--rose-deep); }
+h3:before{ content:"❦"; color:var(--gold); font-size:11pt; margin-right:6px; }
+h4{ font-size:11.5pt; margin:6mm 0 2mm; color:var(--plum); font-family:'Poppins',sans-serif; font-weight:600; letter-spacing:.3px;}
+
+/* ====================== CAJAS / CALLOUTS ====================== */
+.box{ border-radius:5px; padding:7mm 8mm 5mm; margin:6mm 0; position:relative; page-break-inside:avoid; font-size:10pt;}
+.box .b-tit{ font-family:'Montserrat',sans-serif; font-weight:600; letter-spacing:1.5px;
+  text-transform:uppercase; font-size:8.5pt; margin-bottom:3mm; display:block;}
+.tip{ background:#F3F0E4; border-left:4px solid var(--gold);}
+.tip .b-tit{ color:#9A7E2C;}
+.pro{ background:#F7ECEF; border-left:4px solid var(--rose-deep);}
+.pro .b-tit{ color:var(--rose-deep);}
+.warn{ background:#FBEDE9; border-left:4px solid #C0654A;}
+.warn .b-tit{ color:#B0543A;}
+.note{ background:#EFEAEF; border-left:4px solid var(--mauve);}
+.note .b-tit{ color:var(--mauve);}
+.box p:last-child{margin-bottom:0;}
+
+/* ====================== DATO REAL ====================== */
+.data{ background:linear-gradient(135deg,#FCF8F0,#F7EEE6); border:1px solid var(--gold-soft);
+  border-radius:6px; padding:6mm 7mm; margin:6mm 0; page-break-inside:avoid;}
+.data .src{ font-size:7.5pt; color:var(--mauve); font-style:italic; margin-top:3mm; display:block;}
+
+/* ====================== TABLAS ====================== */
+table{ width:100%; border-collapse:collapse; margin:5mm 0; font-size:9pt; page-break-inside:avoid;
+  font-family:'Montserrat',sans-serif; font-weight:400;}
+thead th{ background:var(--plum); color:var(--cream); font-weight:500; text-align:left;
+  padding:3mm 4mm; font-size:8.5pt; letter-spacing:.5px;}
+tbody td{ padding:2.6mm 4mm; border-bottom:1px solid var(--line); color:var(--ink);}
+tbody tr:nth-child(even){ background:rgba(246,233,228,.5);}
+tbody tr td:first-child{ font-weight:500; color:var(--plum);}
+.price{ color:var(--rose-deep); font-weight:600;}
+
+/* ====================== LISTAS ====================== */
+ul.clean{ list-style:none; padding-left:0; margin:3mm 0;}
+ul.clean li{ padding-left:8mm; position:relative; margin-bottom:2.4mm;}
+ul.clean li:before{ content:"✦"; position:absolute; left:0; color:var(--rosegold); font-size:9pt; top:.5pt;}
+ol.steps{ counter-reset:st; list-style:none; padding-left:0; margin:4mm 0;}
+ol.steps li{ counter-increment:st; padding-left:13mm; position:relative; margin-bottom:4mm; min-height:9mm;}
+ol.steps li:before{ content:counter(st); position:absolute; left:0; top:-1mm; width:9mm; height:9mm;
+  background:var(--rose-deep); color:#fff; border-radius:50%; text-align:center; line-height:9mm;
+  font-family:'Playfair Display',serif; font-weight:700; font-size:10pt;}
+ol.steps li strong{ display:block; color:var(--plum);}
+
+/* ====================== CHECKLIST ====================== */
+.check li{ list-style:none; padding-left:9mm; position:relative; margin-bottom:2.6mm;}
+.check{ padding-left:0;}
+.check li:before{ content:"☐"; position:absolute; left:0; color:var(--rose-deep); font-size:12pt; top:-1pt;}
+
+/* ====================== BADGES ====================== */
+.badge{ display:inline-block; font-family:'Montserrat',sans-serif; font-size:7pt; letter-spacing:1.5px;
+  text-transform:uppercase; padding:1.5mm 3.5mm; border-radius:20px; font-weight:600; vertical-align:middle;}
+.b-easy{ background:#E3EFE2; color:#5A7D55;}
+.b-mid{ background:#F6EFD8; color:#9A7E2C;}
+.b-hard{ background:#F6E0DE; color:#B0543A;}
+
+/* ====================== PLACEHOLDER DE FOTO ====================== */
+.photo{ border:1.4px dashed var(--rosegold); border-radius:6px; background:
+   repeating-linear-gradient(45deg,#FBF3EF,#FBF3EF 6px,#F7ECE6 6px,#F7ECE6 12px);
+   padding:9mm 7mm; text-align:center; margin:6mm 0; page-break-inside:avoid;}
+.photo .ic{ font-size:20pt; color:var(--rosegold); line-height:1;}
+.photo .pl-tit{ font-family:'Montserrat',sans-serif; letter-spacing:2px; font-size:7.5pt;
+  text-transform:uppercase; color:var(--rose-deep); margin:3mm 0 2mm; font-weight:600;}
+.photo .pl-desc{ font-size:8.5pt; color:var(--plum-soft); font-style:italic; max-width:120mm; margin:0 auto;}
+
+/* ====================== GRID ====================== */
+.grid2{ display:flex; gap:6mm; margin:5mm 0;}
+.grid2>div{ flex:1;}
+.kpi{ display:flex; gap:5mm; margin:6mm 0; page-break-inside:avoid;}
+.kpi .k{ flex:1; background:var(--cream); border:1px solid var(--line); border-top:3px solid var(--rose);
+  border-radius:6px; padding:5mm 4mm; text-align:center;}
+.kpi .k .n{ font-family:'Playfair Display',serif; font-size:21pt; color:var(--rose-deep); font-weight:800; line-height:1;}
+.kpi .k .l{ font-family:'Montserrat',sans-serif; font-size:7pt; letter-spacing:1px; text-transform:uppercase;
+  color:var(--plum-soft); margin-top:2mm;}
+
+/* ====================== BARRAS ====================== */
+.bar{ margin:2.5mm 0;}
+.bar .bl{ font-size:8.5pt; font-family:'Montserrat',sans-serif; display:flex; justify-content:space-between; margin-bottom:1mm; color:var(--plum);}
+.bar .track{ height:5mm; background:var(--blush-2); border-radius:10px; overflow:hidden;}
+.bar .fill{ height:100%; background:linear-gradient(90deg,var(--rose),var(--rosegold)); border-radius:10px;}
+
+/* ====================== ÍNDICE ====================== */
+.toc h2{ font-size:24pt;}
+.toc-mod{ margin-bottom:3mm; page-break-inside:avoid;}
+.toc-row{ display:flex; align-items:baseline; font-family:'Montserrat',sans-serif; font-size:9.5pt; margin-bottom:1.5mm;}
+.toc-row .tn{ color:var(--rosegold); font-weight:600; width:14mm;}
+.toc-row .tt{ color:var(--plum); flex:1;}
+.toc-row .td{ flex:1; border-bottom:1px dotted var(--line); margin:0 2mm 1mm;}
+.toc-sub{ font-size:8.5pt; color:var(--plum-soft); padding-left:14mm; margin-bottom:1mm;}
+
+/* ====================== CERTIFICADO ====================== */
+.cert{ page:nochrome; height:255mm; position:relative; border:2px solid var(--gold);
+  outline:1px solid var(--gold); outline-offset:4mm; padding:24mm 22mm; text-align:center;
+  background:linear-gradient(135deg,#FFFDF8,#FBF4EC);}
+.cert .seal{ font-family:'Cormorant Garamond',serif; letter-spacing:6px; font-size:11pt; color:var(--rosegold); text-transform:uppercase;}
+.cert h2{ font-family:'Playfair Display',serif; font-size:38pt; color:var(--plum); margin:8mm 0 2mm;}
+.cert .it{ font-style:italic; color:var(--rose-deep);}
+.cert .line{ border-bottom:1px solid var(--mauve); width:120mm; margin:18mm auto 2mm;}
+.cert .small{ font-family:'Montserrat',sans-serif; font-size:8pt; letter-spacing:2px; text-transform:uppercase; color:var(--mauve);}
+
+.lead{ font-family:'Cormorant Garamond',serif; font-size:13.5pt; font-style:italic; color:var(--plum-soft); line-height:1.5; margin-bottom:6mm;}
+.dropcap:first-letter{ font-family:'Playfair Display',serif; font-size:24pt; line-height:1;
+  color:var(--rose-deep); padding-right:1mm; font-weight:800;}
+.avoid{page-break-inside:avoid;}
+.newpage{page-break-before:always;}
+.center{text-align:center;}
+svg{display:block; margin:0 auto;}
+.cap{ text-align:center; font-size:8pt; color:var(--mauve); font-style:italic; margin-top:2mm;}
+</style>
+</head>
+<body>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="cover">
+  <div class="frame"></div>
+  <svg class="nailfan" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.85">
+      <g transform="rotate(18 150 200)"><path d="M150 200 C150 120 158 70 168 60 C182 50 188 70 184 95 C180 130 168 170 160 200 Z" fill="#C39A82"/></g>
+      <g transform="rotate(8 150 200)"><path d="M150 200 C150 110 156 55 166 45 C180 36 186 58 182 86 C178 124 166 168 160 200 Z" fill="#D7AE9A"/></g>
+      <g><path d="M150 200 C150 100 154 45 163 36 C176 28 183 52 179 82 C175 122 162 166 158 200 Z" fill="#E7C7B6"/></g>
+      <g transform="rotate(-8 150 200)"><path d="M150 200 C150 110 156 55 166 45 C180 36 186 58 182 86 C178 124 166 168 160 200 Z" fill="#D7AE9A"/></g>
+      <g transform="rotate(-18 150 200)"><path d="M150 200 C150 120 158 70 168 60 C182 50 188 70 184 95 C180 130 168 170 160 200 Z" fill="#C39A82"/></g>
+    </g>
+  </svg>
+  <div class="cover-inner">
+    <div class="eyebrow">Curso Profesional Premium</div>
+    <div class="maison">Maison Lumière · Académie</div>
+    <h1>El Arte de<br>las <span class="it">Uñas</span></h1>
+    <div class="rule"></div>
+    <div class="sub">De cero a Nail Artist profesional<br>en los Estados Unidos</div>
+    <div style="height:14mm"></div>
+    <div class="tagline">Técnica · Negocio · Estilo · Maestría</div>
+  </div>
+  <div class="edition">EDICIÓN 2026 · MÉTODO COMPLETO ILUSTRADO · ESPAÑOL</div>
+</section>
+
+<!-- ===================== CRÉDITOS ===================== -->
+<section class="credits">
+  <div class="m">Maison Lumière</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:12pt;color:var(--plum-soft);margin-top:4mm;">
+  Academia Profesional de Belleza y Nail Art</p>
+  <div style="width:30mm;height:1px;background:var(--gold);margin:8mm auto;"></div>
+  <p><em>“La excelencia en las uñas no es talento: es método, repetición y amor por el detalle.”</em></p>
+  <div class="disc">
+    Esta obra es un programa formativo independiente con fines educativos.<br>
+    Los datos de precios, salarios y licencias provienen de fuentes públicas de EE.UU. (2025–2026)
+    y se citan dentro de cada sección.<br>
+    “Maison Lumière” es un nombre de academia ficticio creado para esta edición.<br>
+    Verifica siempre los requisitos de licencia con el <em>State Board of Cosmetology</em> de tu estado,
+    ya que cambian con frecuencia.<br><br>
+    © 2026 Maison Lumière · Todos los derechos reservados.
+  </div>
+</section>
+
+<!-- ===================== ÍNDICE ===================== -->
+<section class="toc newpage">
+  <div class="kicker">Tu mapa de aprendizaje</div>
+  <h2 class="sec" style="-weasy-string-set:modtitle 'Índice'">Índice del Curso</h2>
+  <div class="sec-rule"></div>
+
+  <div class="toc-mod"><div class="toc-row"><span class="tn">00</span><span class="tt"><strong>Introducción</strong> — El mundo de las uñas, dinero y mentalidad</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">01</span><span class="tt"><strong>Herramientas y Materiales</strong> — Todo el equipo, marcas y kit inicial</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">02</span><span class="tt"><strong>Higiene y Seguridad</strong> — Esterilización, química y regulación en EE.UU.</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">03</span><span class="tt"><strong>Anatomía de la Uña</strong> — Estructura, tipos y diagnóstico</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">04</span><span class="tt"><strong>Preparación Perfecta</strong> — Manicura rusa y máxima duración</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">05</span><span class="tt"><strong>Acrílico de Cero a Avanzado</strong> — Estructura, apex y curva C</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">06</span><span class="tt"><strong>Gel y Polygel</strong> — Construcción, nivelación y control del calor</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">07</span><span class="tt"><strong>Esmaltado Perfecto</strong> — Gel polish sin arrugas y brillo espejo</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">08</span><span class="tt"><strong>Diseños y Nail Art</strong> — Chrome, aura, cat eye, mármol y tendencias</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">09</span><span class="tt"><strong>Formas y Estructuras</strong> — Almond, coffin, stiletto y más</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">10</span><span class="tt"><strong>Pedicura Profesional</strong> — Spa, callosidades y precios</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">11</span><span class="tt"><strong>Negocio y Dinero</strong> — Clientas, marca y precios reales de EE.UU.</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">12</span><span class="tt"><strong>Clientas Difíciles</strong> — Profesionalismo, depósitos y políticas</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">13</span><span class="tt"><strong>Redes Sociales</strong> — TikTok, Instagram y contenido viral</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">14</span><span class="tt"><strong>Secretos de Profesionales</strong> — Velocidad, calidad y errores fatales</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">★</span><span class="tt"><strong>Módulo Final</strong> — Plan de 30 días, checklists y certificado</span><span class="td"></span></div></div>
+  <div class="toc-mod"><div class="toc-row"><span class="tn">+</span><span class="tt"><strong>Extras</strong> — Tablas de precios, FAQ y glosario profesional</span><span class="td"></span></div></div>
+</section>
+
+<!-- ===================== INTRODUCCIÓN ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">00</p>
+    <div class="modlabel">Bienvenida</div>
+    <h2>Introducción al<br>Mundo de las Uñas</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Por qué esta profesión transforma vidas — y cómo empezar hoy, aunque jamás hayas tocado una lima.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Introducción</div>
+  <h2 class="sec">El mundo de las uñas como profesión</h2>
+  <div class="sec-rule"></div>
+
+  <p class="lead">Hacer uñas dejó de ser “un pasatiempo” hace mucho tiempo. Hoy es una de las profesiones de belleza
+  con mayor demanda, menor inversión inicial y mayor flexibilidad horaria en los Estados Unidos. Una nail artist
+  capacitada puede generar ingresos a tiempo parcial desde casa, o construir un salón con lista de espera de meses.</p>
+
+  <p class="dropcap">La industria de las uñas en EE.UU. mueve miles de millones de dólares al año y sigue creciendo.
+  Lo que hace especial a esta carrera no es solo el dinero: es que combina <strong>arte</strong>, <strong>técnica
+  manual</strong>, <strong>relación humana</strong> y <strong>negocio propio</strong>. Aprendes una destreza con tus
+  manos que ninguna máquina reemplaza, y cada clienta que sale feliz es publicidad caminando. Este curso te lleva
+  desde el primer día —cuando no sabes ni cómo sostener un pincel— hasta el nivel en el que cobras como profesional
+  y la gente viaja para que tú la atiendas.</p>
+
+  <h3>¿Cuánto puede ganar una Nail Artist en Estados Unidos?</h3>
+  <p>Seamos honestos con los números, porque circula mucha información inflada en redes. Estos son datos reales y
+  con fuente; varían enormemente según estado, ciudad, propinas y si trabajas por tu cuenta o en un salón:</p>
+
+  <div class="data">
+    <strong>Salario real (datos públicos 2025–2026):</strong>
+    <ul class="clean" style="margin-top:3mm;">
+      <li><strong>Mediana oficial (BLS):</strong> ≈ <span class="price">$16.66/hora</span>, alrededor de <span class="price">$34,650/año</span> a tiempo completo.</li>
+      <li><strong>Indeed:</strong> promedio ≈ <span class="price">$24.51/hora</span> (incluye reportes con propinas).</li>
+      <li><strong>Talent.com:</strong> promedio ≈ <span class="price">$56,193/año</span> ($28.44/hora).</li>
+      <li><strong>Top earners / grandes ciudades:</strong> hasta <span class="price">$32+/hora</span>, y artistas con marca propia mucho más.</li>
+    </ul>
+    <span class="src">Fuentes: U.S. Bureau of Labor Statistics (OES 39-5092), Indeed, Talent.com, ZipRecruiter, Salary.com — consultadas 2026.</span>
+  </div>
+
+  <div class="box note"><span class="b-tit">La verdad sobre las propinas</span>
+  Gran parte de las cifras bajas (como la mediana del BLS) <strong>no capturan bien las propinas en efectivo</strong>,
+  que en este oficio son enormes. Una técnica independiente que cobra $60 por un full set y atiende 6 clientas al día,
+  5 días a la semana, factura muy por encima de esos promedios. Tu techo lo pones tú con velocidad, calidad y marca.</div>
+
+  <h3>Las tres formas de ganar dinero con las uñas</h3>
+  <table>
+    <thead><tr><th>Modelo</th><th>Cómo funciona</th><th>Ventaja</th></tr></thead>
+    <tbody>
+      <tr><td>Empleada en salón</td><td>Sueldo + comisión + propinas. Aprendes ritmo y clientela.</td><td>Estabilidad y práctica diaria</td></tr>
+      <tr><td>Booth rental / independiente</td><td>Rentas una estación; tú cobras directo a tu clienta.</td><td>Te quedas casi todo el ingreso</td></tr>
+      <tr><td>Estudio en casa</td><td>Montas tu espacio; agendas por redes. Mínimos gastos.</td><td>Máxima libertad y margen</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Mentalidad profesional: lo que separa a quien gana de quien abandona</h3>
+  <ul class="clean">
+    <li><strong>La técnica se entrena, no se hereda.</strong> Tus primeras 50 manos serán feas. Las siguientes 200 te vuelven competente. Es matemática, no magia.</li>
+    <li><strong>Tratas con la piel y salud de otra persona.</strong> Eso exige higiene y seriedad desde el día uno.</li>
+    <li><strong>Eres negocio, no solo artista.</strong> Saber cobrar, agendar y poner límites pesa tanto como saber esculpir.</li>
+    <li><strong>La constancia gana a la inspiración.</strong> Practica formas básicas aunque sea aburrido; ahí está la maestría.</li>
+  </ul>
+
+  <div class="box pro"><span class="b-tit">Consejo de Maison Lumière</span>
+  No esperes a “sentirte lista” para empezar a practicar en mano falsa o tips sueltos. La confianza llega
+  <em>después</em> de la repetición, nunca antes. Marca hoy 30 minutos diarios en tu calendario: es tu inversión real.</div>
+
+  <h3>Cómo usar este curso</h3>
+  <p>Cada módulo combina teoría, pasos numerados, diagramas, errores comunes y un recuadro de práctica. No saltes
+  los fundamentos (anatomía, higiene y preparación): el 80% de las uñas que se levantan o duelen no es culpa del
+  producto, sino de una preparación deficiente. Domina lo invisible y lo visible saldrá solo.</p>
+
+  <div class="kpi">
+    <div class="k"><div class="n">14</div><div class="l">Módulos</div></div>
+    <div class="k"><div class="n">30</div><div class="l">Días de plan</div></div>
+    <div class="k"><div class="n">100%</div><div class="l">En español</div></div>
+    <div class="k"><div class="n">★</div><div class="l">Certificado</div></div>
+  </div>
+</section>
+
+<!-- ===================== MÓDULO 1 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">01</p>
+    <div class="modlabel">Módulo Uno</div>
+    <h2>Herramientas y<br>Materiales</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Conoce cada pieza de tu arsenal: qué hace, cuál comprar primero y en qué marca confiar.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 01 · Equipo</div>
+  <h2 class="sec">Tu arsenal profesional, pieza por pieza</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Una buena nail artist no necesita <em>todo</em> al principio: necesita lo correcto. Este módulo
+  separa lo esencial de lo opcional para que no malgastes dinero en cosas que no usarás.</p>
+
+  <h3>Herramientas básicas (con las que empiezas)</h3>
+  <ul class="clean">
+    <li><strong>Limas (files):</strong> de cartón/zebra para natural y de grano grueso para acrílico.</li>
+    <li><strong>Buffer / pulidor:</strong> suaviza la superficie antes de esmaltar.</li>
+    <li><strong>Empujador de cutícula (pusher) y nipper:</strong> para retirar cutícula muerta con seguridad.</li>
+    <li><strong>Pinzas (tweezers):</strong> para colocar tips, decoraciones y pinch de la curva C.</li>
+    <li><strong>Cepillo de polvo (dust brush):</strong> retira limaduras sin soplar (¡nunca soples el polvo!).</li>
+    <li><strong>Lámpara UV/LED:</strong> cura geles y gel polish. Imprescindible.</li>
+  </ul>
+
+  <div class="photo"><div class="ic">❖</div><div class="pl-tit">Inserta foto aquí</div>
+  <div class="pl-desc">Flat-lay del kit básico ordenado sobre fondo nude: limas, buffer, pusher, nipper, pinzas, brocha y lámpara. Luz natural, vista cenital.</div></div>
+
+  <h3>Tipos de limas y su grano (grit)</h3>
+  <p>El número de “grit” indica qué tan abrasiva es la lima: <strong>a menor número, más agresiva</strong>.</p>
+  <table>
+    <thead><tr><th>Grit</th><th>Uso</th><th>Sobre qué</th></tr></thead>
+    <tbody>
+      <tr><td>80–100</td><td>Rebajar y dar forma a producto</td><td>Acrílico / gel duro</td></tr>
+      <tr><td>100–150</td><td>Forma general y refinar</td><td>Realces</td></tr>
+      <tr><td>180–240</td><td>Uña natural y detalle</td><td>Natural / preparación</td></tr>
+      <tr><td>240–1000+ (buffer)</td><td>Pulir y dar brillo</td><td>Acabado</td></tr>
+    </tbody>
+  </table>
+  <div class="box warn"><span class="b-tit">Error que daña uñas</span>
+  Usar limas de 80–100 grit sobre la uña <strong>natural</strong> la adelgaza y la lastima. Reserva los granos
+  bajos solo para el producto artificial.</div>
+
+  <h3>El drill (torno eléctrico) y sus puntas (bits)</h3>
+  <p>El e-file acelera el trabajo, pero mal usado quema y debilita. Aprende presión ligera y velocidad media.</p>
+  <ul class="clean">
+    <li><strong>Bit de cono / barril carburo:</strong> rebajar producto y rellenos.</li>
+    <li><strong>Bit de bola (under-nail / cuticle):</strong> limpiar contorno y debajo del borde libre.</li>
+    <li><strong>Bit de cutícula (small ball, diamante):</strong> trabajar el área del eponiquio con delicadeza.</li>
+    <li><strong>Mandrel / banda de lija:</strong> rebajar superficie y longitud.</li>
+    <li><strong>Bit cerámico “safety”:</strong> menos calor, ideal para principiantes.</li>
+  </ul>
+  <div class="box pro"><span class="b-tit">Regla de oro del drill</span>
+  El drill <em>no</em> empuja: tú guías. Mantén la punta en movimiento constante, nunca fija en un punto, y trabaja
+  a baja velocidad (RPM) cerca de la cutícula. Si la clienta siente calor, paras: el calor es señal de presión o velocidad excesiva.</div>
+
+  <h3>Lámparas UV vs. LED</h3>
+  <table>
+    <thead><tr><th>Tipo</th><th>Curado</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td>UV tradicional</td><td>Más lento (2–3 min)</td><td>Bombillas que se reemplazan; cura casi todo gel</td></tr>
+      <tr><td>LED</td><td>Rápido (30–60 s)</td><td>Más vida útil; verifica que tu gel sea “LED-curable”</td></tr>
+      <tr><td>Dual UV/LED</td><td>Versátil</td><td>La opción recomendada hoy</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Sistemas de realce: acrílico, gel, polygel</h3>
+  <div class="grid2">
+    <div class="box tip"><span class="b-tit">Acrílico</span>Polvo (polímero) + líquido monómero. Endurece al aire. Muy resistente, económico, ideal para estructura fuerte. Tiene olor.</div>
+    <div class="box tip"><span class="b-tit">Gel duro</span>Viene en pote/jar. Cura en lámpara. Más flexible y sin olor; acabado natural.</div>
+  </div>
+  <div class="grid2">
+    <div class="box tip"><span class="b-tit">Polygel</span>Híbrido en tubo: maleable como gel, fuerte como acrílico. Se trabaja con líquido slip solution. Sin olor, fácil para principiantes.</div>
+    <div class="box tip"><span class="b-tit">Gel polish</span>Esmalte en gel (color). No da estructura; es para color y diseño sobre uña preparada o realce.</div>
+  </div>
+
+  <h3>Insumos de preparación química</h3>
+  <ul class="clean">
+    <li><strong>Dehydrator:</strong> elimina humedad y aceite de la lámina (mejora adhesión).</li>
+    <li><strong>Primer (ácido / sin ácido):</strong> “pegamento” químico entre uña y producto. El sin ácido es más seguro para principiantes.</li>
+    <li><strong>Base coat:</strong> primera capa de gel que sella y adhiere el color.</li>
+    <li><strong>Top coat:</strong> sella, da brillo (o mate) y protege el diseño.</li>
+  </ul>
+
+  <h3>Pinceles, tips, moldes y decoración</h3>
+  <ul class="clean">
+    <li><strong>Pincel de acrílico (kolinsky):</strong> nº 8–10 para principiantes; la calidad del pelo define tu control de la perla.</li>
+    <li><strong>Pinceles de arte:</strong> liner largo (líneas), detallador, abanico y esponja para degradados.</li>
+    <li><strong>Tips:</strong> puntas plásticas preformadas para extender (full cover o half).</li>
+    <li><strong>Moldes (forms):</strong> plantillas para esculpir extensión sin tip.</li>
+    <li><strong>Decoración:</strong> piedras/cristales, pigmentos chrome, glitters, foils, charms, stickers.</li>
+  </ul>
+
+  <div class="photo"><div class="ic">❖</div><div class="pl-tit">Inserta foto aquí</div>
+  <div class="pl-desc">Comparativa lado a lado: tip vs. molde (form) colocados sobre una mano de práctica, mostrando la diferencia de aplicación.</div></div>
+
+  <h3>Aceites, higiene y acabado</h3>
+  <ul class="clean">
+    <li><strong>Aceite de cutícula:</strong> nutre y sella el resultado; regálale uno a tu clienta como detalle de marca.</li>
+    <li><strong>Alcohol isopropílico 70–99%:</strong> limpia la capa pegajosa (gel) y desinfecta.</li>
+    <li><strong>Sanitizante de manos y barbicida:</strong> para herramientas metálicas.</li>
+  </ul>
+
+  <h3>Marcas: económicas vs. premium</h3>
+  <div class="box note"><span class="b-tit">Orientación honesta de marcas</span>
+  No existe “la mejor” universal; existe la que combina con tu técnica. Estas son marcas <strong>reconocidas en el mercado de EE.UU.</strong>,
+  para que investigues precios actuales por tu cuenta:
+  <ul class="clean" style="margin-top:3mm;">
+    <li><strong>Accesibles / para empezar:</strong> Beetles, Modelones, Makartt, Mia Secret (acrílico popular económico).</li>
+    <li><strong>Intermedias / muy usadas:</strong> Young Nails, Kiara Sky, Glam &amp; Glits, DND.</li>
+    <li><strong>Premium / profesional:</strong> CND, OPI, Light Elegance, Apres (soft gel / Gel-X), Bio Sculpture.</li>
+  </ul>
+  <span class="src" style="display:block;margin-top:2mm;">Verifica disponibilidad y precio actual; este curso no tiene afiliación con ninguna marca.</span></div>
+
+  <h3>¿Qué comprar PRIMERO si tienes poco dinero?</h3>
+  <table>
+    <thead><tr><th>Prioridad</th><th>Compra</th><th>Por qué</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Lámpara dual + gel polish base/top + 3–5 colores</td><td>Empiezas ofreciendo manicura en gel (alta demanda, bajo riesgo)</td></tr>
+      <tr><td>2</td><td>Set de limas, buffer, pusher, nipper, brocha</td><td>Preparación y acabado profesional</td></tr>
+      <tr><td>3</td><td>Manos/dedos de práctica + tips + pegamento</td><td>Practicar formas sin clienta</td></tr>
+      <tr><td>4</td><td>Sistema de realce (Gel-X o polygel para principiante)</td><td>Más fácil que acrílico al inicio</td></tr>
+      <tr><td>5</td><td>Drill básico + bits de seguridad</td><td>Velocidad y rellenos</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box pro"><span class="b-tit">Kit ideal para comenzar</span>
+  Empieza ofreciendo <strong>gel polish + estructura simple (Gel-X o polygel)</strong>. Es lo más fácil de dominar,
+  lo más rentable por hora y lo que menos te castiga los errores. El acrílico avanzado llega en el Módulo 5,
+  cuando tu mano ya tenga control.</div>
+</section>
+
+<!-- ===================== MÓDULO 2 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">02</p>
+    <div class="modlabel">Módulo Dos</div>
+    <h2>Higiene y<br>Seguridad</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Lo que protege a tu clienta, tu reputación y tu licencia. El módulo que nadie debe saltar.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 02 · Salud</div>
+  <h2 class="sec">Higiene, esterilización y seguridad química</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Una infección en una clienta puede terminar tu carrera y exponerte legalmente. La higiene no es
+  opcional ni “para cuando crezcas”: es el cimiento desde la primera mano que trabajas.</p>
+
+  <h3>Los tres niveles de control de gérmenes</h3>
+  <table>
+    <thead><tr><th>Nivel</th><th>Qué hace</th><th>Ejemplo en tu mesa</th></tr></thead>
+    <tbody>
+      <tr><td>Sanitización</td><td>Reduce gérmenes en superficies/piel</td><td>Gel de manos, limpiar la mesa</td></tr>
+      <tr><td>Desinfección</td><td>Mata la mayoría de patógenos en herramientas</td><td>Sumergir metales en desinfectante hospitalario (tipo barbicida/EPA)</td></tr>
+      <tr><td>Esterilización</td><td>Elimina todo, incluidas esporas</td><td>Autoclave (estándar más alto)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Protocolo de herramientas (paso a paso)</h3>
+  <ol class="steps">
+    <li><strong>Limpia</strong> los restos visibles con agua y jabón/cepillo.</li>
+    <li><strong>Desinfecta</strong> sumergiendo el metal el tiempo que indique el producto (lee la etiqueta).</li>
+    <li><strong>Enjuaga y seca</strong> con toalla limpia.</li>
+    <li><strong>Esteriliza</strong> en autoclave si lo tienes; guarda en pouch sellado.</li>
+    <li><strong>Almacena</strong> en recipiente cerrado y limpio, nunca sueltas y expuestas.</li>
+  </ol>
+  <div class="box warn"><span class="b-tit">Desechables = una sola persona</span>
+  Limas de cartón, buffers, bandas de lija y palitos de naranjo son <strong>porosos</strong>: no se desinfectan bien.
+  Úsalos con UNA clienta y deséchalos, o entrégaselos a ella. Reutilizarlos es la causa nº1 de contagios.</div>
+
+  <h3>Cuándo NO debes trabajar una uña</h3>
+  <p>Aprende a decir “hoy no”. Trabajar sobre una infección la empeora y te hace responsable.</p>
+  <ul class="clean">
+    <li><strong>Hongo (onicomicosis):</strong> uña gruesa, amarilla/verdosa, quebradiza o despegada.</li>
+    <li><strong>Infección bacteriana (greenie/pseudomonas):</strong> mancha verde bajo el realce.</li>
+    <li><strong>Paroniquia:</strong> piel del contorno roja, hinchada, con pus o dolor.</li>
+    <li><strong>Heridas abiertas, verrugas, eczema o psoriasis activa</strong> en el área.</li>
+    <li><strong>Despegue importante (onicólisis)</strong> o uña con sangrado.</li>
+  </ul>
+  <div class="box note"><span class="b-tit">Tu frase profesional</span>
+  “Veo algo que prefiero no cubrir hoy para no atraparlo y empeorarlo. Te recomiendo ver a tu médico; cuando esté
+  sano, te atiendo con gusto.” Proteges a la clienta y demuestras criterio: eso genera confianza, no la pierde.</div>
+
+  <h3>Seguridad química</h3>
+  <ul class="clean">
+    <li><strong>Ventilación:</strong> trabaja con flujo de aire; los vapores de monómero y polvos se acumulan.</li>
+    <li><strong>Mascarilla (N95/KN95) y captador de polvo:</strong> el polvo de limado es respirable y dañino a largo plazo.</li>
+    <li><strong>Evita la sobreexposición a la piel:</strong> producto sin curar sobre piel causa alergias (sensibilización) permanentes. Si curas bien y no tocas la piel con gel crudo, te proteges a ti y a la clienta.</li>
+    <li><strong>Guantes y gafas</strong> al manipular químicos fuertes; tapa siempre monómero y primer.</li>
+  </ul>
+  <div class="box warn"><span class="b-tit">La alergia al (meta)acrilato es para siempre</span>
+  La causa más común es <strong>producto mal curado o tocado con la piel</strong>. Una vez que te sensibilizas (tú o la
+  clienta), puede aparecer dermatitis, picor y despegue de uñas naturales de por vida. Cura el tiempo correcto, en la
+  lámpara correcta, y limpia cualquier excedente sobre la piel <em>antes</em> de curar.</div>
+
+  <h3>Cómo organizar una mesa profesional</h3>
+  <ol class="steps">
+    <li><strong>Superficie limpia y desinfectada</strong> entre cada clienta, con toalla o papel cambiable.</li>
+    <li><strong>Zona “limpia” y zona “sucia”</strong> separadas: herramientas estériles a un lado, usadas al otro.</li>
+    <li><strong>Captador de polvo</strong> frente a ti y buena luz (lámpara de mesa con aro).</li>
+    <li><strong>Productos rotulados</strong> y tapados; nada de envases sin identificar.</li>
+    <li><strong>Bote de basura con tapa</strong> y contenedor para desechables.</li>
+  </ol>
+
+  <div class="photo"><div class="ic">❖</div><div class="pl-tit">Inserta foto aquí</div>
+  <div class="pl-desc">Estación de trabajo modelo: mesa nude ordenada, lámpara de aro, captador de polvo, frascos rotulados y zona limpia/sucia señalizada.</div></div>
+
+  <h3>Regulación en Estados Unidos (lo esencial)</h3>
+  <div class="data">
+    <strong>Licencia de nail technician — datos reales:</strong>
+    <ul class="clean" style="margin-top:3mm;">
+      <li>La mayoría de estados <strong>exigen licencia</strong>: formación en escuela aprobada (entre <strong>~100 y 600+ horas</strong> según el estado) + examen del state board (a menudo del <em>NIC</em>).</li>
+      <li>Ejemplos de horas: <strong>Florida ~240</strong>, <strong>Nueva York ~250</strong>, <strong>Georgia ~525</strong>, <strong>Alabama ~750</strong>, <strong>Pensilvania ~200</strong>.</li>
+      <li><strong>Connecticut</strong> es el único estado que no exige licencia; <strong>Florida e Illinois</strong> no requieren examen (sí formación).</li>
+      <li>Cerca de la mitad de los estados exigen <strong>educación continua (CE)</strong> para renovar.</li>
+    </ul>
+    <span class="src">Fuentes: portales de State Boards of Cosmetology, NIC, Beauty Schools Directory, guías de licencias — 2025–2026. Verifica SIEMPRE tu estado.</span>
+  </div>
+  <div class="box pro"><span class="b-tit">Antes de cobrar, infórmate</span>
+  Busca en Google “<em>[tu estado] nail technician license requirements</em>” y entra al sitio oficial (.gov) del board.
+  Trabajar sin licencia donde se exige puede traer multas y cierre. La licencia, además, te da credibilidad y acceso a seguros.</div>
+</section>
+
+<!-- ===================== MÓDULO 3 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">03</p>
+    <div class="modlabel">Módulo Tres</div>
+    <h2>Anatomía<br>de la Uña</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">No puedes mejorar lo que no entiendes. Conoce el lienzo sobre el que trabajas.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 03 · Fundamentos</div>
+  <h2 class="sec">La uña por dentro: estructura y diagnóstico</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Las nail artists que duran años son las que entienden la uña como un órgano vivo. Aquí aprendes a
+  nombrar cada parte, identificar daños y decidir con criterio profesional.</p>
+
+  <h3>Partes de la uña (diagrama)</h3>
+  <svg viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg" style="max-width:150mm;">
+    <path d="M60 60 Q60 20 130 18 L300 18 Q360 20 360 70 L360 140 Q360 195 280 200 L150 205 Q70 205 60 150 Z" fill="#F0D8CC" stroke="#D9B8A8" stroke-width="1.5"/>
+    <path d="M120 55 Q120 38 150 38 L290 40 Q318 42 318 70 L318 150 Q316 178 250 180 L165 182 Q122 180 120 150 Z" fill="#F7E7DE" stroke="#C58A98" stroke-width="1.5"/>
+    <path d="M150 60 Q220 48 290 60 Q220 78 150 60 Z" fill="#FBF3EE" stroke="#E7D5CE" stroke-width="1"/>
+    <path d="M120 150 Q120 178 165 182 L250 180 Q316 178 318 150 Z" fill="#FCF8F4" stroke="#E7D5CE" stroke-width="1"/>
+    <path d="M150 38 Q220 26 290 40 L290 50 Q220 38 150 50 Z" fill="#E6C6B6"/>
+    <g font-family="Montserrat, sans-serif" font-size="9" fill="#3C2A35">
+      <line x1="220" y1="62" x2="220" y2="105" stroke="#B0697A" stroke-width="1"/><circle cx="220" cy="62" r="2" fill="#B0697A"/>
+      <text x="200" y="120" fill="#B0697A">Lúnula</text>
+      <line x1="100" y1="44" x2="150" y2="44" stroke="#B0697A" stroke-width="1"/><text x="8" y="42" fill="#B0697A">Eponiquio (cutícula)</text>
+      <line x1="360" y1="100" x2="318" y2="100" stroke="#B0697A" stroke-width="1"/><text x="364" y="103" fill="#B0697A">Pared lateral</text>
+      <line x1="345" y1="165" x2="300" y2="166" stroke="#B0697A" stroke-width="1"/><text x="300" y="222" fill="#B0697A">Borde libre</text>
+      <text x="200" y="160" fill="#9E7C8C">Lecho ungueal</text>
+      <line x1="60" y1="160" x2="120" y2="120" stroke="#B0697A" stroke-width="1"/><text x="2" y="175" fill="#B0697A">Hiponiquio</text>
+    </g>
+  </svg>
+  <div class="cap">Estructura básica de la uña — diagrama vectorial Maison Lumière.</div>
+
+  <table>
+    <thead><tr><th>Parte</th><th>Qué es</th><th>Por qué te importa</th></tr></thead>
+    <tbody>
+      <tr><td>Lámina ungueal</td><td>La “uña” visible y dura (queratina)</td><td>Tu superficie de trabajo y adhesión</td></tr>
+      <tr><td>Lecho ungueal</td><td>Piel rosada bajo la lámina</td><td>Si limas de más, lo lastimas (dolor/sangrado)</td></tr>
+      <tr><td>Matriz</td><td>“Fábrica” bajo la cutícula que produce uña</td><td>Si se daña, la uña crece deforme</td></tr>
+      <tr><td>Lúnula</td><td>Media luna blanca en la base</td><td>Parte visible de la matriz: trátala con cuidado</td></tr>
+      <tr><td>Eponiquio / cutícula</td><td>Sello de piel viva en la base</td><td>Se cuida, NO se corta de más (es barrera anti-infección)</td></tr>
+      <tr><td>Hiponiquio</td><td>Piel bajo el borde libre</td><td>Sella contra bacterias; no lo agredas</td></tr>
+    </tbody>
+  </table>
+  <div class="box warn"><span class="b-tit">Cutícula viva ≠ cutícula muerta</span>
+  Solo se retira el <strong>pterigio/cutícula muerta</strong> adherida a la lámina (eso da duración). El <strong>eponiquio
+  vivo</strong> NO se corta agresivamente: es la barrera natural contra infecciones. Cortarlo de más causa padrastros, dolor y riesgo.</div>
+
+  <h3>Tipos de uña que te encontrarás</h3>
+  <ul class="clean">
+    <li><strong>Normal/sana:</strong> flexible, rosada, sin surcos profundos.</li>
+    <li><strong>Delgada/flexible:</strong> se dobla; necesita estructura de apoyo y limado suave.</li>
+    <li><strong>Quebradiza/seca:</strong> se descama en capas; mucho aceite e hidratación.</li>
+    <li><strong>Grasa:</strong> el producto se levanta fácil; clave el dehydrator y primer.</li>
+    <li><strong>Mordida (onicofagia):</strong> borde libre corto; reto de adhesión y forma.</li>
+  </ul>
+
+  <h3>Problemas y señales de alarma</h3>
+  <table>
+    <thead><tr><th>Señal</th><th>Posible causa</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td>Verde bajo el realce</td><td>Bacteria (pseudomonas)</td><td>Retirar, NO recubrir, derivar</td></tr>
+      <tr><td>Engrosamiento amarillo</td><td>Hongo</td><td>No trabajar; médico</td></tr>
+      <tr><td>Surcos horizontales (Beau)</td><td>Trauma o salud</td><td>Trabajar suave; observar</td></tr>
+      <tr><td>Manchas blancas</td><td>Microtrauma leve</td><td>Normal, crecen y salen</td></tr>
+      <tr><td>Despegue (onicólisis)</td><td>Trauma/humedad/hongo</td><td>No realzar hasta evaluar</td></tr>
+    </tbody>
+  </table>
+  <div class="box note"><span class="b-tit">No eres médica</span>
+  Tu trabajo es <strong>detectar y derivar</strong>, no diagnosticar ni tratar enfermedades. Ante la duda, no recubras: deriva al médico.</div>
+</section>
+
+<!-- ===================== MÓDULO 4 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">04</p>
+    <div class="modlabel">Módulo Cuatro</div>
+    <h2>Preparación<br>Perfecta</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">El 80% de la duración se decide aquí. Manicura rusa y la base de un trabajo que no se levanta.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 04 · La base de todo</div>
+  <h2 class="sec">Preparación y manicura rusa</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Si dominas la preparación, tus uñas durarán 3–4 semanas sin levantarse. Si la descuidas, ni el mejor
+  producto del mundo te salvará. Este es el módulo más rentable del curso.</p>
+
+  <h3>Manicura rusa (en seco, con drill): paso a paso</h3>
+  <ol class="steps">
+    <li><strong>Sanitiza</strong> tus manos y las de la clienta.</li>
+    <li><strong>Da forma al borde libre</strong> y largo deseado con lima.</li>
+    <li><strong>Abre la cutícula</strong> con un bit pequeño o pusher: levanta suavemente el pterigio del área del eponiquio.</li>
+    <li><strong>Retira el pterigio</strong> (piel muerta sobre la lámina) con bit de cutícula a baja velocidad, sin tocar piel viva.</li>
+    <li><strong>Limpia el surco lateral</strong> para que el producto llegue al borde real de la uña.</li>
+    <li><strong>Buffea ligeramente</strong> la lámina para quitar brillo (no adelgaces).</li>
+    <li><strong>Quita el polvo</strong> con cepillo; nunca soples.</li>
+    <li><strong>Deshidrata</strong> con dehydrator y luego aplica <strong>primer</strong> en capa fina.</li>
+  </ol>
+  <div class="photo"><div class="ic">❖</div><div class="pl-tit">Inserta foto paso a paso aquí</div>
+  <div class="pl-desc">Secuencia de 4–6 fotos macro: cutícula antes → apertura con bit → retiro de pterigio → lámina limpia y mateada lista para primer.</div></div>
+
+  <h3>Cómo evitar levantamientos (lifting)</h3>
+  <ul class="clean">
+    <li><strong>Cutícula 100% limpia:</strong> producto sobre piel/pterigio = levantamiento garantizado.</li>
+    <li><strong>Deshidratación real:</strong> uña grasa no agarra. Dehydrator + primer en uñas difíciles.</li>
+    <li><strong>No inundar la cutícula:</strong> deja un cabello de distancia entre el producto y la piel.</li>
+    <li><strong>Capas finas y bien curadas:</strong> capa gruesa = mal curado interno = despegue y calor.</li>
+    <li><strong>Sella el borde libre (cap free edge):</strong> envuelve el filo con producto/top para que no se astille.</li>
+  </ul>
+
+  <div class="box pro"><span class="b-tit">La regla del “cabello de distancia”</span>
+  Nunca toques la piel con producto. Deja ~0.5–1 mm entre el realce/color y la cutícula. Se ve más limpio, crece
+  mejor y no se levanta. Este pequeño hábito separa a la amateur de la profesional.</div>
+
+  <h3>Errores comunes en preparación</h3>
+  <table>
+    <thead><tr><th>Error</th><th>Consecuencia</th><th>Corrección</th></tr></thead>
+    <tbody>
+      <tr><td>Dejar pterigio</td><td>Levantamiento en 3–5 días</td><td>Limpiar bien el área de la cutícula</td></tr>
+      <tr><td>Sobre-limar la lámina</td><td>Adelgaza, duele, daña</td><td>Solo matear, no rebajar</td></tr>
+      <tr><td>Tocar la piel con primer/gel</td><td>Alergia + despegue</td><td>Capa fina y precisa</td></tr>
+      <tr><td>No deshidratar</td><td>Burbujas y lifting</td><td>Dehydrator en uña grasa</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== MÓDULO 5 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">05</p>
+    <div class="modlabel">Módulo Cinco</div>
+    <h2>Acrílico:<br>de Cero a Avanzado</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">El sistema rey de la estructura. Control de perla, apex, curva C y estética de salón.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 05 · Esculpido</div>
+  <h2 class="sec">Acrílico profesional: estructura que enamora</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">El acrílico intimida al principio por su olor y su tiempo de secado, pero una vez que entiendes la
+  perla (bead) y la estructura, es el sistema más versátil y resistente que existe.</p>
+
+  <h3>¿Qué es el acrílico?</h3>
+  <p>Es una reacción entre el <strong>polvo (polímero)</strong> y el <strong>líquido monómero</strong>: al juntarlos
+  en el pincel se forma una perla que endurece al aire en 1–2 minutos. No necesita lámpara. Su fuerza lo hace ideal
+  para uñas largas y reparaciones.</p>
+
+  <h3>La relación monómero/polvo (mix ratio): el secreto nº1</h3>
+  <table>
+    <thead><tr><th>Perla</th><th>Aspecto</th><th>Resultado</th></tr></thead>
+    <tbody>
+      <tr><td>Muy húmeda (wet)</td><td>Se derrama, brillante, corre a la cutícula</td><td>Burbujas, levantamiento, descontrol</td></tr>
+      <tr><td>Correcta (medium)</td><td>Brillo satinado, mantiene forma, se asienta sola</td><td>Estructura limpia y fuerte ✦</td></tr>
+      <tr><td>Muy seca (dry)</td><td>Granulosa, mate, no se autoseña</td><td>Porosidad, burbujas, quebradizo</td></tr>
+    </tbody>
+  </table>
+  <div class="box pro"><span class="b-tit">Lee tu perla</span>
+  La perla correcta tiene un brillo “húmedo” y, al tocar la uña, se asienta suavemente sola en 2–3 segundos sin correr.
+  Si corre hacia la cutícula, está muy húmeda; si no se mueve y queda granulosa, muy seca. Ajusta cuánto líquido recoge tu pincel.</div>
+
+  <h3>Anatomía de una uña esculpida: apex y curva C</h3>
+  <svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" style="max-width:150mm;">
+    <text x="10" y="20" font-family="Montserrat" font-size="9" fill="#9E7C8C">VISTA LATERAL</text>
+    <line x1="20" y1="120" x2="200" y2="120" stroke="#D9B8A8" stroke-width="1"/>
+    <path d="M30 120 Q70 118 95 95 Q120 75 150 92 Q180 108 195 120" fill="none" stroke="#B0697A" stroke-width="2.5"/>
+    <line x1="95" y1="95" x2="95" y2="120" stroke="#C2A14D" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="74" y="135" font-family="Montserrat" font-size="8" fill="#C2A14D">APEX</text>
+    <text x="28" y="135" font-family="Montserrat" font-size="8" fill="#9E7C8C">Cutícula</text>
+    <text x="160" y="135" font-family="Montserrat" font-size="8" fill="#9E7C8C">Borde libre</text>
+    <text x="240" y="20" font-family="Montserrat" font-size="9" fill="#9E7C8C">CURVA C (frontal)</text>
+    <path d="M250 60 Q330 130 410 60" fill="none" stroke="#B0697A" stroke-width="2.5"/>
+    <path d="M255 60 A 80 60 0 0 0 405 60" fill="none" stroke="#E7D5CE" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="300" y="150" font-family="Montserrat" font-size="8" fill="#9E7C8C">~30–50% de círculo = curva fuerte</text>
+  </svg>
+  <div class="cap">El apex es el punto más alto (la “columna” de fuerza). La curva C da resistencia lateral.</div>
+
+  <ul class="clean">
+    <li><strong>Apex:</strong> el punto más alto de la uña, en la “zona de estrés” (justo tras la cutícula). Es la viga que evita que la uña se quiebre.</li>
+    <li><strong>Curva C:</strong> la curvatura vista de frente. Una buena curva C reparte la fuerza y da el look profesional.</li>
+    <li><strong>Pinch:</strong> se “pellizca” la uña con pinzas mientras el producto está semiduro para definir la curva C.</li>
+  </ul>
+
+  <h3>Aplicación correcta (con molde o tip): paso a paso</h3>
+  <ol class="steps">
+    <li><strong>Prepara</strong> (Módulo 4) y coloca molde o tip bien ajustado a la curva natural.</li>
+    <li><strong>Perla guía (zona 3):</strong> perla pequeña en el borde para fijar largo y línea de sonrisa.</li>
+    <li><strong>Perla de apex (zona 2):</strong> la principal; guíala para construir altura en el apex.</li>
+    <li><strong>Perla de cutícula (zona 1):</strong> pequeña y húmeda, esparcida fina sin tocar piel.</li>
+    <li><strong>Pinch</strong> para definir curva C cuando el producto pierde brillo.</li>
+    <li><strong>Deja secar</strong> (toca con el mango del pincel: “clic” = duro).</li>
+    <li><strong>Lima y refina</strong> estructura, apex centrado y paredes rectas.</li>
+    <li><strong>Buffea, limpia, aceite</strong> o continúa con color/diseño.</li>
+  </ol>
+
+  <h3>Técnicas y acabados clave</h3>
+  <ul class="clean">
+    <li><strong>French / línea de sonrisa:</strong> polvo blanco y rosa/nude, línea limpia y simétrica.</li>
+    <li><strong>Baby boomer:</strong> degradado suave de nude a blanco (sin línea marcada). <span class="badge b-mid">Intermedio</span></li>
+    <li><strong>Encapsulado:</strong> atrapar glitter, flores o foil entre capas transparentes.</li>
+    <li><strong>Uñas XL:</strong> exigen apex y curva C impecables o se quiebran. <span class="badge b-hard">Avanzado</span></li>
+  </ul>
+
+  <h3>Rellenos (fills), correcciones y reparaciones</h3>
+  <ul class="clean">
+    <li><strong>Relleno (2–3 semanas):</strong> rebajar producto crecido, limpiar cutícula nueva, rebalancear apex y rellenar el hueco.</li>
+    <li><strong>Reparar quiebre:</strong> limar la zona, reforzar con perla y reconstruir estructura.</li>
+    <li><strong>Corrección de apex caído:</strong> añadir producto en zona 2 y volver a limar la columna.</li>
+  </ul>
+
+  <div class="box warn"><span class="b-tit">Errores que delatan a una principiante</span>
+  Producto tocando la cutícula, apex plano o mal ubicado (uña “tabla”), paredes no paralelas, líneas de sonrisa
+  desiguales y burbujas por perla muy húmeda. Practica el control de la perla en tips sueltos antes de cobrar.</div>
+</section>
+
+<!-- ===================== MÓDULO 6 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">06</p>
+    <div class="modlabel">Módulo Seis</div>
+    <h2>Gel y<br>Polygel</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Sistemas modernos, sin olor y amables con la principiante. Construcción y control del calor.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 06 · Sistemas modernos</div>
+  <h2 class="sec">Gel duro y polygel</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">El gel y el polygel ganaron el mercado por una razón: sin olor, tiempo de trabajo controlado (no
+  endurecen hasta que tú decides curar) y acabado natural. Perfectos para empezar a esculpir.</p>
+
+  <h3>Diferencias clave</h3>
+  <table>
+    <thead><tr><th></th><th>Gel duro (jar)</th><th>Polygel (tube)</th></tr></thead>
+    <tbody>
+      <tr><td>Consistencia</td><td>Cremosa, autonivelante</td><td>Densa, maleable (no corre)</td></tr>
+      <tr><td>Se trabaja con</td><td>Pincel de gel</td><td>Pincel + slip solution</td></tr>
+      <tr><td>Curado</td><td>Lámpara LED/UV</td><td>Lámpara LED/UV</td></tr>
+      <tr><td>Ideal para</td><td>Nivelar, encapsular, color builder</td><td>Extensiones fáciles con dual form</td></tr>
+      <tr><td>Dificultad</td><td><span class="badge b-mid">Intermedio</span></td><td><span class="badge b-easy">Principiante</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Construcción con polygel y dual form (paso a paso)</h3>
+  <ol class="steps">
+    <li><strong>Prepara</strong> la uña y aplica capa fina de base; cura.</li>
+    <li><strong>Coloca una bolita de polygel</strong> en el dual form del tamaño correcto.</li>
+    <li><strong>Esparce con pincel humedecido</strong> en slip solution dándole forma y apex.</li>
+    <li><strong>Coloca el form sobre la uña</strong> desde la cutícula y presiona; ajusta la curva.</li>
+    <li><strong>Cura</strong> el tiempo indicado, retira el form y cura de nuevo (incluida la parte inferior).</li>
+    <li><strong>Lima estructura</strong>, refina apex y paredes, buffea.</li>
+  </ol>
+
+  <h3>Nivelación y estructura con gel builder</h3>
+  <ul class="clean">
+    <li><strong>“Float the gel”:</strong> deja que el gel autonivele unos segundos antes de curar; evita grumos.</li>
+    <li><strong>Construye el apex</strong> inclinando el dedo: la gravedad lleva el gel a la zona de estrés.</li>
+    <li><strong>Capas finas:</strong> dos finas curan mejor que una gruesa (menos calor, más fuerza).</li>
+  </ul>
+
+  <h3>Cómo evitar el “heat spike” (golpe de calor)</h3>
+  <div class="box warn"><span class="b-tit">El calor que duele</span>
+  El gel cura con una reacción exotérmica: libera calor. En capas gruesas o uñas finas/dañadas puede “quemar”.
+  Soluciones: <strong>capas finas</strong>, <strong>curado en pulsos</strong> (saca el dedo medio segundo si arde y vuelve a meterlo),
+  o usar la potencia baja de la lámpara. Si la clienta dice “quema”, sácalo de inmediato; no es normal aguantarlo.</div>
+
+  <h3>Errores comunes</h3>
+  <table>
+    <thead><tr><th>Error</th><th>Resultado</th><th>Solución</th></tr></thead>
+    <tbody>
+      <tr><td>Capa muy gruesa</td><td>Calor + mal curado interno</td><td>2 capas finas</td></tr>
+      <tr><td>Slip solution en exceso</td><td>Gel poroso/débil</td><td>Solo humedecer el pincel</td></tr>
+      <tr><td>No curar la parte inferior</td><td>Despegue del realce</td><td>Curar abajo tras quitar el form</td></tr>
+      <tr><td>Apex plano</td><td>Quiebres</td><td>Construir columna en zona 2</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== MÓDULO 7 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">07</p>
+    <div class="modlabel">Módulo Siete</div>
+    <h2>Esmaltado<br>Perfecto</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Gel polish impecable: sin arrugas, sin retracción, con brillo espejo y duración real.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 07 · Color</div>
+  <h2 class="sec">Esmaltado en gel de nivel salón</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Un esmaltado limpio dice más de tu profesionalismo que un diseño complejo mal ejecutado. Bordes
+  perfectos, capas finas y cutículas respetadas: esa es la firma de una experta.</p>
+
+  <h3>Secuencia profesional (paso a paso)</h3>
+  <ol class="steps">
+    <li><strong>Prepara</strong> y deshidrata la lámina (Módulo 4).</li>
+    <li><strong>Base coat</strong> en capa fina, sellando el borde libre; cura.</li>
+    <li><strong>Color, capa 1 fina:</strong> mejor dos finas que una gruesa. No inundes la cutícula; cura.</li>
+    <li><strong>Color, capa 2:</strong> opacidad pareja; cura.</li>
+    <li><strong>Top coat</strong> sellando el borde libre para máxima duración; cura.</li>
+    <li><strong>Limpia</strong> la capa pegajosa con alcohol y aplica <strong>aceite de cutícula</strong>.</li>
+  </ol>
+
+  <h3>Cómo evitar problemas típicos</h3>
+  <table>
+    <thead><tr><th>Problema</th><th>Causa</th><th>Solución</th></tr></thead>
+    <tbody>
+      <tr><td>Arrugas / “wrinkling”</td><td>Capa gruesa o curado insuficiente</td><td>Capas finas + tiempo correcto de lámpara</td></tr>
+      <tr><td>Retracción del borde (shrinkage)</td><td>No sellar el filo</td><td>“Cap” del borde libre en cada capa</td></tr>
+      <tr><td>Pelado en el borde</td><td>Color sobre la piel o filo sin sellar</td><td>Bordes limpios + sellado</td></tr>
+      <tr><td>Burbujas</td><td>Agitar el frasco / capa gruesa</td><td>Rodar el frasco, capas finas</td></tr>
+      <tr><td>Color desigual</td><td>Pigmento pobre o capa única</td><td>Dos capas finas y parejas</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Brillo espejo y líneas limpias</h3>
+  <ul class="clean">
+    <li><strong>Cutícula limpia primero:</strong> el color limpio empieza por una buena preparación.</li>
+    <li><strong>Carga correcta del pincel:</strong> ni chorreando ni seco; un lado limpio para perfilar.</li>
+    <li><strong>Técnica de las 3 pasadas:</strong> centro, lado, lado, dejando margen de la cutícula.</li>
+    <li><strong>Corrige antes de curar</strong> con detallador y limpiador; curado ya no se corrige fácil.</li>
+    <li><strong>Top coat fino y bien curado</strong> para el acabado “glass”.</li>
+  </ul>
+
+  <div class="box pro"><span class="b-tit">El detalle que fideliza</span>
+  Termina SIEMPRE con aceite de cutícula y un pequeño masaje. Cuesta centavos, se siente premium y es lo último que
+  la clienta recuerda. Los detalles sensoriales construyen marca.</div>
+</section>
+
+<!-- ===================== MÓDULO 8 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">08</p>
+    <div class="modlabel">Módulo Ocho</div>
+    <h2>Diseños y<br>Nail Art</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Donde la técnica se vuelve arte. Chrome, aura, cat eye, mármol y las tendencias que dominan 2026.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 08 · Arte</div>
+  <h2 class="sec">Nail art: diseños que venden</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">El nail art es tu mayor diferenciador y tu mejor publicidad en redes. No necesitas dominar 100 técnicas:
+  domina 6 muy bien y combínalas. Aquí están las que más se piden hoy en EE.UU.</p>
+
+  <div class="data">
+    <strong>Tendencias reales 2025–2026 (qué se está pidiendo):</strong>
+    <ul class="clean" style="margin-top:3mm;">
+      <li><strong>Cat eye</strong> (efecto magnético) — sigue siendo “the it-manicure”, sobre todo en azul profundo y combinado con chrome.</li>
+      <li><strong>Aura nails</strong> — centro luminoso tipo orbe; mauve, rosa y púrpura cósmico.</li>
+      <li><strong>Chrome / metálico</strong> — espejo, y “cat-eye chrome” como combo estrella.</li>
+      <li><strong>French reinventado</strong> — puntas en colores (burdeos, rojo, pastel) y formas inusuales.</li>
+      <li><strong>Glass, velvet (cat-eye aterciopelado), animal print</strong> (vaca, leopardo, tortoiseshell).</li>
+    </ul>
+    <span class="src">Fuentes: Refinery29, Who What Wear, IPSY, BeautyCoded — predicciones de tendencias 2026.</span>
+  </div>
+
+  <h3>Catálogo de técnicas (tutorial express)</h3>
+
+  <h4>Chrome / espejo <span class="badge b-easy">Fácil</span></h4>
+  <ol class="steps">
+    <li>Aplica color base (negro para efecto espejo intenso) y top <em>sin</em> capa pegajosa o uno “no-wipe”; cura.</li>
+    <li>Con un aplicador de silicona, frota el <strong>pigmento chrome</strong> hasta que “explote” el brillo.</li>
+    <li>Retira el exceso y <strong>sella con top coat</strong> sin tocar el pigmento con la piel.</li>
+  </ol>
+
+  <h4>Cat eye (magnético) <span class="badge b-easy">Fácil</span></h4>
+  <ol class="steps">
+    <li>Aplica el <strong>gel magnético</strong> en color; antes de curar, acerca el <strong>imán</strong> sin tocar.</li>
+    <li>Mantén el imán 5–8 s para concentrar las partículas en una franja luminosa; cura.</li>
+    <li>Segunda capa si quieres más profundidad; top coat.</li>
+  </ol>
+
+  <h4>Aura nails <span class="badge b-mid">Intermedio</span></h4>
+  <ol class="steps">
+    <li>Base de color suave; cura.</li>
+    <li>Con esponja o aerógrafo, aplica un círculo de color contrastante en el centro, difuminado.</li>
+    <li>Repite para intensificar el “orbe”; sella con top.</li>
+  </ol>
+
+  <h4>Mármol <span class="badge b-mid">Intermedio</span></h4>
+  <ol class="steps">
+    <li>Base clara sin curar del todo (o gel transparente fresco).</li>
+    <li>Con liner fino, traza venas irregulares y arrástralas suavemente para difuminar.</li>
+    <li>Detalles en oro opcional; cura y sella.</li>
+  </ol>
+
+  <h4>Flores a mano / one-stroke <span class="badge b-hard">Avanzado</span></h4>
+  <ul class="clean">
+    <li>Carga el pincel con dos colores a la vez (one-stroke) para pétalos con degradado.</li>
+    <li>Construye pétalo a pétalo desde el centro; añade hojas con liner y puntos de centro.</li>
+  </ul>
+
+  <div class="photo"><div class="ic">❖</div><div class="pl-tit">Galería de diseños — inserta fotos aquí</div>
+  <div class="pl-desc">Mosaico de 6 swatches reales: chrome, cat eye azul, aura mauve, mármol, french de color y animal print. Fondo neutro, misma luz para consistencia de marca.</div></div>
+
+  <h3>Psicología y combinación del color</h3>
+  <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" style="max-width:120mm;">
+    <g>
+      <circle cx="40" cy="60" r="26" fill="#B0697A"/><text x="40" y="100" font-family="Montserrat" font-size="7" fill="#6A5560" text-anchor="middle">Rojo · pasión</text>
+      <circle cx="100" cy="60" r="26" fill="#E7C7B6"/><text x="100" y="100" font-family="Montserrat" font-size="7" fill="#6A5560" text-anchor="middle">Nude · elegancia</text>
+      <circle cx="160" cy="60" r="26" fill="#9E7C8C"/><text x="160" y="100" font-family="Montserrat" font-size="7" fill="#6A5560" text-anchor="middle">Mauve · calma</text>
+      <circle cx="220" cy="60" r="26" fill="#3C2A35"/><text x="220" y="100" font-family="Montserrat" font-size="7" fill="#6A5560" text-anchor="middle">Negro · lujo</text>
+      <circle cx="270" cy="60" r="22" fill="#C2A14D"/><text x="270" y="100" font-family="Montserrat" font-size="7" fill="#6A5560" text-anchor="middle">Oro · premium</text>
+    </g>
+  </svg>
+  <ul class="clean">
+    <li><strong>Análogos</strong> (vecinos en la rueda): combinaciones suaves y armónicas (rosa + coral + nude).</li>
+    <li><strong>Complementarios</strong> (opuestos): contraste fuerte y llamativo (azul + naranja chrome).</li>
+    <li><strong>Neutros + 1 acento:</strong> la fórmula más vendida y fotogénica.</li>
+  </ul>
+</section>
+
+<!-- ===================== MÓDULO 9 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">09</p>
+    <div class="modlabel">Módulo Nueve</div>
+    <h2>Formas y<br>Estructuras</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">La forma correcta favorece la mano y define el estilo. Aprende a esculpir cada una con simetría.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 09 · Forma</div>
+  <h2 class="sec">Las formas de uña y a quién favorecen</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Elegir y limar bien la forma es el 50% de un trabajo bonito. Una forma simétrica y limpia se ve cara
+  aunque el color sea simple.</p>
+
+  <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="max-width:165mm;">
+    <g fill="#E7C7B6" stroke="#C58A98" stroke-width="1.5" font-family="Montserrat" font-size="8">
+      <path d="M20 150 L20 70 Q20 40 40 40 Q60 40 60 70 L60 150 Z"/><text x="40" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Square</text>
+      <path d="M95 150 L95 70 Q95 40 115 40 Q135 40 135 70 L135 150 Q115 158 95 150 Z"/><text x="115" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Round</text>
+      <path d="M170 150 L172 75 Q176 35 190 35 Q204 35 208 75 L210 150 Q190 156 170 150 Z"/><text x="190" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Oval</text>
+      <path d="M245 150 L250 70 Q258 25 282 25 Q306 25 314 70 L319 150 Q282 156 245 150 Z" transform="translate(-20,0)"/><text x="262" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Almond</text>
+      <path d="M330 150 L342 60 Q352 30 362 30 Q372 30 382 60 L394 150 Q362 156 330 150 Z"/><text x="362" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Coffin</text>
+      <path d="M415 150 L432 55 Q445 18 451 18 Q457 18 470 55 L487 150 Q451 156 415 150 Z"/><text x="451" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Ballerina</text>
+      <path d="M500 150 L520 50 Q531 12 535 12 Q539 12 550 50 L545 150 Q522 156 500 150 Z"/><text x="528" y="158" fill="#6A5560" text-anchor="middle" stroke="none">Stiletto</text>
+    </g>
+  </svg>
+  <div class="cap">Siluetas de formas — diagrama vectorial Maison Lumière.</div>
+
+  <table>
+    <thead><tr><th>Forma</th><th>Descripción</th><th>Favorece a</th><th>Nivel</th></tr></thead>
+    <tbody>
+      <tr><td>Square</td><td>Recta con esquinas a 90°</td><td>Dedos largos y delgados</td><td><span class="badge b-easy">Fácil</span></td></tr>
+      <tr><td>Round / Oval</td><td>Bordes curvos suaves</td><td>Casi todas las manos; look natural</td><td><span class="badge b-easy">Fácil</span></td></tr>
+      <tr><td>Squoval</td><td>Cuadrada con esquinas suavizadas</td><td>La más “segura” y pedida</td><td><span class="badge b-easy">Fácil</span></td></tr>
+      <tr><td>Almond</td><td>Estrecha a la punta, redondeada</td><td>Alarga dedos cortos; muy femenina</td><td><span class="badge b-mid">Intermedio</span></td></tr>
+      <tr><td>Coffin / Ballerina</td><td>Estrecha y punta plana</td><td>Uñas largas, look glam</td><td><span class="badge b-mid">Intermedio</span></td></tr>
+      <tr><td>Stiletto / Edge</td><td>Punta afilada / cresta central</td><td>Editorial, atrevido</td><td><span class="badge b-hard">Avanzado</span></td></tr>
+      <tr><td>Lipstick / Pipe</td><td>Corte en bisel / tubular</td><td>Looks de fantasía</td><td><span class="badge b-hard">Avanzado</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box pro"><span class="b-tit">El truco de la simetría</span>
+  Lima mirando la uña <strong>de frente y desde arriba</strong>, no de lado. Marca primero las dos paredes laterales
+  rectas y paralelas; recién después define la punta. La mayoría de formas “chuecas” nacen de paredes desiguales.</div>
+</section>
+
+<!-- ===================== MÓDULO 10 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">10</p>
+    <div class="modlabel">Módulo Diez</div>
+    <h2>Pedicura<br>Profesional</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">El servicio infravalorado que más margen deja. Spa, salud del pie y cómo cobrarlo bien.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 10 · Pies</div>
+  <h2 class="sec">Pedicura estética y spa</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Muchas nail artists ignoran la pedicura, y ahí pierden dinero: es un servicio de alto valor percibido,
+  alto margen y clientela fiel (vuelven cada 4–6 semanas).</p>
+
+  <h3>Pedicura spa (paso a paso)</h3>
+  <ol class="steps">
+    <li><strong>Remojo</strong> tibio con sales para ablandar piel y relajar.</li>
+    <li><strong>Forma y cutícula</strong> de las uñas del pie (corte recto para evitar uñas encarnadas).</li>
+    <li><strong>Callosidades:</strong> exfolia y lima durezas con cuidado (no “rebanar” piel: es ilegal/peligroso en muchos estados).</li>
+    <li><strong>Exfoliación + masaje</strong> con scrub y crema (el momento “premium” que enamora).</li>
+    <li><strong>Esmaltado</strong> en gel o regular con separadores.</li>
+  </ol>
+  <div class="box warn"><span class="b-tit">Seguridad ante todo</span>
+  Nunca uses cuchillas/credo para cortar callos si tu estado lo prohíbe, y jamás trabajes pies con heridas, diabetes
+  no controlada con lesiones, o signos de infección. Deriva al podólogo.</div>
+
+  <h3>Cómo cobrar pedicuras</h3>
+  <p>La pedicura básica + gel suele cobrarse por encima de la manicura por el tiempo y el “factor spa”. Sube precio con
+  add-ons: exfoliación premium, parafina, masaje extendido, diseño en pies.</p>
+</section>
+
+<!-- ===================== MÓDULO 11 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">11</p>
+    <div class="modlabel">Módulo Once</div>
+    <h2>Negocio<br>y Dinero</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">La diferencia entre una hobbyista y una empresaria. Clientas, marca y precios reales de EE.UU.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 11 · Negocio</div>
+  <h2 class="sec">Convierte tu talento en un negocio rentable</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Puedes ser la mejor técnica del mundo y aun así quebrar si regalas tu trabajo, no consigues clientas o
+  no llevas números. Este módulo te vuelve empresaria.</p>
+
+  <h3>Cómo conseguir tus primeras clientas</h3>
+  <ul class="clean">
+    <li><strong>Modelos a bajo costo / gratis</strong> al inicio: a cambio de fotos para tu portafolio.</li>
+    <li><strong>Tu círculo cercano</strong> + que cada una traiga a una amiga (referidos).</li>
+    <li><strong>Google Business y mapas:</strong> aparecer cuando buscan “uñas cerca de mí”.</li>
+    <li><strong>Contenido constante</strong> en Instagram/TikTok (Módulo 13).</li>
+    <li><strong>Programa de referidos:</strong> descuento a quien te recomiende.</li>
+  </ul>
+
+  <h3>Montar tu estudio en casa (mínima inversión)</h3>
+  <ul class="clean">
+    <li>Mesa de nail + silla ergonómica + lámpara de aro con buena luz.</li>
+    <li>Captador de polvo y ventilación: salud y profesionalismo.</li>
+    <li>Decoración limpia y “fotografiable” (tu set también es marketing).</li>
+    <li>Sistema de agenda online (para depósitos y recordatorios).</li>
+  </ul>
+
+  <h3>Marca personal que enamora</h3>
+  <div class="box pro"><span class="b-tit">Tu marca es una promesa</span>
+  Define 3 cosas: <strong>a quién sirves</strong> (¿glam? ¿natural? ¿novias?), <strong>tu estilo visual</strong>
+  (paleta y logo consistentes) y <strong>tu experiencia</strong> (cómo se siente sentarse contigo). La gente paga más
+  por una experiencia memorable que por “unas uñas”.</p></div>
+
+  <h3>Cómo subir precios y crear paquetes</h3>
+  <ul class="clean">
+    <li><strong>Sube por niveles:</strong> cada X clientas nuevas o cada trimestre, +$5–10.</li>
+    <li><strong>Paquetes:</strong> “mantenimiento mensual” (2 visitas), “glam package” (set + diseño + pedicura).</li>
+    <li><strong>Add-ons claros:</strong> cobra cada piedra, cada diseño, cada uña XL (ver tabla de precios).</li>
+    <li><strong>Ancla de precio:</strong> ofrece una opción premium cara para que la media parezca razonable.</li>
+  </ul>
+</section>
+
+<!-- ===================== PRECIOS EE.UU. ===================== -->
+<section class="newpage">
+  <div class="kicker">Precios reales · Estados Unidos</div>
+  <h2 class="sec" style="-weasy-string-set:modtitle 'Precios EE.UU.'">Cuánto cobrar en Estados Unidos</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">Estos son rangos <strong>reales y con fuente</strong> del mercado estadounidense 2025–2026. Los precios
+  varían muchísimo por ciudad: ajústalos a tu zona y a tu nivel.</p>
+
+  <div class="data">
+    <strong>Rangos de mercado por servicio (datos públicos 2025):</strong>
+    <span class="src" style="margin-top:1mm;">Fuentes: StyleSeat, Airtasker, Young Nails, G-Nail Spa, Maniology — 2025/2026.</span>
+  </div>
+
+  <table>
+    <thead><tr><th>Servicio</th><th>Rango típico EE.UU.</th><th>Premium / gran ciudad</th></tr></thead>
+    <tbody>
+      <tr><td>Manicura en gel</td><td class="price">$30 – $55</td><td class="price">$65 – $150</td></tr>
+      <tr><td>Full set acrílico</td><td class="price">$25 – $70</td><td class="price">$80 – $120+</td></tr>
+      <tr><td>Relleno (fill)</td><td class="price">$25 – $45</td><td class="price">$50 – $70</td></tr>
+      <tr><td>Pedicura (combo mani+pedi avg ~$52)</td><td class="price">$35 – $60</td><td class="price">$65 – $100</td></tr>
+      <tr><td>Nail art (por diseño)</td><td class="price">+$10 – $50</td><td class="price">+$50 – $100</td></tr>
+      <tr><td>French tip (add-on)</td><td class="price">+$5 – $10</td><td class="price">+$15</td></tr>
+      <tr><td>Extensiones / largo extra</td><td class="price">+$20 – $40</td><td class="price">+$40 – $60</td></tr>
+      <tr><td>Piedras / cristales (c/u o set)</td><td class="price">+$1 – $5 c/u</td><td class="price">bling full +$20–$60</td></tr>
+      <tr><td>Encapsulados / chrome</td><td class="price">+$10 – $25</td><td class="price">+$25 – $45</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cuánto cobrar según tu nivel</h3>
+  <table>
+    <thead><tr><th>Nivel</th><th>Estrategia</th><th>Posición de precio</th></tr></thead>
+    <tbody>
+      <tr><td>Principiante (portafolio)</td><td>Precio de práctica para juntar fotos y reseñas</td><td>Por debajo del promedio local</td></tr>
+      <tr><td>Intermedia</td><td>Velocidad + calidad constante; subes con demanda</td><td>Promedio del mercado</td></tr>
+      <tr><td>Profesional / marca</td><td>Lista de espera, especialidad, experiencia premium</td><td>Top del mercado</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cómo calcular tu ganancia real (no solo el precio)</h3>
+  <div class="box tip"><span class="b-tit">Fórmula simple</span>
+  <strong>Ganancia = Precio − (costo de producto + costo de tu tiempo + gastos fijos prorrateados)</strong>.<br>
+  Si un full set te cuesta ~$4–8 en producto y te toma 1.5 h, cobrar $30 deja poco una vez restas renta, luz, agenda y
+  desgaste. Apunta a un <strong>precio por hora</strong> objetivo y construye tus precios desde ahí, no copiando al vecino.</div>
+
+  <div class="box warn"><span class="b-tit">No regales tu trabajo</span>
+  Bajar precios para “competir” atrae a la peor clientela (la que regatea y no vuelve) y quema tu tiempo. Compite por
+  <strong>calidad, experiencia y marca</strong>, no por ser la más barata. La más barata siempre pierde.</div>
+</section>
+
+<!-- ===================== MÓDULO 12 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">12</p>
+    <div class="modlabel">Módulo Doce</div>
+    <h2>Clientas Difíciles<br>y Profesionalismo</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Políticas claras, depósitos y comunicación que protegen tu tiempo, tu energía y tu dinero.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 12 · Trato</div>
+  <h2 class="sec">Manejo de clientas y políticas de salón</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">El 90% de los problemas con clientas se evita con reglas claras <em>antes</em> de la cita. Tu
+  amabilidad no se negocia, pero tus límites tampoco.</p>
+
+  <h3>Políticas que toda profesional debe tener</h3>
+  <ul class="clean">
+    <li><strong>Depósito para agendar:</strong> reduce los “no-show”. Se descuenta del servicio.</li>
+    <li><strong>Política de cancelación:</strong> 24–48 h de aviso, o se retiene el depósito.</li>
+    <li><strong>Política de retardos:</strong> tolerancia de X min; pasado eso, se reagenda.</li>
+    <li><strong>Garantía clara:</strong> reparaciones gratis dentro de 2–3 días por defecto de trabajo (no por golpe).</li>
+    <li><strong>Acompañantes y niños:</strong> define si se permiten (afecta tiempo y seguridad).</li>
+  </ul>
+
+  <h3>Cómo responder situaciones difíciles</h3>
+  <table>
+    <thead><tr><th>Situación</th><th>Respuesta profesional</th></tr></thead>
+    <tbody>
+      <tr><td>Regateo de precio</td><td>“Mis precios reflejan calidad e higiene. Tengo opciones para distintos presupuestos.”</td></tr>
+      <tr><td>Llega tarde</td><td>“Para respetar a mi siguiente clienta, hoy haremos un diseño más simple / reagendamos.”</td></tr>
+      <tr><td>Uña rota a los 10 días</td><td>“El desgaste normal no entra en garantía, pero te la reparo con gusto por $X.”</td></tr>
+      <tr><td>Inconforme con el resultado</td><td>Escucha, no te pongas a la defensiva, ofrece corregir dentro de tu política.</td></tr>
+    </tbody>
+  </table>
+  <div class="box pro"><span class="b-tit">Guion de mensajes</span>
+  Ten respuestas guardadas (templates) para reservas, recordatorios, cambios y políticas. Respondes en segundos, suenas
+  profesional y evitas malentendidos. La claridad es amabilidad.</div>
+</section>
+
+<!-- ===================== MÓDULO 13 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">13</p>
+    <div class="modlabel">Módulo Trece</div>
+    <h2>Redes Sociales<br>y Crecimiento</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Tu portafolio es tu vendedora 24/7. Cómo crear contenido que llena tu agenda.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 13 · Marketing</div>
+  <h2 class="sec">TikTok, Instagram y contenido viral</h2>
+  <div class="sec-rule"></div>
+  <p class="lead">No necesitas ser influencer. Necesitas mostrar tu trabajo de forma constante y atractiva para que las
+  clientas locales te encuentren y confíen.</p>
+
+  <h3>Ideas de contenido que funcionan</h3>
+  <ul class="clean">
+    <li><strong>Satisfying / proceso:</strong> limado, relleno, el “antes y después”.</li>
+    <li><strong>Transiciones</strong> de uña vieja a diseño nuevo (alto retention).</li>
+    <li><strong>Tendencias del momento</strong> (cat eye, chrome, aura) montadas sobre audios virales.</li>
+    <li><strong>Tips de cuidado</strong> para clientas (aporta valor = guardado y compartido).</li>
+    <li><strong>Detrás de cámara</strong> de tu estudio: humaniza tu marca.</li>
+  </ul>
+
+  <h3>Anatomía de un video que retiene</h3>
+  <ol class="steps">
+    <li><strong>Gancho en 1 s:</strong> el resultado final o el momento más satisfactorio primero.</li>
+    <li><strong>Ritmo:</strong> cortes rápidos, nada de tiempos muertos.</li>
+    <li><strong>Buena luz</strong> y enfoque en las manos (lo más importante).</li>
+    <li><strong>Audio en tendencia</strong> + texto en pantalla con el servicio y tu ciudad.</li>
+    <li><strong>Llamada a la acción:</strong> “Agenda en [ciudad], link en bio”.</li>
+  </ol>
+  <div class="box tip"><span class="b-tit">SEO local</span>
+  Pon SIEMPRE tu <strong>ciudad</strong> en la bio, el texto y los hashtags (#uñas[tuciudad], #nails[city]). Te buscan por
+  zona, no por ser famosa. Una clienta local vale más que mil seguidores lejanos.</div>
+
+  <h3>Fotos profesionales sin equipo caro</h3>
+  <ul class="clean">
+    <li>Luz natural difusa o lámpara de aro; evita sombras duras.</li>
+    <li>Fondo limpio y consistente (tu “firma visual”).</li>
+    <li>Misma edición/preset en todas: tu feed se ve “de marca”.</li>
+    <li>Manos limpias, sin restos de producto en la piel (los detalles venden).</li>
+  </ul>
+</section>
+
+<!-- ===================== MÓDULO 14 ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">14</p>
+    <div class="modlabel">Módulo Catorce</div>
+    <h2>Secretos de<br>Profesionales</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">Lo que se aprende con los años — resumido para que avances más rápido.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Módulo 14 · Maestría</div>
+  <h2 class="sec">Trucos de salón y errores que arruinan carreras</h2>
+  <div class="sec-rule"></div>
+
+  <h3>Cómo trabajar más rápido (sin perder calidad)</h3>
+  <ul class="clean">
+    <li><strong>Mise en place:</strong> ten todo preparado antes de que llegue la clienta.</li>
+    <li><strong>Trabaja por sets, no por uñas:</strong> aplica un paso en las 5 uñas, luego el siguiente.</li>
+    <li><strong>Domina pocos productos a fondo</strong> en vez de cambiar siempre de marca.</li>
+    <li><strong>Reduce el limado</strong> aplicando estructura limpia desde el inicio (menos corregir = más rápido).</li>
+  </ul>
+
+  <h3>Cómo destacar</h3>
+  <ul class="clean">
+    <li>Elige una <strong>especialidad reconocible</strong> (ej. “reina del cat eye” o “estructura impecable”).</li>
+    <li>Consistencia visual en redes y en el resultado.</li>
+    <li>Experiencia premium: bebida, música, puntualidad, aceite final.</li>
+  </ul>
+
+  <div class="box warn"><span class="b-tit">Errores que arruinan carreras</span>
+  <ul class="clean" style="margin-top:2mm;">
+    <li>Higiene descuidada (la reseña de una infección te hunde).</li>
+    <li>Trabajar sobre hongo/infección por no perder la venta.</li>
+    <li>Sobre-limar uñas naturales (clientas con dolor no vuelven).</li>
+    <li>No tener políticas (no-shows y regateo te desgastan).</li>
+    <li>Copiar precios bajos para competir y quemarte.</li>
+  </ul></div>
+
+  <h3>Consejos de expertas</h3>
+  <ul class="clean">
+    <li>“La estructura primero, el color después”: una base sólida hace bonito cualquier diseño.</li>
+    <li>“Tu cutícula limpia vale más que tu nail art”: lo limpio se ve caro.</li>
+    <li>“Practica las formas aburridas”: la maestría vive en lo básico hecho perfecto.</li>
+  </ul>
+</section>
+
+<!-- ===================== MÓDULO FINAL ===================== -->
+<section class="divider">
+  <div class="frame"></div>
+  <div class="d-inner">
+    <p class="modnum">★</p>
+    <div class="modlabel">Módulo Final</div>
+    <h2>Tu Plan de<br>30 Días</h2>
+    <div class="d-rule"></div>
+    <div class="d-desc">De la teoría a la acción. Un plan concreto para empezar a practicar y conseguir tus primeras clientas.</div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Plan de acción</div>
+  <h2 class="sec">Plan completo de 30 días para comenzar</h2>
+  <div class="sec-rule"></div>
+
+  <h3>Semana 1 — Fundamentos y equipo</h3>
+  <ul class="check">
+    <li>Compra el kit inicial (gel polish + lámpara + limas + manos de práctica).</li>
+    <li>Estudia Módulos 1–4 y arma tu estación higiénica.</li>
+    <li>Practica preparación y esmaltado en gel en tips/mano falsa.</li>
+    <li>Investiga la licencia de tu estado (sitio oficial .gov).</li>
+  </ul>
+
+  <h3>Semana 2 — Estructura</h3>
+  <ul class="check">
+    <li>Practica formas (square, almond, coffin) en tips sueltos: 10 al día.</li>
+    <li>Aprende un sistema de realce fácil (Gel-X o polygel).</li>
+    <li>Domina apex y curva C en mano de práctica.</li>
+  </ul>
+
+  <h3>Semana 3 — Diseño y portafolio</h3>
+  <ul class="check">
+    <li>Practica 4 técnicas de arte (chrome, cat eye, aura, french de color).</li>
+    <li>Haz 5 sets completos y fotografíalos con luz y fondo consistentes.</li>
+    <li>Crea tus perfiles de Instagram/TikTok con tu ciudad en la bio.</li>
+  </ul>
+
+  <h3>Semana 4 — Primeras clientas</h3>
+  <ul class="check">
+    <li>Ofrece precio de portafolio a 5 modelos (amigas/familia).</li>
+    <li>Publica 1 video diario del proceso.</li>
+    <li>Define tus políticas (depósito, cancelación) y tu lista de precios.</li>
+    <li>Pide reseña y referido a cada clienta satisfecha.</li>
+  </ul>
+
+  <h3>Checklist de materiales esenciales</h3>
+  <div class="grid2">
+    <div><ul class="check">
+      <li>Lámpara dual UV/LED</li>
+      <li>Base, top y 5 colores de gel polish</li>
+      <li>Set de limas + buffer</li>
+      <li>Pusher + nipper</li>
+      <li>Dehydrator + primer</li>
+    </ul></div>
+    <div><ul class="check">
+      <li>Sistema de realce (Gel-X/polygel)</li>
+      <li>Pinceles de arte + liner</li>
+      <li>Pigmento chrome + gel magnético</li>
+      <li>Aceite de cutícula + alcohol</li>
+      <li>Captador de polvo + mascarilla</li>
+    </ul></div>
+  </div>
+
+  <div class="box pro"><span class="b-tit">Motivación final</span>
+  Nadie nació sabiendo esculpir una uña. Las profesionales que admiras hicieron cientos de manos feas antes de cobrar.
+  Tu ventaja no es el talento: es <strong>empezar hoy y no parar</strong>. Una uña a la vez, una clienta a la vez,
+  estás construyendo una carrera que te puede dar libertad. <em>Maison Lumière cree en ti.</em></div>
+</section>
+
+<!-- ===================== EXTRAS: FAQ + GLOSARIO ===================== -->
+<section class="newpage">
+  <div class="kicker">Extras</div>
+  <h2 class="sec" style="-weasy-string-set:modtitle 'Extras'">Preguntas frecuentes</h2>
+  <div class="sec-rule"></div>
+
+  <h4>¿Necesito licencia para hacer uñas en EE.UU.?</h4>
+  <p>En casi todos los estados, sí (formación + examen del board). Connecticut no la exige; Florida e Illinois no piden
+  examen pero sí formación. Verifica tu estado en el sitio oficial. <em>(Ver Módulo 2.)</em></p>
+
+  <h4>¿Acrílico o gel para empezar?</h4>
+  <p>Para principiantes, gel/polygel o Gel-X son más fáciles (sin olor, tiempo de trabajo controlado). El acrílico da
+  máxima estructura pero pide más control de la perla.</p>
+
+  <h4>¿Por qué se levantan mis uñas?</h4>
+  <p>Casi siempre por preparación deficiente: cutícula/pterigio sin limpiar, falta de deshidratación o producto tocando
+  la piel. <em>(Ver Módulo 4.)</em></p>
+
+  <h4>¿Cuánto puedo ganar?</h4>
+  <p>Muy variable: la mediana oficial ronda $16–17/h, pero con propinas, velocidad y marca propia se gana bastante más,
+  sobre todo como independiente. <em>(Ver Introducción.)</em></p>
+
+  <h4>¿Cuánto tardo en ser “buena”?</h4>
+  <p>Con práctica diaria, en 2–3 meses haces trabajos cobrables; la maestría real llega con cientos de manos. La
+  constancia gana al talento.</p>
+
+  <h2 class="sec" style="margin-top:14mm;-weasy-string-set:modtitle 'Glosario'">Glosario profesional</h2>
+  <div class="sec-rule"></div>
+  <table>
+    <thead><tr><th>Término</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Apex</td><td>Punto más alto del realce; la “columna” de fuerza.</td></tr>
+      <tr><td>Curva C</td><td>Curvatura de la uña vista de frente.</td></tr>
+      <tr><td>Lifting</td><td>Levantamiento/despegue del producto.</td></tr>
+      <tr><td>Pterigio</td><td>Piel muerta de la cutícula adherida a la lámina.</td></tr>
+      <tr><td>Eponiquio</td><td>Sello de piel viva en la base de la uña.</td></tr>
+      <tr><td>Mix ratio</td><td>Relación líquido/polvo en acrílico.</td></tr>
+      <tr><td>Bead / perla</td><td>Bolita de acrílico formada en el pincel.</td></tr>
+      <tr><td>Grit</td><td>Grado de abrasión de una lima (menor nº = más agresiva).</td></tr>
+      <tr><td>Dehydrator</td><td>Producto que elimina humedad/aceite de la lámina.</td></tr>
+      <tr><td>Primer</td><td>Promotor de adhesión entre uña y producto.</td></tr>
+      <tr><td>Heat spike</td><td>Golpe de calor al curar gel en capa gruesa.</td></tr>
+      <tr><td>Gel-X / soft gel</td><td>Tip preformado de gel que se cura a la uña.</td></tr>
+      <tr><td>Cap (free edge)</td><td>Sellar el borde libre para evitar astillado.</td></tr>
+      <tr><td>No-show</td><td>Clienta que no llega ni avisa.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== CERTIFICADO ===================== -->
+<section class="newpage">
+  <div class="cert">
+    <div class="seal">✦ Maison Lumière · Académie ✦</div>
+    <div style="font-family:'Montserrat';font-size:8pt;letter-spacing:3px;color:#9E7C8C;margin-top:14mm;">CERTIFICADO DE FINALIZACIÓN</div>
+    <h2>El Arte de las <span class="it">Uñas</span></h2>
+    <p style="font-family:'Cormorant Garamond';font-style:italic;font-size:14pt;color:#6A5560;">se otorga con orgullo a</p>
+    <div class="line"></div>
+    <div class="small">Nombre de la participante</div>
+    <p style="max-width:130mm;margin:14mm auto 0;font-family:'Cormorant Garamond';font-size:13pt;color:#6A5560;">
+      Por completar el programa profesional de formación en técnica, diseño y negocio de uñas,
+      demostrando dedicación, higiene y maestría artística.</p>
+    <div style="display:flex;justify-content:space-around;margin-top:20mm;">
+      <div><div class="line" style="width:55mm;margin-bottom:1mm;"></div><div class="small">Fecha</div></div>
+      <div><div class="line" style="width:55mm;margin-bottom:1mm;"></div><div class="small">Firma · Maison Lumière</div></div>
+    </div>
+    <div style="margin-top:16mm;font-family:'Playfair Display';font-style:italic;font-size:12pt;color:#B0697A;">“Tu maestría empieza ahora.”</div>
+  </div>
+</section>
+
+</body>
+</html>
+
