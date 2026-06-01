@@ -16,13 +16,14 @@ en investigación real con fuentes citadas dentro del propio PDF.
 
 ## 2. Estado actual ✅
 - `curso.html` → documento completo: portada, índice, **introducción + 14 módulos + precios EE.UU.
-  + plan 30 días + FAQ + glosario + certificado**. **62 páginas.**
-- Ya tiene **9 ilustraciones vectoriales (SVG)** propias: anatomía de la uña, formas, apex/curva C,
-  rueda de color, kit de herramientas, tip vs molde, estación de trabajo, secuencia de preparación,
-  galería de técnicas.
+  + plan 30 días + FAQ + glosario + certificado**. **67 páginas** (con 7 fotos ya integradas).
+- Ya tiene **9 ilustraciones vectoriales (SVG)** propias + **7 FOTOS REALES ya incrustadas**.
 - `generate_images.py` → motor que **inserta fotos reales** bajo cada sección y reconstruye el PDF.
-- `Maison-Lumiere-El-Arte-de-las-Unas.pdf` → PDF actual (sin las fotos reales todavía).
-- `img/` → carpeta donde van las 20 imágenes (ahora solo tiene README.txt).
+- `Maison-Lumiere-El-Arte-de-las-Unas.pdf` → PDF actual (con las 7 primeras fotos).
+- `img/` → ya contiene 7 imágenes optimizadas (.jpg). **Faltan 13.**
+
+### ✅ YA INTEGRADAS (7): intro_hero, tools_kit, drill_bits, uv_lamp, realce_products, russian_mani, acrylic_apex
+### ⏳ FALTAN (13): polygel_form, gel_polish, art_french, art_chrome, art_cateye, art_aura, art_marble, art_floral, nail_shapes, pedicure_spa, workstation, social_flatlay, brand_identity
 
 ### Por qué no se terminó en la nube
 La sesión en la nube **no podía recibir archivos de imagen** (las imágenes del chat no se guardan
