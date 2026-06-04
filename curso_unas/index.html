@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Arte de las Uñas — Maison Lumière</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== PALETTE ===== */
+:root {
+  --blush: #FBF6F3;
+  --blush-2: #F6E9E4;
+  --rose: #C58A98;
+  --rose-deep: #B0697A;
+  --rosegold: #C39A82;
+  --gold: #C2A14D;
+  --gold-soft: #E7D7AE;
+  --plum: #3C2A35;
+  --plum-soft: #6A5560;
+  --ink: #2E2129;
+  --line: #E7D5CE;
+  --mauve: #9E7C8C;
+  --cream: #FFFDFB;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 56px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+nav.scrolled {
+  background: rgba(255, 253, 251, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 7px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.5s;
+}
+
+nav.scrolled .nav-logo { color: var(--plum); }
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s;
+}
+
+nav.scrolled .nav-links a { color: var(--plum-soft); }
+.nav-links a:hover { color: var(--gold) !important; }
+
+.nav-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--plum) !important;
+  background: var(--gold-soft);
+  padding: 11px 24px;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-cta:hover {
+  background: var(--gold) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(194, 161, 77, 0.35);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 80% 12%, rgba(195, 154, 130, .45), transparent 60%),
+    radial-gradient(120% 90% at 12% 95%, rgba(178, 105, 122, .55), transparent 55%),
+    linear-gradient(160deg, #2A1C25 0%, #3C2A35 45%, #553B49 100%);
+}
+
+.hero-bg-accent {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(194, 161, 77, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+}
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.2s forwards;
+}
+
+.hero-academy {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 28px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.4s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  line-height: 0.96;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(32px);
+  animation: heroFadeUp 1s cubic-bezier(.25,.46,.45,.94) 0.6s forwards;
+  letter-spacing: -1px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-soft);
+  font-weight: 600;
+}
+
+.hero-rule {
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  margin: 36px auto;
+  opacity: 0;
+  animation: heroFade 1s ease 1.1s forwards;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: #EFE0D8;
+  font-style: italic;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 0.9s forwards;
+  line-height: 1.5;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.9s cubic-bezier(.25,.46,.45,.94) 1.1s forwards;
+}
+
+.hero-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 9px 20px;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--plum);
+  background: linear-gradient(135deg, var(--gold-soft) 0%, #D4B86A 100%);
+  padding: 20px 52px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s ease;
+  opacity: 0;
+  animation: heroFade 1s ease 1.4s forwards;
+  position: relative;
+}
+
+.hero-cta::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 60px;
+  background: linear-gradient(135deg, var(--gold-soft), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-cta:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 64px rgba(194, 161, 77, 0.45);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: heroFade 1s ease 2s forwards;
+}
+
+.hero-scroll-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  animation: scrollPulse 2.5s ease-in-out 2.2s infinite;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFade {
+  to { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0; transform: scaleY(0.3); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(56px);
+  transition: opacity 0.9s cubic-bezier(.25,.46,.45,.94), transform 0.9s cubic-bezier(.25,.46,.45,.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-72px);
+  transition: opacity 1s cubic-bezier(.25,.46,.45,.94), transform 1s cubic-bezier(.25,.46,.45,.94);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(72px);
+  transition: opacity 1s cubic-bezier(.25,.46,.45,.94), transform 1s cubic-bezier(.25,.46,.45,.94);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.93) translateY(32px);
+  transition: opacity 1s cubic-bezier(.25,.46,.45,.94), transform 1s cubic-bezier(.25,.46,.45,.94);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Stagger delays */
+.d1 { transition-delay: 0.05s; }
+.d2 { transition-delay: 0.15s; }
+.d3 { transition-delay: 0.25s; }
+.d4 { transition-delay: 0.35s; }
+.d5 { transition-delay: 0.45s; }
+.d6 { transition-delay: 0.55s; }
+.d7 { transition-delay: 0.65s; }
+.d8 { transition-delay: 0.75s; }
+
+/* ===== EYEBROW ===== */
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rosegold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.eyebrow-light { color: var(--gold-soft); }
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 20px;
+}
+
+.section-title.light { color: #fff; }
+.section-title em { font-style: italic; color: var(--rose-deep); }
+.section-title em.gold { color: var(--gold-soft); }
+
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--plum-soft);
+  line-height: 1.65;
+}
+
+.section-sub.light { color: rgba(255, 255, 255, 0.65); }
+
+.h-rule {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rose), var(--gold-soft));
+  margin: 24px 0;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.h-rule.center { margin: 24px auto; }
+.h-rule.light { background: linear-gradient(90deg, var(--rose), rgba(255, 255, 255, 0.5)); }
+
+/* ===== STATS ===== */
+.stats-band {
+  background: var(--blush-2);
+  padding: 0;
+}
+
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-cell {
+  background: var(--cream);
+  padding: 72px 48px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
+}
+
+.stat-cell:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(60, 42, 53, 0.08);
+  z-index: 1;
+  position: relative;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 800;
+  color: var(--rose-deep);
+  line-height: 1;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--plum-soft);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-note {
+  font-size: 0.8rem;
+  color: var(--mauve);
+  line-height: 1.5;
+}
+
+/* ===== INTRO ===== */
+.intro-section {
+  padding: 140px 56px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 112px;
+  align-items: center;
+}
+
+.intro-image-wrap {
+  position: relative;
+}
+
+.intro-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(.25,.46,.45,.94);
+}
+
+.intro-image:hover img { transform: scale(1.05); }
+
+.intro-image-border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.intro-image-accent {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  width: 160px;
+  height: 160px;
+  border: 1.5px solid var(--gold-soft);
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.intro-body p {
+  font-size: 0.9rem;
+  color: var(--plum-soft);
+  line-height: 1.95;
+  margin-bottom: 20px;
+}
+
+.intro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line);
+  margin-top: 16px;
+  transition: border-color 0.3s, gap 0.3s;
+}
+
+.intro-link:hover {
+  border-color: var(--rose-deep);
+  gap: 16px;
+}
+
+/* ===== MODULES ===== */
+.modules-section {
+  background: var(--plum);
+  padding: 140px 0;
+}
+
+.modules-header {
+  max-width: 1240px;
+  margin: 0 auto 80px;
+  padding: 0 56px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+.module-card {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.module-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.module-card:hover { background: rgba(255, 255, 255, 0.07); }
+.module-card:hover::after { transform: scaleX(1); }
+
+.mod-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: rgba(231, 215, 174, 0.12);
+  line-height: 1;
+  margin-bottom: 14px;
+  display: block;
+  letter-spacing: -2px;
+}
+
+.mod-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.mod-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.mod-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.75;
+}
+
+/* ===== TECHNIQUES ===== */
+.tech-section {
+  background: var(--blush);
+  padding: 140px 56px;
+}
+
+.tech-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.tech-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tech-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.tech-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.25,.46,.45,.94);
+}
+
+.tech-card:hover img { transform: scale(1.1); }
+
+.tech-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44, 28, 37, 0.88) 0%, rgba(44, 28, 37, 0.1) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 28px;
+  transition: background 0.4s ease;
+}
+
+.tech-card:hover .tech-overlay {
+  background: linear-gradient(to top, rgba(44, 28, 37, 0.95) 0%, rgba(44, 28, 37, 0.2) 55%, transparent 100%);
+}
+
+.tech-mod {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 6px;
+}
+
+.tech-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ===== FOR WHOM ===== */
+.forwho-section {
+  padding: 140px 56px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.forwho-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.forwho-pullquote {
+  margin-top: 48px;
+  padding: 32px 36px;
+  background: var(--blush-2);
+  border-left: 3px solid var(--gold);
+}
+
+.forwho-pullquote q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--plum-soft);
+  line-height: 1.65;
+  display: block;
+  margin-bottom: 14px;
+  quotes: none;
+}
+
+.forwho-pullquote cite {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--mauve);
+  font-style: normal;
+}
+
+.forwho-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.forwho-item {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.forwho-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rosegold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 24px rgba(197, 138, 152, 0.3);
+}
+
+.forwho-text strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 5px;
+}
+
+.forwho-text p {
+  font-size: 0.82rem;
+  color: var(--plum-soft);
+  line-height: 1.65;
+}
+
+/* ===== QUOTE BAND ===== */
+.quote-band {
+  background: var(--plum);
+  padding: 140px 56px;
+  text-align: center;
+}
+
+.quote-mark-glyph {
+  font-family: 'Playfair Display', serif;
+  font-size: 7rem;
+  color: rgba(231, 215, 174, 0.15);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.quote-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  font-style: italic;
+  color: #F0E0D8;
+  max-width: 820px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+.quote-attr {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-top: 36px;
+  display: block;
+  opacity: 0.8;
+}
+
+/* ===== PRICING ===== */
+.price-section {
+  background: var(--blush);
+  padding: 140px 56px;
+}
+
+.price-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.price-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.price-card {
+  max-width: 580px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--gold);
+  border-radius: 6px;
+  padding: 64px 56px;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(60, 42, 53, 0.09);
+}
+
+.price-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5A7D55;
+  background: #E3EFE2;
+  padding: 8px 20px;
+  border-radius: 40px;
+  margin-bottom: 32px;
+}
+
+.price-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--plum);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.price-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--mauve);
+  margin-bottom: 28px;
+}
+
+.price-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--line);
+  margin: 0 auto 28px;
+}
+
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--rose-deep);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-amount sup {
+  font-size: 1.6rem;
+  font-weight: 400;
+  vertical-align: top;
+  margin-top: 18px;
+  display: inline-block;
+  color: var(--mauve);
+}
+
+.price-period {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin-bottom: 40px;
+}
+
+.price-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: var(--plum-soft);
+  line-height: 1.4;
+}
+
+.price-features li::before {
+  content: '✦';
+  color: var(--rosegold);
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+
+.price-btn {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: linear-gradient(135deg, #3C2A35 0%, #553B49 100%);
+  padding: 20px 44px;
+  border-radius: 60px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s ease;
+  font-weight: 600;
+}
+
+.price-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(60, 42, 53, 0.35);
+}
+
+.price-note {
+  font-size: 0.72rem;
+  color: var(--mauve);
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* ===== CERTIFICATE ===== */
+.cert-section {
+  background: linear-gradient(135deg, #FFFDF8, #FBF4EC);
+  padding: 140px 56px;
+}
+
+.cert-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.cert-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.cert-visual {
+  max-width: 720px;
+  margin: 0 auto;
+  border: 1px solid var(--gold);
+  outline: 1.5px solid rgba(194, 161, 77, 0.4);
+  outline-offset: 8px;
+  padding: 72px 64px;
+  text-align: center;
+  background: linear-gradient(135deg, #FFFDF8, #FBF4EC);
+  border-radius: 3px;
+}
+
+.cert-seal-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--rosegold);
+  display: block;
+  margin-bottom: 36px;
+}
+
+.cert-nail-icon {
+  width: 64px;
+  height: 40px;
+  margin: 0 auto 28px;
+}
+
+.cert-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: var(--plum);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.cert-h em { color: var(--rose-deep); }
+
+.cert-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--plum-soft);
+  font-style: italic;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.cert-rule-line {
+  width: 240px;
+  height: 1px;
+  background: var(--line);
+  margin: 48px auto;
+}
+
+.cert-sig-row {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+.cert-sig {
+  text-align: center;
+}
+
+.cert-sig-line {
+  width: 160px;
+  height: 1px;
+  background: var(--line);
+  margin: 0 auto 10px;
+}
+
+.cert-sig-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--mauve);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--ink);
+  padding: 88px 56px 56px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.footer-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 48px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 48px;
+}
+
+.footer-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover { color: var(--gold-soft); }
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto 40px;
+}
+
+.footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  nav { padding: 0 36px; }
+  .intro-grid, .forwho-grid { gap: 64px; }
+  .intro-section, .forwho-section { padding: 100px 36px; }
+  .modules-header, .modules-grid { padding: 0 36px; }
+  .tech-section { padding: 100px 36px; }
+  .price-section { padding: 100px 36px; }
+  .cert-section { padding: 100px 36px; }
+  .quote-band { padding: 100px 36px; }
+  .site-footer { padding: 64px 36px 40px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  nav { padding: 0 24px; }
+
+  .intro-section,
+  .forwho-section { padding: 80px 24px; }
+
+  .intro-grid,
+  .forwho-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .intro-image-accent { display: none; }
+
+  .stats-inner { grid-template-columns: 1fr; gap: 2px; }
+  .stat-cell { padding: 48px 32px; }
+
+  .modules-grid { grid-template-columns: 1fr; padding: 0 24px; }
+  .modules-header { padding: 0 24px; margin-bottom: 48px; }
+  .modules-section { padding: 100px 0; }
+
+  .tech-grid { grid-template-columns: 1fr; gap: 12px; }
+  .tech-section { padding: 100px 24px; }
+
+  .price-card { padding: 48px 32px; }
+  .price-section { padding: 100px 24px; }
+
+  .cert-visual { padding: 48px 28px; }
+  .cert-section { padding: 100px 24px; }
+  .cert-sig-row { gap: 40px; }
+
+  .quote-band { padding: 100px 24px; }
+
+  .site-footer { padding: 64px 24px 40px; }
+  .footer-nav { flex-wrap: wrap; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">Maison Lumière</a>
+  <ul class="nav-links">
+    <li><a href="#curso">El Curso</a></li>
+    <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#tecnicas">Técnicas</a></li>
+    <li><a href="#precio">Precio</a></li>
+  </ul>
+  <a href="#precio" class="nav-cta">Inscríbete</a>
+</nav>
+
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-accent"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Curso Profesional Premium · 2026</p>
+    <p class="hero-academy">Maison Lumière · Académie</p>
+    <h1>El Arte de<br>las <em>Uñas</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">De cero a Nail Artist profesional<br>en los Estados Unidos</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Técnica</span>
+      <span class="hero-tag">Negocio</span>
+      <span class="hero-tag">Estilo</span>
+      <span class="hero-tag">Maestría</span>
+    </div>
+    <a href="#precio" class="hero-cta">Comenzar ahora</a>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span class="hero-scroll-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ===== STATS ===== -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-cell reveal d1">
+      <span class="stat-num" data-target="14">0</span>
+      <span class="stat-label">Módulos Completos</span>
+      <p class="stat-note">Desde anatomía hasta negocio</p>
+    </div>
+    <div class="stat-cell reveal d3">
+      <span class="stat-num" data-target="67" data-suffix="+">0</span>
+      <span class="stat-label">Páginas de Contenido</span>
+      <p class="stat-note">Ilustradas con fotografía real</p>
+    </div>
+    <div class="stat-cell reveal d5">
+      <span class="stat-num" data-prefix="$" data-target="80">0</span>
+      <span class="stat-label">Por Hora · Potencial</span>
+      <p class="stat-note">Promedio EE.UU. 2025–2026</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== INTRO ===== -->
+<div id="curso">
+  <div class="intro-section">
+    <div class="intro-grid">
+      <div class="reveal-left">
+        <div class="intro-image-wrap">
+          <div class="intro-image">
+            <img src="img/intro_hero.jpg" alt="El Arte de las Uñas" loading="lazy">
+            <div class="intro-image-border"></div>
+          </div>
+          <div class="intro-image-accent"></div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <span class="eyebrow">Sobre el Curso</span>
+        <h2 class="section-title">Método completo,<br><em>resultados reales</em></h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">Un programa diseñado para llevarte de principiante absoluta a nail artist profesional con clientela propia en los Estados Unidos.</p>
+        <div style="height:28px"></div>
+        <div class="intro-body">
+          <p>Aprenderás las técnicas que usan los salones premium: uñas acrílicas, polygel, gel polish, nail art de vanguardia y mucho más. Cada módulo combina teoría, técnica y práctica real.</p>
+          <p>Incluye módulos de negocio, manejo de clientes difíciles, estrategia en redes sociales y un plan de acción de 30 días para lanzar tu carrera.</p>
+        </div>
+        <a href="#modulos" class="intro-link">
+          Ver los 14 módulos →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== MODULES ===== -->
+<div class="modules-section" id="modulos">
+  <div class="modules-header reveal">
+    <span class="eyebrow eyebrow-light">Plan de Estudio</span>
+    <h2 class="section-title light">14 módulos hacia la<br><em class="gold">excelencia</em></h2>
+    <div class="h-rule light"></div>
+    <p class="section-sub light">Cada módulo es un paso concreto hacia tu carrera profesional.</p>
+  </div>
+  <div class="modules-grid">
+    <div class="module-card reveal d1">
+      <span class="mod-num">00</span>
+      <span class="mod-tag">Introducción</span>
+      <h3 class="mod-title">La industria &amp; tu mentalidad</h3>
+      <p class="mod-desc">Mercado, salarios, proyecciones y la mentalidad de una nail artist de éxito en los EE.UU.</p>
+    </div>
+    <div class="module-card reveal d2">
+      <span class="mod-num">01</span>
+      <span class="mod-tag">Herramientas</span>
+      <h3 class="mod-title">Kit profesional esencial</h3>
+      <p class="mod-desc">Limas, torno eléctrico, lámparas UV/LED, sistemas acrílico, gel y polygel explicados a fondo.</p>
+    </div>
+    <div class="module-card reveal d3">
+      <span class="mod-num">02</span>
+      <span class="mod-tag">Higiene</span>
+      <h3 class="mod-title">Protocolos &amp; seguridad</h3>
+      <p class="mod-desc">Esterilización, manejo de químicos y requisitos de licencia por estado.</p>
+    </div>
+    <div class="module-card reveal d1">
+      <span class="mod-num">03</span>
+      <span class="mod-tag">Anatomía</span>
+      <h3 class="mod-title">La uña por dentro</h3>
+      <p class="mod-desc">Estructura completa, tipos de uña, patologías y diagnóstico visual profesional.</p>
+    </div>
+    <div class="module-card reveal d2">
+      <span class="mod-num">04</span>
+      <span class="mod-tag">Preparación</span>
+      <h3 class="mod-title">Manicura rusa perfecta</h3>
+      <p class="mod-desc">Paso a paso para evitar lifting y lograr la base impecable que toda técnica requiere.</p>
+    </div>
+    <div class="module-card reveal d3">
+      <span class="mod-num">05</span>
+      <span class="mod-tag">Acrílico</span>
+      <h3 class="mod-title">Técnica avanzada</h3>
+      <p class="mod-desc">Química del acrílico, apex, curva-C perfecta, rellenos y aplicación con tips o molde.</p>
+    </div>
+    <div class="module-card reveal d1">
+      <span class="mod-num">06</span>
+      <span class="mod-tag">Gel &amp; Polygel</span>
+      <h3 class="mod-title">Construcción moderna</h3>
+      <p class="mod-desc">Dual form, nivelación y gestión del calor para resultados perfectos y duraderos.</p>
+    </div>
+    <div class="module-card reveal d2">
+      <span class="mod-num">07</span>
+      <span class="mod-tag">Gel Polish</span>
+      <h3 class="mod-title">Brillo espejo</h3>
+      <p class="mod-desc">Secuencia profesional, cómo evitar arrugas o encogimiento y la técnica del shine perfecto.</p>
+    </div>
+    <div class="module-card reveal d3">
+      <span class="mod-num">08</span>
+      <span class="mod-tag">Nail Art</span>
+      <h3 class="mod-title">Diseño de vanguardia</h3>
+      <p class="mod-desc">Cat eye, aura, chrome, French artístico, floral pintado a mano y psicología del color.</p>
+    </div>
+    <div class="module-card reveal d1">
+      <span class="mod-num">09</span>
+      <span class="mod-tag">Formas</span>
+      <h3 class="mod-title">7 formas dominadas</h3>
+      <p class="mod-desc">Almendra, coffin, stiletto, oval y más con guía completa de formas más favorecedoras.</p>
+    </div>
+    <div class="module-card reveal d2">
+      <span class="mod-num">10</span>
+      <span class="mod-tag">Pedicura</span>
+      <h3 class="mod-title">Spa pedicure profesional</h3>
+      <p class="mod-desc">Protocolo spa completo, manejo de callosidades y estrategia de precios para pedicura.</p>
+    </div>
+    <div class="module-card reveal d3">
+      <span class="mod-num">11–14</span>
+      <span class="mod-tag">Negocio</span>
+      <h3 class="mod-title">Tu carrera &amp; tu marca</h3>
+      <p class="mod-desc">Clientes, precios reales, redes sociales, secretos profesionales y plan de acción de 30 días.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== TECHNIQUES ===== -->
+<div class="tech-section" id="tecnicas">
+  <div class="tech-inner">
+    <div class="tech-header reveal">
+      <span class="eyebrow">Nail Art</span>
+      <h2 class="section-title">Técnicas que <em>dominará</em></h2>
+      <div class="h-rule center"></div>
+      <p class="section-sub" style="max-width:560px;margin:0 auto;">Las tendencias más buscadas en los salones premium de los Estados Unidos.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card reveal-scale d1">
+        <img src="img/art_chrome.jpg" alt="Chrome nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">Chrome &amp; Mirror</h3>
+        </div>
+      </div>
+      <div class="tech-card reveal-scale d2">
+        <img src="img/art_cateye.jpg" alt="Cat eye nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">Cat Eye Magnético</h3>
+        </div>
+      </div>
+      <div class="tech-card reveal-scale d3">
+        <img src="img/art_aura.jpg" alt="Aura nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">Aura Nails</h3>
+        </div>
+      </div>
+      <div class="tech-card reveal-scale d1">
+        <img src="img/art_french.jpg" alt="French nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">French Artístico</h3>
+        </div>
+      </div>
+      <div class="tech-card reveal-scale d2">
+        <img src="img/art_marble.jpg" alt="Marble nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">Efecto Mármol</h3>
+        </div>
+      </div>
+      <div class="tech-card reveal-scale d3">
+        <img src="img/art_floral.jpg" alt="Floral nails" loading="lazy">
+        <div class="tech-overlay">
+          <span class="tech-mod">Módulo 08</span>
+          <h3 class="tech-name">Floral Pintado a Mano</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== FOR WHOM ===== -->
+<div>
+  <div class="forwho-section">
+    <div class="forwho-grid">
+      <div class="reveal-left">
+        <span class="eyebrow">¿Para quién es?</span>
+        <h2 class="section-title">Diseñado para ti,<br>sin <em>importar</em> tu nivel</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">Tanto si eres principiante absoluta como si ya tienes experiencia, este programa te lleva al siguiente nivel.</p>
+        <div class="forwho-pullquote">
+          <q>La excelencia en las uñas no es talento: es método, repetición y amor por el detalle.</q>
+          <cite>— Maison Lumière · Académie</cite>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <ul class="forwho-list">
+          <li class="forwho-item">
+            <div class="forwho-icon">🌱</div>
+            <div class="forwho-text">
+              <strong>Principiantes absolutas</strong>
+              <p>Sin conocimientos previos. El curso empieza desde cero con anatomía y herramientas.</p>
+            </div>
+          </li>
+          <li class="forwho-item">
+            <div class="forwho-icon">✨</div>
+            <div class="forwho-text">
+              <strong>Nail artists con experiencia</strong>
+              <p>Perfecciona técnicas, aprende nail art avanzado y organiza tu negocio de forma profesional.</p>
+            </div>
+          </li>
+          <li class="forwho-item">
+            <div class="forwho-icon">💼</div>
+            <div class="forwho-text">
+              <strong>Emprendedoras de belleza</strong>
+              <p>Módulos completos de negocio, pricing y redes sociales para construir tu marca personal.</p>
+            </div>
+          </li>
+          <li class="forwho-item">
+            <div class="forwho-icon">🇺🇸</div>
+            <div class="forwho-text">
+              <strong>Hispanas en los EE.UU.</strong>
+              <p>Todo en español con foco en licencias estatales, precios reales y el mercado americano.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== QUOTE BAND ===== -->
+<div class="quote-band">
+  <div class="reveal">
+    <span class="quote-mark-glyph">"</span>
+    <p class="quote-body">La excelencia en las uñas no es talento: es método, repetición y amor por el detalle.</p>
+    <span class="quote-attr">Maison Lumière · Académie · 2026</span>
+  </div>
+</div>
+
+
+<!-- ===== PRICING ===== -->
+<div class="price-section" id="precio">
+  <div class="price-inner">
+    <div class="price-header reveal">
+      <span class="eyebrow" style="display:block;">Inversión</span>
+      <h2 class="section-title">Acceso completo al<br><em>método Maison Lumière</em></h2>
+      <div class="h-rule center"></div>
+    </div>
+    <div class="price-card reveal-scale">
+      <span class="price-badge">Pago único · Acceso de por vida</span>
+      <h3 class="price-title">El Arte de las Uñas</h3>
+      <p class="price-subtitle">Curso Profesional Premium 2026</p>
+      <div class="price-divider"></div>
+      <div class="price-amount"><sup>$</sup>197</div>
+      <p class="price-period">Pago único · Sin suscripción</p>
+      <ul class="price-features">
+        <li>14 módulos completos e ilustrados</li>
+        <li>67+ páginas de contenido premium</li>
+        <li>20 fotografías de técnicas reales</li>
+        <li>9 diagramas vectoriales exclusivos</li>
+        <li>Tablas de precios del mercado EE.UU. 2025–26</li>
+        <li>Plan de acción de 30 días</li>
+        <li>Certificado de finalización imprimible</li>
+        <li>Glosario profesional de 15 términos</li>
+      </ul>
+      <a href="#" class="price-btn">Obtener acceso ahora</a>
+      <p class="price-note">Descarga inmediata · Formato PDF · En español</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== CERTIFICATE ===== -->
+<div class="cert-section">
+  <div class="cert-inner">
+    <div class="cert-header reveal">
+      <span class="eyebrow" style="display:block;">Al finalizar</span>
+      <h2 class="section-title">Tu <em>certificado</em> de<br>Nail Artist Profesional</h2>
+      <div class="h-rule center"></div>
+    </div>
+    <div class="cert-visual reveal-scale">
+      <span class="cert-seal-text">Maison Lumière · Académie</span>
+      <svg class="cert-nail-icon" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="0.75">
+          <g transform="rotate(18 150 200)"><path d="M150 200 C150 120 158 70 168 60 C182 50 188 70 184 95 C180 130 168 170 160 200 Z" fill="#C39A82"/></g>
+          <g transform="rotate(8 150 200)"><path d="M150 200 C150 110 156 55 166 45 C180 36 186 58 182 86 C178 124 166 168 160 200 Z" fill="#D7AE9A"/></g>
+          <g><path d="M150 200 C150 100 154 45 163 36 C176 28 183 52 179 82 C175 122 162 166 158 200 Z" fill="#E7C7B6"/></g>
+          <g transform="rotate(-8 150 200)"><path d="M150 200 C150 110 156 55 166 45 C180 36 186 58 182 86 C178 124 166 168 160 200 Z" fill="#D7AE9A"/></g>
+          <g transform="rotate(-18 150 200)"><path d="M150 200 C150 120 158 70 168 60 C182 50 188 70 184 95 C180 130 168 170 160 200 Z" fill="#C39A82"/></g>
+        </g>
+      </svg>
+      <h2 class="cert-h">Certificado de<br><em>Finalización</em></h2>
+      <p class="cert-sub">Se otorga a quienes completan satisfactoriamente el programa completo de nail art profesional</p>
+      <div class="cert-rule-line"></div>
+      <div class="cert-sig-row">
+        <div class="cert-sig">
+          <div class="cert-sig-line"></div>
+          <span class="cert-sig-label">Alumna</span>
+        </div>
+        <div class="cert-sig">
+          <div class="cert-sig-line"></div>
+          <span class="cert-sig-label">Directora Académica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <span class="footer-logo">Maison Lumière</span>
+  <p class="footer-tagline">Académie Professionnelle · Nail Art &amp; Beauté</p>
+  <nav>
+    <ul class="footer-nav">
+      <li><a href="#curso">El Curso</a></li>
+      <li><a href="#modulos">Módulos</a></li>
+      <li><a href="#tecnicas">Técnicas</a></li>
+      <li><a href="#precio">Precio</a></li>
+    </ul>
+  </nav>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">
+    © 2026 Maison Lumière · Todos los derechos reservados<br>
+    Programa formativo independiente con fines educativos
+  </p>
+</footer>
+
+
+<script>
+// ===== NAV SCROLL =====
+const nav = document.getElementById('mainNav');
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// ===== INTERSECTION OBSERVER — REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14, rootMargin: '0px 0px -48px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+  .forEach(el => revealObserver.observe(el));
+
+// ===== COUNTER ANIMATION =====
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target, 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = prefix + Math.floor(eased * target) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+// ===== SUBTLE 3D TILT ON MODULE CARDS =====
+document.querySelectorAll('.module-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
+    const y = ((e.clientY - r.top) / r.height - 0.5) * 10;
+    card.style.transform = `perspective(900px) rotateY(${x}deg) rotateX(${-y}deg) translateZ(6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.6s ease, background 0.4s ease';
+    setTimeout(() => { card.style.transition = ''; }, 600);
+  });
+});
+
+// ===== HERO PARALLAX =====
+const hero = document.querySelector('.hero');
+const heroH = hero.offsetHeight;
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  if (sy < heroH) {
+    hero.style.setProperty('--parallax', `${sy * 0.28}px`);
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
