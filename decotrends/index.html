@@ -1,742 +1,953 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DecoTrends Miami — Muebles &amp; Decoración de Interiores</title>
-<meta name="description" content="DecoTrends Miami — Diseño de interiores con líneas limpias y materiales nobles. Sala, dormitorio, comedor, oficina y la Miami Tropical Collection.">
+<title>Deco Trends — Furniture &amp; Interior Design Miami</title>
+<meta name="description" content="Create spaces that make you fall in love. Premium furniture and interior design in Miami. Solid woods, artisanal tradition and sustainability.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===== PALETTE — warm minimalist luxury ===== */
-:root {
-  --cream:    #FAF8F5;
-  --sand:     #F0EBE3;
-  --sand-2:   #E7DFD4;
-  --line:     #E2D9CD;
-  --wood:     #A67C52;
-  --gold:     #B0905A;
-  --gold-soft:#C9AC78;
-  --charcoal: #211D1A;
-  --ink:      #2C2723;
-  --soft:     #756C62;
-  --muted:    #9A9087;
-  --white:    #FFFFFF;
+/* ============================================================
+   EXACT PALETTE — decotrendsmiami.com
+   ============================================================ */
+:root{
+  --bg:        #EDEBE4;
+  --bg2:       #E8E5DD;
+  --white:     #FFFFFF;
+  --logo:      #8B7048;
+  --gold:      #A8865C;
+  --gold-h:    #8A6B40;
+  --dark:      #1A1714;
+  --ink:       #2A2520;
+  --body:      #5C5650;
+  --muted:     #9A9288;
+  --line:      #DEDAD2;
+  --over:      rgba(26,23,20,.44);
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img,svg{display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
 
-* , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ===== SCROLL REVEAL ===== */
+.rv{opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);}
+.rv.in{opacity:1;transform:none;}
+.rl{opacity:0;transform:translateX(-56px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1);}
+.rl.in{opacity:1;transform:none;}
+.rr{opacity:0;transform:translateX(56px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1);}
+.rr.in{opacity:1;transform:none;}
+.rs{opacity:0;transform:scale(.94);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1);}
+.rs.in{opacity:1;transform:none;}
+.d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.25s}
+.d4{transition-delay:.34s}.d5{transition-delay:.43s}.d6{transition-delay:.52s}
 
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  font-family: 'Jost', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  line-height: 1.7;
-  font-weight: 300;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+/* ===== NAVIGATION ===== */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:900;
+  height:72px;background:var(--white);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;padding:0 20px;
+  transition:box-shadow .4s;
 }
+nav.lifted{box-shadow:0 4px 20px rgba(26,23,20,.07);}
+.nav-l{display:flex;align-items:center;gap:16px;}
+.ham{display:flex;flex-direction:column;gap:5px;padding:6px;cursor:pointer;}
+.ham span{display:block;width:22px;height:1.4px;background:var(--ink);transition:background .3s;}
+.ham:hover span{background:var(--gold);}
+.logo-badge{display:flex;align-items:stretch;border:1px solid var(--line);}
+.logo-sq{width:52px;height:52px;background:var(--logo);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-sq svg{width:34px;height:34px;}
+.logo-txt{padding:0 13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-family:'Cormorant Garamond',serif;font-weight:500;}
+.logo-txt .lt1{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--ink);}
+.logo-txt .lt2{font-size:.56rem;letter-spacing:5px;text-transform:uppercase;color:var(--muted);}
+.nav-flags{font-size:1.15rem;letter-spacing:4px;}
+.nav-r{display:flex;align-items:center;gap:18px;}
+.nic{width:21px;height:21px;flex-shrink:0;cursor:pointer;transition:opacity .3s;}
+.nic:hover{opacity:.6;}
+.nic path,.nic circle,.nic line{stroke:var(--ink);stroke-width:1.6;fill:none;vector-effect:non-scaling-stroke;}
 
-img, svg { display: block; max-width: 100%; }
-
-/* ===== NAV ===== */
-nav {
-  position: fixed;
-  inset: 0 0 auto 0;
-  z-index: 1000;
-  height: 76px;
-  padding: 0 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: background .55s ease, box-shadow .55s ease, height .4s ease;
+/* ===== MOBILE DRAWER ===== */
+.drawer-overlay{position:fixed;inset:0;background:rgba(26,23,20,.3);z-index:1000;opacity:0;pointer-events:none;transition:opacity .4s;}
+.drawer-overlay.open{opacity:1;pointer-events:all;}
+.drawer{
+  position:fixed;inset:0 auto 0 0;z-index:1001;
+  width:min(340px,85vw);background:var(--white);
+  padding:28px 0;overflow-y:auto;
+  transform:translateX(-100%);transition:transform .45s cubic-bezier(.22,.61,.36,1);
 }
-
-nav.scrolled {
-  background: rgba(250, 248, 245, .85);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  box-shadow: 0 1px 0 var(--line);
-  height: 64px;
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.45rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color .55s ease;
-}
-.nav-logo b { font-weight: 600; }
-nav.scrolled .nav-logo { color: var(--charcoal); }
-
-.nav-links { display: flex; gap: 38px; list-style: none; }
-.nav-links a {
-  font-size: .68rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: rgba(255,255,255,.78);
-  font-weight: 400;
-  transition: color .3s;
-}
-nav.scrolled .nav-links a { color: var(--soft); }
-.nav-links a:hover { color: var(--gold-soft) !important; }
-nav.scrolled .nav-links a:hover { color: var(--gold) !important; }
-
-.nav-cta {
-  font-size: .62rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--charcoal) !important;
-  background: #fff;
-  padding: 12px 26px;
-  border-radius: 2px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background .35s, color .35s, transform .35s;
-}
-.nav-cta:hover { background: var(--gold); color: #fff !important; transform: translateY(-1px); }
+.drawer.open{transform:translateX(0);}
+.drawer-close{position:absolute;top:18px;right:18px;font-size:1.3rem;color:var(--muted);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:color .3s;}
+.drawer-close:hover{color:var(--ink);}
+.drawer-section{padding:8px 0;}
+.drawer-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:14px 32px 8px;}
+.drawer-item{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;font-size:1.05rem;color:var(--ink);cursor:pointer;font-family:'Cormorant Garamond',serif;font-weight:400;transition:color .3s;}
+.drawer-item:hover{color:var(--gold);}
+.drawer-item .ch{font-size:.8rem;color:var(--muted);}
+.drawer hr{border:none;border-top:1px solid var(--line);margin:8px 32px;}
 
 /* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: linear-gradient(160deg, #2B2521 0%, #211D1A 55%, #322A24 100%);
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:72px;margin-top:72px;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(145deg,#D8D3CA 0%,#CCC7BC 35%,#BDB8AF 70%,#C4BDB0 100%);
+  transition:transform .1s linear;
 }
-.hero-art {
-  position: absolute;
-  inset: 0;
-  opacity: .9;
-  pointer-events: none;
+.hero-svg{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;}
+.hero-svg svg{width:100%;max-width:960px;height:auto;}
+[hs]{fill:rgba(190,180,162,.5);}
+[hd]{fill:rgba(155,146,130,.45);}
+[hl]{stroke:rgba(175,165,148,.35);stroke-width:1;fill:none;}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,23,20,.6) 0%,rgba(26,23,20,.12) 55%,transparent 100%);}
+.hero-body{position:relative;z-index:3;padding:0 40px;max-width:700px;}
+.hero-body h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,8.5vw,7rem);font-style:italic;font-weight:300;
+  color:#fff;line-height:.97;
+  opacity:0;transform:translateY(30px);animation:up 1.1s cubic-bezier(.22,.61,.36,1) .15s forwards;
 }
-.hero-glow {
-  position: absolute;
-  width: 70vw; height: 70vw;
-  right: -15vw; top: -10vw;
-  background: radial-gradient(circle, rgba(201,172,120,.18) 0%, transparent 62%);
-  pointer-events: none;
+.hero-body p{
+  font-size:clamp(.82rem,1.8vw,.95rem);color:rgba(255,255,255,.84);font-weight:300;
+  line-height:1.8;margin:22px 0 36px;max-width:440px;
+  opacity:0;transform:translateY(20px);animation:up .9s cubic-bezier(.22,.61,.36,1) .65s forwards;
 }
-.hero-inner {
-  position: relative;
-  z-index: 3;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 56px;
-  width: 100%;
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;
+  opacity:0;transform:translateY(20px);animation:up .9s cubic-bezier(.22,.61,.36,1) .9s forwards;
 }
-.hero-eyebrow {
-  font-size: .64rem; letter-spacing: 8px; text-transform: uppercase;
-  color: var(--gold-soft); margin-bottom: 28px;
-  opacity: 0; transform: translateY(22px);
-  animation: up .9s cubic-bezier(.22,.61,.36,1) .2s forwards;
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.4rem, 9vw, 8rem);
-  line-height: .98;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: -.5px;
-  margin-bottom: 0;
-  opacity: 0; transform: translateY(30px);
-  animation: up 1s cubic-bezier(.22,.61,.36,1) .4s forwards;
-}
-.hero h1 em { font-style: italic; color: var(--gold-soft); font-weight: 400; }
-.hero-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(1.2rem, 2.6vw, 1.85rem);
-  color: rgba(255,255,255,.72);
-  margin: 32px 0 44px;
-  max-width: 540px;
-  line-height: 1.5;
-  opacity: 0; transform: translateY(22px);
-  animation: up .9s cubic-bezier(.22,.61,.36,1) .7s forwards;
-}
-.hero-actions {
-  display: flex; gap: 18px; flex-wrap: wrap;
-  opacity: 0; transform: translateY(22px);
-  animation: up .9s cubic-bezier(.22,.61,.36,1) .95s forwards;
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: .66rem; letter-spacing: 3px; text-transform: uppercase;
-  padding: 18px 40px; border-radius: 2px; text-decoration: none;
-  font-weight: 500; transition: transform .35s cubic-bezier(.22,.61,.36,1), background .35s, color .35s, box-shadow .35s;
-}
-.btn-primary { background: #fff; color: var(--charcoal); }
-.btn-primary:hover { background: var(--gold); color: #fff; transform: translateY(-3px); box-shadow: 0 18px 40px rgba(176,144,90,.4); }
-.btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,.3); }
-.btn-ghost:hover { border-color: var(--gold-soft); color: var(--gold-soft); transform: translateY(-3px); }
+.btn-solid{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;background:#fff;color:var(--dark);padding:14px 32px;transition:background .35s,color .35s,transform .3s;}
+.btn-solid:hover{background:var(--dark);color:#fff;transform:translateY(-2px);}
+.btn-ghost-w{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;color:#fff;padding:14px 22px;display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.45);transition:gap .3s,border-color .3s;}
+.btn-ghost-w:hover{border-color:#fff;gap:18px;}
+.hero-dots{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4;opacity:0;animation:fade 1s ease 1.5s forwards;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.5);cursor:pointer;}
+.dot.on{background:#fff;}
+@keyframes up{to{opacity:1;transform:none;}}
+@keyframes fade{to{opacity:1;}}
 
-.hero-scroll {
-  position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 12px;
-  opacity: 0; animation: fade 1s ease 1.6s forwards; z-index: 3;
-}
-.hero-scroll span {
-  font-size: .5rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.4);
-}
-.scroll-line { width: 1px; height: 52px; background: linear-gradient(rgba(255,255,255,.45), transparent); animation: pulse 2.4s ease-in-out 1.8s infinite; }
+/* ===== MARQUEE ===== */
+.marquee{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;overflow:hidden;white-space:nowrap;}
+.mtrack{display:inline-block;animation:mar 24s linear infinite;}
+.mit{display:inline-block;padding:0 30px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--body);letter-spacing:.5px;}
+.mdot{display:inline-block;width:4px;height:4px;background:var(--gold);border-radius:50%;vertical-align:middle;}
+@keyframes mar{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* hero furniture line art (right side) */
-.hero-furniture {
-  position: absolute; right: 6%; bottom: 0; width: min(42vw, 560px);
-  opacity: 0; transform: translateY(40px);
-  animation: up 1.3s cubic-bezier(.22,.61,.36,1) .6s forwards;
-  z-index: 2;
+/* ===== QUALITY ===== */
+.quality{padding:72px 20px;background:var(--bg);}
+.quality-inner{max-width:1080px;margin:0 auto;}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.q-card{background:var(--white);padding:56px 40px;text-align:center;border:1px solid var(--line);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s;}
+.q-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(26,23,20,.07);position:relative;z-index:1;}
+.q-icon{width:44px;height:44px;margin:0 auto 22px;}
+.q-icon [qi]{stroke:var(--ink);stroke-width:1.5;fill:none;vector-effect:non-scaling-stroke;transition:stroke .4s;}
+.q-card:hover .q-icon [qi]{stroke:var(--gold);}
+.q-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:500;color:var(--ink);margin-bottom:12px;}
+.q-desc{font-size:.84rem;color:var(--body);line-height:1.85;}
+.q-nav{display:flex;justify-content:center;gap:24px;margin-top:36px;}
+.q-nav button{width:40px;height:40px;border:1px solid var(--line);color:var(--body);font-size:1rem;transition:background .3s,border-color .3s,color .3s;}
+.q-nav button:hover{background:var(--dark);border-color:var(--dark);color:#fff;}
+
+/* ===== SHARED HEADINGS ===== */
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:400;color:var(--ink);letter-spacing:-.2px;}
+.sec-label{font-size:.58rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px;}
+.gold-link{font-size:.63rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px;transition:gap .3s;}
+.gold-link:hover{gap:18px;}
+
+/* ===== PRODUCTS GRID ===== */
+.prod-section{background:var(--bg);padding-bottom:16px;}
+.prod-head{padding:56px 20px 40px;text-align:center;}
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);}
+.pc{background:var(--white);border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;transition:box-shadow .4s;}
+.pc:hover{box-shadow:0 8px 28px rgba(26,23,20,.08);z-index:1;position:relative;}
+.pc-img{
+  aspect-ratio:1/.9;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
-.hero-furniture path, .hero-furniture line, .hero-furniture circle, .hero-furniture rect, .hero-furniture ellipse {
-  stroke: rgba(201,172,120,.55); stroke-width: 1.4; fill: none; vector-effect: non-scaling-stroke;
+.pc-img svg{width:65%;max-height:190px;transition:transform .7s cubic-bezier(.22,.61,.36,1);}
+.pc:hover .pc-img svg{transform:scale(1.06);}
+[pi]{stroke:var(--body);stroke-width:1.4;fill:rgba(205,198,185,.22);vector-effect:non-scaling-stroke;}
+[pf]{fill:rgba(190,182,168,.35);}
+[pe]{fill:rgba(228,222,212,.55);}
+.pc-img.dark{background:#232120;}
+[pdi]{stroke:rgba(255,255,255,.35);stroke-width:1.4;fill:rgba(255,255,255,.06);vector-effect:non-scaling-stroke;}
+.pc-btn{display:block;width:100%;background:var(--dark);color:#fff;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;padding:14px;text-align:center;transition:background .3s;}
+.pc-btn:hover{background:#3A3530;}
+.pc-meta{padding:14px 18px 22px;}
+.pc-cats{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.pc-name{font-size:.92rem;font-weight:400;color:var(--ink);margin-bottom:6px;line-height:1.4;}
+.pc-price{font-size:.88rem;color:var(--ink);}
+.grid-link{text-align:center;padding:28px 20px;display:block;}
+
+/* ===== FEATURED COLLECTION ===== */
+.feat-band{background:var(--bg2);padding:72px 20px;text-align:center;}
+.feat-band .sec-h{max-width:660px;margin:0 auto 18px;}
+.feat-band p{font-size:.88rem;color:var(--body);max-width:480px;margin:0 auto 32px;line-height:1.85;}
+.btn-gold{display:inline-block;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;background:var(--gold);color:#fff;padding:15px 34px;transition:background .35s,transform .3s;}
+.btn-gold:hover{background:var(--gold-h);transform:translateY(-2px);}
+.feat-img-strip{
+  width:100%;height:clamp(260px,42vw,560px);
+  background:linear-gradient(145deg,#C6C1B8 0%,#D0C9BE 45%,#BCB6AD 100%);
+  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
 }
+.feat-img-strip svg{width:min(55%,380px);opacity:.55;}
+[fi]{stroke:rgba(255,255,255,.65);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke;}
+[ff]{fill:rgba(255,255,255,.1);}
+.feat-img-strip .fi-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+.fi-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.5);}
+.fi-dot.on{background:#fff;}
 
-@keyframes up { to { opacity: 1; transform: translate(0,0); } }
-@keyframes fade { to { opacity: 1; } }
-@keyframes pulse {
-  0%,100% { opacity: 0; transform: scaleY(.3); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+/* ===== SHOP BY CATEGORY ===== */
+.shop-head-wrap{padding:64px 20px 40px;text-align:center;background:var(--bg);}
+.cat-stack{display:flex;flex-direction:column;}
+.ctile{position:relative;height:clamp(190px,32vw,400px);overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;}
+.ctile-bg{position:absolute;inset:0;transition:transform .7s cubic-bezier(.22,.61,.36,1);}
+.ct1 .ctile-bg{background:linear-gradient(140deg,#484542 0%,#383432 55%,#4C4845 100%);}
+.ct2 .ctile-bg{background:linear-gradient(140deg,#3C3F42 0%,#30333A 55%,#414548 100%);}
+.ct3 .ctile-bg{background:linear-gradient(140deg,#56514C 0%,#46423D 55%,#5A5550 100%);}
+.ct4 .ctile-bg{background:linear-gradient(140deg,#48453E 0%,#3C3A34 55%,#504D46 100%);}
+.ct5 .ctile-bg{background:linear-gradient(140deg,#3C4040 0%,#303436 55%,#44484A 100%);}
+.ct6 .ctile-bg{background:linear-gradient(140deg,#4E4A44 0%,#3E3B36 55%,#524E48 100%);}
+.ct7 .ctile-bg{background:linear-gradient(140deg,#484038 0%,#3A3530 55%,#4E4840 100%);}
+.ctile:hover .ctile-bg{transform:scale(1.06);}
+.ctile-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.58) 0%,transparent 52%);}
+.ctile-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:6%;pointer-events:none;}
+.ctile-art svg{height:82%;width:auto;max-width:50%;}
+[ca]{stroke:rgba(255,255,255,.28);stroke-width:1.3;fill:none;vector-effect:non-scaling-stroke;}
+[cf]{fill:rgba(255,255,255,.06);}
+.ctile-name{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.8vw,2.6rem);font-style:italic;font-weight:400;color:#fff;padding:28px 36px;}
+
+/* ===== TESTIMONIALS ===== */
+.testim{background:var(--bg);padding:80px 20px;text-align:center;}
+.testim .sec-label{justify-content:center;display:block;}
+.stars{font-size:1.2rem;margin:12px 0 28px;display:block;letter-spacing:4px;}
+.testim-body{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3.2vw,2.2rem);font-style:italic;font-weight:400;color:var(--ink);max-width:800px;margin:0 auto;line-height:1.5;}
+.testim-dots{display:flex;gap:8px;justify-content:center;margin-top:36px;}
+.t-dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .3s;}
+.t-dot.on{background:var(--gold);}
+
+/* ===== BEST SELLERS ===== */
+.bs-section{background:var(--bg);padding-bottom:8px;}
+.bs-head{padding:64px 20px 36px;text-align:center;}
+
+/* ===== LATEST COLLECTIONS ===== */
+.latest{background:var(--bg);}
+.latest-head{padding:60px 20px 36px;text-align:center;}
+.latest-img{width:100%;height:clamp(260px,45vw,580px);background:linear-gradient(145deg,#D4CFC6 0%,#C8C3BA 45%,#BEB9B0 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.latest-img svg{width:min(60%,400px);opacity:.55;}
+.limited-tag{position:absolute;top:20px;left:20px;font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:#fff;background:rgba(26,23,20,.55);padding:7px 14px;}
+
+/* ===== EDITORIAL TILES ===== */
+.editorial{background:var(--bg);}
+.ed-tile{position:relative;height:clamp(260px,40vw,500px);overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;}
+.ed-bg{position:absolute;inset:0;transition:transform .7s cubic-bezier(.22,.61,.36,1);}
+.ed1 .ed-bg{background:linear-gradient(145deg,#4A4238 0%,#3E352A 50%,#524640 100%);}
+.ed2 .ed-bg{background:linear-gradient(145deg,#DEDAD2 0%,#D0C9BE 50%,#C8C1B5 100%);}
+.ed-tile:hover .ed-bg{transform:scale(1.05);}
+.ed-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.55) 0%,transparent 55%);}
+.ed-tag{position:absolute;top:20px;left:20px;font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.8);}
+.ed-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8%;pointer-events:none;opacity:.5;}
+.ed-art svg{height:78%;width:auto;max-width:50%;}
+.ed-label{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,2.4rem);font-style:italic;font-weight:400;color:#fff;padding:28px 32px;}
+
+/* ===== ABOUT ===== */
+.about-section{background:var(--bg2);padding:80px 20px;text-align:center;}
+.about-section .sec-label{display:block;}
+.about-section .sec-h{max-width:660px;margin:0 auto 18px;}
+.about-section p{font-size:.9rem;color:var(--body);max-width:540px;margin:0 auto 32px;line-height:1.9;}
+.btn-gold-outline{display:inline-block;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;background:var(--gold);color:#fff;padding:14px 32px;transition:background .35s,transform .3s;}
+.btn-gold-outline:hover{background:var(--gold-h);transform:translateY(-2px);}
+
+/* ===== DARK BANNER ===== */
+.dark-banner{
+  background:linear-gradient(145deg,#30302C 0%,#252520 45%,#2E2E28 100%);
+  padding:80px 20px;text-align:center;position:relative;overflow:hidden;
 }
+.dark-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4.5vw,3.4rem);font-style:italic;font-weight:400;color:#fff;max-width:680px;margin:0 auto 16px;}
+.dark-banner p{font-size:.88rem;color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 32px;line-height:1.85;}
+.btn-w-outline{display:inline-block;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;color:#fff;border:1px solid rgba(255,255,255,.45);padding:14px 32px;transition:background .35s,border-color .35s,transform .3s;}
+.btn-w-outline:hover{background:#fff;color:var(--dark);border-color:#fff;transform:translateY(-2px);}
 
-/* ===== REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(50px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
-.reveal.in { opacity: 1; transform: none; }
-.r-left { opacity: 0; transform: translateX(-60px); transition: opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); }
-.r-left.in { opacity: 1; transform: none; }
-.r-right { opacity: 0; transform: translateX(60px); transition: opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); }
-.r-right.in { opacity: 1; transform: none; }
-.r-scale { opacity: 0; transform: scale(.94) translateY(30px); transition: opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); }
-.r-scale.in { opacity: 1; transform: none; }
-.d1{transition-delay:.06s}.d2{transition-delay:.14s}.d3{transition-delay:.22s}.d4{transition-delay:.3s}.d5{transition-delay:.38s}.d6{transition-delay:.46s}
-
-/* ===== SHARED ===== */
-.eyebrow { font-size: .6rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: block; }
-.eyebrow.light { color: var(--gold-soft); }
-.title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.06; font-weight: 500; color: var(--charcoal); letter-spacing: -.5px;
+/* ===== FAQ ===== */
+.faq{background:var(--bg);padding:0 0 72px;}
+.faq-img{width:100%;height:clamp(220px,35vw,460px);background:linear-gradient(145deg,#D8D2C8 0%,#CEC8BC 50%,#C4BEB2 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:48px;}
+.faq-img svg{width:min(55%,380px);opacity:.5;}
+.faq-head{padding:0 20px 36px;text-align:center;}
+.faq-list{max-width:800px;margin:0 auto;padding:0 20px;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 0;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:400;color:var(--ink);
 }
-.title.light { color: #fff; }
-.title em { font-style: italic; color: var(--gold); }
-.title.light em { color: var(--gold-soft); }
-.lead {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 1.3rem; color: var(--soft); line-height: 1.6;
-}
-.lead.light { color: rgba(255,255,255,.7); }
-.rule { width: 54px; height: 2px; background: linear-gradient(90deg, var(--wood), var(--gold-soft)); margin: 24px 0; border-radius: 2px; }
-.rule.center { margin: 24px auto; }
-p.body { font-size: .92rem; color: var(--soft); line-height: 1.95; }
+.faq-q .arr{font-size:.85rem;color:var(--muted);transition:transform .35s,color .3s;flex-shrink:0;margin-left:16px;}
+.faq-q.open .arr{transform:rotate(180deg);color:var(--gold);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1);}
+.faq-a p{font-size:.88rem;color:var(--body);line-height:1.85;padding-bottom:22px;}
 
-/* ===== PHILOSOPHY ===== */
-.philosophy { max-width: 1240px; margin: 0 auto; padding: 150px 56px; }
-.phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; align-items: center; }
-.phil-art {
-  aspect-ratio: 4/5; background: linear-gradient(150deg, var(--sand), var(--sand-2));
-  border-radius: 3px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
-}
-.phil-art::after { content:""; position: absolute; inset: 18px; border: 1px solid var(--line); border-radius: 2px; }
-.phil-art svg { width: 64%; }
-.phil-art svg [data-s] { stroke: var(--wood); stroke-width: 1.5; fill: none; vector-effect: non-scaling-stroke; }
-.phil-art svg [data-f] { fill: rgba(166,124,82,.08); }
-.phil-accent { position: absolute; bottom: -26px; left: -26px; width: 150px; height: 150px; border: 1.5px solid var(--gold-soft); border-radius: 2px; z-index: -1; }
-
-/* ===== STATS ===== */
-.stats { background: var(--sand); }
-.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); }
-.stat { padding: 80px 40px; text-align: center; border-right: 1px solid var(--line); }
-.stat:last-child { border-right: none; }
-.stat .n { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,6vw,5rem); font-weight: 500; color: var(--charcoal); line-height: 1; }
-.stat .n em { font-style: italic; color: var(--gold); }
-.stat .l { font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--soft); margin-top: 12px; }
-
-/* ===== COLLECTIONS ===== */
-.collections { max-width: 1240px; margin: 0 auto; padding: 150px 56px; }
-.col-head { text-align: center; margin-bottom: 76px; }
-.col-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.col-card {
-  position: relative; background: var(--white); border: 1px solid var(--line);
-  border-radius: 3px; padding: 48px 40px 44px; overflow: hidden;
-  transition: transform .5s cubic-bezier(.22,.61,.36,1), box-shadow .5s ease, border-color .5s ease;
-}
-.col-card::before {
-  content:""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(var(--wood), var(--gold-soft)); transform: scaleY(0); transform-origin: top; transition: transform .5s cubic-bezier(.22,.61,.36,1);
-}
-.col-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(33,29,26,.1); border-color: transparent; }
-.col-card:hover::before { transform: scaleY(1); }
-.col-icon { width: 76px; height: 60px; margin-bottom: 26px; }
-.col-icon [data-s] { stroke: var(--charcoal); stroke-width: 1.5; fill: none; vector-effect: non-scaling-stroke; transition: stroke .5s; }
-.col-card:hover .col-icon [data-s] { stroke: var(--gold); }
-.col-name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 500; color: var(--charcoal); margin-bottom: 10px; }
-.col-desc { font-size: .84rem; color: var(--soft); line-height: 1.75; margin-bottom: 18px; }
-.col-link { font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-flex; gap: 8px; transition: gap .3s; }
-.col-card:hover .col-link { gap: 14px; }
-
-/* ===== TROPICAL FEATURE ===== */
-.tropical { background: linear-gradient(155deg, #25201C, #2F2722 70%, #3A2F26); padding: 150px 56px; position: relative; overflow: hidden; }
-.tropical-glow { position: absolute; left: -10vw; bottom: -10vw; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(201,172,120,.14), transparent 60%); }
-.trop-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; gap: 90px; align-items: center; position: relative; z-index: 2; }
-.trop-art { display: flex; justify-content: center; }
-.trop-art svg { width: 80%; max-width: 360px; }
-.trop-art svg [data-s] { stroke: rgba(201,172,120,.6); stroke-width: 1.4; fill: none; vector-effect: non-scaling-stroke; }
-.trop-art svg [data-f] { fill: rgba(201,172,120,.07); }
-
-/* ===== MATERIALS ===== */
-.materials { max-width: 1240px; margin: 0 auto; padding: 150px 56px; }
-.mat-head { max-width: 640px; margin-bottom: 70px; }
-.mat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 56px; }
-.mat-item { }
-.mat-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--gold); margin-bottom: 16px; }
-.mat-divider { width: 100%; height: 1px; background: var(--line); margin-bottom: 22px; }
-.mat-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--charcoal); margin-bottom: 12px; }
-.mat-item p { font-size: .85rem; color: var(--soft); line-height: 1.8; }
-
-/* ===== QUOTE ===== */
-.quote { background: var(--sand); padding: 140px 56px; text-align: center; }
-.quote .mark { font-family: 'Cormorant Garamond', serif; font-size: 6rem; color: var(--gold-soft); line-height: .4; display: block; margin-bottom: 36px; }
-.quote q { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.5rem,3.4vw,2.7rem); color: var(--charcoal); max-width: 840px; margin: 0 auto; line-height: 1.45; display: block; quotes: none; }
-.quote cite { font-size: .6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--soft); margin-top: 34px; display: block; font-style: normal; }
-
-/* ===== VISIT / CONTACT ===== */
-.visit { max-width: 1240px; margin: 0 auto; padding: 150px 56px; }
-.visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
-.visit-info .row { display: flex; gap: 18px; align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--line); }
-.visit-info .row:first-of-type { border-top: 1px solid var(--line); }
-.visit-info .ic { width: 22px; height: 22px; flex-shrink: 0; margin-top: 3px; }
-.visit-info .ic [data-s] { stroke: var(--gold); stroke-width: 1.6; fill: none; vector-effect: non-scaling-stroke; }
-.visit-info .k { font-size: .55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.visit-info .v { font-size: .95rem; color: var(--ink); }
-.visit-info .v a { color: var(--ink); text-decoration: none; transition: color .3s; }
-.visit-info .v a:hover { color: var(--gold); }
-.visit-cta { margin-top: 40px; }
-.visit-map {
-  aspect-ratio: 1/1; background: linear-gradient(150deg, var(--sand), var(--sand-2));
-  border-radius: 3px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
-}
-.visit-map::after { content:""; position: absolute; inset: 18px; border: 1px solid var(--line); border-radius: 2px; }
-.visit-map svg { width: 50%; }
-.visit-map svg [data-s] { stroke: var(--wood); stroke-width: 1.5; fill: none; vector-effect: non-scaling-stroke; }
-.visit-map svg [data-f] { fill: rgba(166,124,82,.1); }
+/* ===== NEWSLETTER ===== */
+.newsletter{background:var(--bg);padding:72px 20px;border-top:1px solid var(--line);text-align:center;}
+.newsletter .sec-h{max-width:580px;margin:0 auto 36px;font-size:clamp(1.6rem,3.8vw,2.6rem);}
+.nl-form{display:flex;align-items:stretch;max-width:520px;margin:0 auto;border-bottom:1px solid var(--line);}
+.nl-form input{flex:1;background:none;border:none;outline:none;font-family:'Jost',sans-serif;font-size:.92rem;font-weight:300;color:var(--ink);padding:12px 0;caret-color:var(--gold);}
+.nl-form input::placeholder{color:var(--muted);}
+.nl-form button{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;color:var(--ink);padding:12px 0 12px 20px;display:flex;align-items:center;gap:8px;transition:color .3s,gap .3s;}
+.nl-form button:hover{color:var(--gold);gap:14px;}
 
 /* ===== FOOTER ===== */
-footer { background: var(--charcoal); padding: 90px 56px 50px; }
-.foot-grid { max-width: 1240px; margin: 0 auto 56px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; }
-.foot-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; letter-spacing: 4px; text-transform: uppercase; color: #fff; font-weight: 500; margin-bottom: 18px; }
-.foot-tag { font-size: .82rem; color: rgba(255,255,255,.4); line-height: 1.8; max-width: 280px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
-.foot-col h4 { font-size: .58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 22px; }
-.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.foot-col a { font-size: .82rem; color: rgba(255,255,255,.5); text-decoration: none; transition: color .3s; }
-.foot-col a:hover { color: #fff; }
-.foot-bottom { max-width: 1240px; margin: 0 auto; padding-top: 36px; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.foot-bottom p { font-size: .6rem; letter-spacing: 1px; color: rgba(255,255,255,.3); }
+footer{background:var(--bg);border-top:1px solid var(--line);padding:60px 20px 32px;}
+.foot-logo-wrap{text-align:center;margin-bottom:20px;}
+.foot-logo-badge{display:inline-flex;align-items:stretch;border:1px solid var(--line);}
+.foot-logo-badge .ls{width:60px;height:60px;background:var(--logo);display:flex;align-items:center;justify-content:center;}
+.foot-logo-badge .ls svg{width:40px;height:40px;}
+.foot-logo-badge .lt{padding:0 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:'Cormorant Garamond',serif;}
+.foot-logo-badge .lt1{font-size:.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--ink);font-weight:500;}
+.foot-logo-badge .lt2{font-size:.6rem;letter-spacing:5px;text-transform:uppercase;color:var(--muted);}
+.foot-social-text{text-align:center;font-size:.84rem;color:var(--body);max-width:400px;margin:20px auto 22px;line-height:1.7;}
+.foot-socials{display:flex;justify-content:center;gap:20px;margin-bottom:44px;}
+.foot-socials a{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .3s,background .3s;}
+.foot-socials a:hover{border-color:var(--ink);background:var(--ink);}
+.foot-socials a svg{width:18px;height:18px;}
+.foot-socials a svg [si]{stroke:var(--ink);stroke-width:1.6;fill:none;vector-effect:non-scaling-stroke;transition:stroke .3s;}
+.foot-socials a:hover svg [si]{stroke:#fff;}
+/* Accordion footer sections */
+.foot-acc{border-top:1px solid var(--line);}
+.foot-acc-item{border-bottom:1px solid var(--line);}
+.foot-acc-head{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--body);}
+.foot-acc-head .farr{font-size:.8rem;color:var(--muted);transition:transform .35s;}
+.foot-acc-head.open .farr{transform:rotate(180deg);}
+.foot-acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.foot-acc-body ul{list-style:none;padding:0 0 16px;}
+.foot-acc-body li a{display:block;font-size:.84rem;color:var(--body);padding:6px 0;transition:color .3s;}
+.foot-acc-body li a:hover{color:var(--gold);}
+/* Contact rows */
+.foot-contact{margin-top:32px;}
+.fc-row{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);}
+.fc-row:last-child{border-bottom:none;}
+.fc-label{font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;display:block;}
+.fc-val{font-size:.85rem;color:var(--body);}
+.fc-val a{color:var(--body);transition:color .3s;}
+.fc-val a:hover{color:var(--gold);}
+.fc-icon svg{width:20px;height:20px;flex-shrink:0;margin-top:16px;}
+.fc-icon [fci]{stroke:var(--gold);stroke-width:1.6;fill:none;vector-effect:non-scaling-stroke;}
+.foot-copy{font-size:.62rem;color:var(--muted);text-align:center;margin-top:28px;line-height:1.7;}
+
+/* ===== VIDEO REVEAL SECTIONS ===== */
+.vid-section{position:relative;width:100%;height:clamp(300px,52vw,680px);overflow:hidden;background:#12100E;cursor:pointer;}
+.vid-canvas{position:absolute;inset:0;will-change:transform;animation:none;}
+.vid-section.vplaying .vid-canvas{animation:vcam 12s ease-in-out infinite alternate;}
+@keyframes vcam{0%{transform:scale(1) translate(0,0);}33%{transform:scale(1.04) translate(-1%,.5%);}66%{transform:scale(1.06) translate(.8%,-1%);}100%{transform:scale(1.03) translate(-.5%,.8%);}}
+.vid-canvas-1{background:linear-gradient(150deg,#2E2820 0%,#1E1C16 25%,#3A3228 50%,#242018 75%,#2C2416 100%);}
+.vid-canvas-2{background:linear-gradient(135deg,#1C2018 0%,#282C1E 30%,#1E2414 60%,#242A18 100%);}
+.vid-canvas-3{background:linear-gradient(160deg,#281E16 0%,#322818 35%,#1E1A14 65%,#2C2418 100%);}
+.vid-over{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,10,8,.3) 0%,transparent 30%,transparent 70%,rgba(12,10,8,.55) 100%);}
+.vid-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1.4s cubic-bezier(.22,.61,.36,1);}
+.vid-section.vplaying .vid-art{opacity:1;}
+.vid-art svg{width:min(72%,680px);height:auto;}
+[va]{stroke:rgba(255,255,255,.13);stroke-width:1.2;fill:none;vector-effect:non-scaling-stroke;}
+[vaf]{fill:rgba(255,255,255,.05);}
+[vah]{stroke:rgba(168,134,92,.25);stroke-width:1.4;fill:none;vector-effect:non-scaling-stroke;}
+.vid-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .4s,transform .4s,opacity .5s;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:2;
+}
+.vid-play svg{width:24px;height:24px;fill:#fff;margin-left:4px;}
+.vid-section:hover .vid-play{background:rgba(255,255,255,.18);transform:translate(-50%,-50%) scale(1.1);}
+.vid-section.vplaying .vid-play{opacity:0;pointer-events:none;}
+.vid-caption{
+  position:absolute;bottom:0;left:0;right:0;padding:36px 40px;z-index:2;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:rgba(255,255,255,.0);
+  font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.3;
+  transition:color 1.2s cubic-bezier(.22,.61,.36,1) .3s;
+}
+.vid-section.vplaying .vid-caption{color:rgba(255,255,255,.9);}
+.vid-caption small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;transition:color 1.2s .2s;}
+.vid-section.vplaying .vid-caption small{color:var(--gold);}
+/* Floating particles in video sections */
+.vid-particles{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
+.vp{position:absolute;border-radius:50%;opacity:0;background:rgba(168,134,92,.35);animation:vpart 6s ease-in-out infinite;}
+.vp:nth-child(1){width:4px;height:4px;left:18%;top:32%;animation-delay:0s;animation-duration:7s;}
+.vp:nth-child(2){width:3px;height:3px;left:42%;top:58%;animation-delay:1.4s;animation-duration:8.5s;}
+.vp:nth-child(3){width:5px;height:5px;left:68%;top:25%;animation-delay:2.8s;animation-duration:6.5s;}
+.vp:nth-child(4){width:3px;height:3px;left:82%;top:64%;animation-delay:.7s;animation-duration:9s;}
+.vp:nth-child(5){width:4px;height:4px;left:28%;top:72%;animation-delay:3.5s;animation-duration:7.5s;}
+@keyframes vpart{0%{opacity:0;transform:translateY(0);}20%{opacity:1;}80%{opacity:.6;}100%{opacity:0;transform:translateY(-48px);}}
+.vid-section.vplaying .vp{animation-play-state:running;}
+.vid-section:not(.vplaying) .vp{animation-play-state:paused;}
+
+/* ===== STATS COUNTER ===== */
+.stats-bar{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 20px;}
+.stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.stat-item{text-align:center;padding:28px 16px;border-right:1px solid var(--line);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;color:var(--ink);line-height:1;letter-spacing:-1px;}
+.stat-suf{font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.stat-label{font-size:.58rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--muted);margin-top:10px;display:block;}
+@media(max-width:600px){.stats-inner{grid-template-columns:repeat(2,1fr);}.stat-item:nth-child(2){border-right:none;}.stat-item:nth-child(3){border-right:1px solid var(--line);}.stat-item{padding:20px 12px;}}
+
+/* ===== WA FAB ===== */
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:800;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s;}
+.wa-fab:hover{transform:scale(1.1);box-shadow:0 14px 36px rgba(37,211,102,.5);}
+.wa-fab svg{width:28px;height:28px;fill:#fff;}
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1040px) {
-  nav, .hero-inner, .philosophy, .collections, .materials, .visit { padding-left: 36px; padding-right: 36px; }
-  .tropical, .quote, footer { padding-left: 36px; padding-right: 36px; }
-  .phil-grid, .visit-grid { gap: 56px; }
-  .trop-grid { gap: 56px; }
-  .col-grid, .mat-grid { gap: 18px; }
+@media(max-width:900px){
+  .q-grid{grid-template-columns:1fr;}
+  .q-card{padding:44px 32px;}
 }
-@media (max-width: 820px) {
-  .nav-links { display: none; }
-  .hero-furniture { opacity: .22 !important; right: -8%; width: 70vw; }
-  .phil-grid, .trop-grid, .visit-grid { grid-template-columns: 1fr; }
-  .phil-accent { display: none; }
-  .stats-inner { grid-template-columns: 1fr; }
-  .stat { border-right: none; border-bottom: 1px solid var(--line); padding: 56px 32px; }
-  .stat:last-child { border-bottom: none; }
-  .col-grid, .mat-grid { grid-template-columns: 1fr; }
-  .mat-grid { gap: 44px; }
-  .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-}
-@media (max-width: 560px) {
-  nav, .hero-inner, .philosophy, .collections, .materials, .visit,
-  .tropical, .quote, footer { padding-left: 24px; padding-right: 24px; }
-  .philosophy, .collections, .materials, .visit, .tropical { padding-top: 100px; padding-bottom: 100px; }
-  .foot-grid { grid-template-columns: 1fr; }
-  .foot-bottom { flex-direction: column; }
+@media(max-width:600px){
+  nav{padding:0 16px;height:64px;}
+  .hero{margin-top:64px;padding-bottom:60px;}
+  .hero-body{padding:0 24px;}
+  .ctile-name{padding:22px 24px;}
+  .ed-label{padding:22px 24px;}
 }
 </style>
 </head>
 <body>
 
+<!-- ===== WA FAB ===== -->
+<a class="wa-fab" href="https://wa.me/17869286636" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ===== DRAWER ===== -->
+<div class="drawer-overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose">✕</button>
+  <div class="drawer-label">Categories</div>
+  <div class="drawer-item">Living room <span class="ch">›</span></div>
+  <div class="drawer-item">Bedrooms <span class="ch">›</span></div>
+  <div class="drawer-item">Children <span class="ch">›</span></div>
+  <div class="drawer-item">Dining room <span class="ch">›</span></div>
+  <div class="drawer-item">Office furniture <span class="ch">›</span></div>
+  <div class="drawer-item">Decoration <span class="ch">›</span></div>
+  <div class="drawer-item">Miami Tropical Collection</div>
+  <div class="drawer-item">Lamps</div>
+  <div class="drawer-item">Outdoor</div>
+  <hr>
+  <div class="drawer-item">Home</div>
+  <div class="drawer-item">About us</div>
+  <div class="drawer-item">Shop</div>
+  <div class="drawer-item">Contact us</div>
+</div>
+
 <!-- ===== NAV ===== -->
 <nav id="nav">
-  <a class="nav-logo" href="#top">Deco<b>Trends</b></a>
-  <ul class="nav-links">
-    <li><a href="#filosofia">Filosofía</a></li>
-    <li><a href="#colecciones">Colecciones</a></li>
-    <li><a href="#tropical">Tropical</a></li>
-    <li><a href="#materiales">Materiales</a></li>
-    <li><a href="#visitanos">Visítanos</a></li>
-  </ul>
-  <a href="#visitanos" class="nav-cta">Showroom</a>
+  <div class="nav-l">
+    <div class="ham" id="hamBtn"><span></span><span></span><span></span></div>
+    <a href="#" class="logo-badge">
+      <div class="logo-sq">
+        <svg viewBox="0 0 50 50"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="22" fill="#E8D5B0" font-weight="500" letter-spacing="1">DT</text></svg>
+      </div>
+      <div class="logo-txt"><span class="lt1">DECO</span><span class="lt2">TRENDS</span></div>
+    </a>
+  </div>
+  <div class="nav-flags">🇺🇸 🇪🇸</div>
+  <div class="nav-r">
+    <svg class="nic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <svg class="nic" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <svg class="nic" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+  </div>
 </nav>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
-  <div class="hero-glow"></div>
-  <!-- sofa line art -->
-  <svg class="hero-furniture" viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
-    <path d="M60 250 L60 170 Q60 140 90 140 L470 140 Q500 140 500 170 L500 250"/>
-    <path d="M60 200 Q40 200 40 230 L40 280 Q40 290 50 290 L510 290 Q520 290 520 280 L520 230 Q520 200 500 200"/>
-    <path d="M90 200 Q90 175 115 175 L445 175 Q470 175 470 200 L470 215 L90 215 Z"/>
-    <line x1="160" y1="215" x2="160" y2="200"/>
-    <line x1="280" y1="215" x2="280" y2="200"/>
-    <line x1="400" y1="215" x2="400" y2="200"/>
-    <line x1="70" y1="290" x2="70" y2="320"/>
-    <line x1="490" y1="290" x2="490" y2="320"/>
-    <line x1="150" y1="290" x2="150" y2="312"/>
-    <line x1="410" y1="290" x2="410" y2="312"/>
-  </svg>
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Diseño de Interiores · Miami</p>
-    <h1>Espacios que<br>cuentan tu <em>historia</em></h1>
-    <p class="hero-sub">Muebles de líneas limpias y materiales nobles. El buen diseño no necesita ser complicado.</p>
-    <div class="hero-actions">
-      <a href="#colecciones" class="btn btn-primary">Ver colecciones</a>
-      <a href="#visitanos" class="btn btn-ghost">Visitar showroom</a>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-svg">
+    <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax meet">
+      <rect hs x="150" y="230" width="900" height="210" rx="14"/>
+      <rect hs x="195" y="145" width="270" height="105" rx="9"/>
+      <rect hs x="485" y="145" width="230" height="105" rx="9"/>
+      <rect hs x="735" y="145" width="280" height="105" rx="9"/>
+      <rect hd x="118" y="162" width="78" height="228" rx="11"/>
+      <rect hd x="1004" y="162" width="78" height="228" rx="11"/>
+      <rect hl x="205" y="238" width="255" height="94" rx="7"/>
+      <rect hl x="472" y="238" width="255" height="94" rx="7"/>
+      <rect hl x="740" y="238" width="250" height="94" rx="7"/>
+      <rect hd x="176" y="430" width="26" height="50" rx="4"/>
+      <rect hd x="370" y="430" width="26" height="50" rx="4"/>
+      <rect hd x="804" y="430" width="26" height="50" rx="4"/>
+      <rect hd x="998" y="430" width="26" height="50" rx="4"/>
+      <circle hs cx="210" cy="168" r="4.5"/><circle hs cx="228" cy="168" r="4.5"/><circle hs cx="246" cy="168" r="4.5"/><circle hs cx="264" cy="168" r="4.5"/>
+      <circle hs cx="210" cy="240" r="3.5"/><circle hs cx="740" cy="240" r="3.5"/>
+    </svg>
+  </div>
+  <div class="hero-grad"></div>
+  <div class="hero-body">
+    <h1>Create spaces<br>that make you<br>fall in love</h1>
+    <p>Bring every corner of your home to life with our furniture. Our designs combine comfort, functionality, and a touch of sophistication.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-solid">BUY</a>
+      <a href="#contact" class="btn-ghost-w">CONTACT US &nbsp;→</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-dots"><div class="dot"></div><div class="dot on"></div><div class="dot"></div></div>
 </section>
 
-<!-- ===== PHILOSOPHY ===== -->
-<section class="philosophy" id="filosofia">
-  <div class="phil-grid">
-    <div class="r-left">
-      <div class="phil-art">
-        <!-- armchair illustration -->
-        <svg viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
-          <path data-f data-s d="M70 150 Q60 90 90 80 Q150 70 210 80 Q240 90 230 150 L230 220 L70 220 Z"/>
-          <path data-s d="M70 160 Q40 160 40 195 L40 235 L70 235"/>
-          <path data-s d="M230 160 Q260 160 260 195 L260 235 L230 235"/>
-          <path data-f data-s d="M70 215 L230 215 L235 255 L65 255 Z"/>
-          <line data-s x1="80" y1="255" x2="80" y2="295"/>
-          <line data-s x1="220" y1="255" x2="220" y2="295"/>
-          <line data-s x1="95" y1="255" x2="95" y2="285"/>
-          <line data-s x1="205" y1="255" x2="205" y2="285"/>
-        </svg>
+<!-- ===== MARQUEE ===== -->
+<div class="marquee">
+  <div class="mtrack">
+    <span class="mit">New Arrivals</span><span class="mdot"></span><span class="mit">Living Room</span><span class="mdot"></span><span class="mit">Miami Tropical Collection</span><span class="mdot"></span><span class="mit">Solid Woods</span><span class="mdot"></span><span class="mit">Bedroom</span><span class="mdot"></span><span class="mit">Office Furniture</span><span class="mdot"></span><span class="mit">Outdoor</span><span class="mdot"></span><span class="mit">Decoration</span><span class="mdot"></span>
+    <span class="mit">New Arrivals</span><span class="mdot"></span><span class="mit">Living Room</span><span class="mdot"></span><span class="mit">Miami Tropical Collection</span><span class="mdot"></span><span class="mit">Solid Woods</span><span class="mdot"></span><span class="mit">Bedroom</span><span class="mdot"></span><span class="mit">Office Furniture</span><span class="mdot"></span><span class="mit">Outdoor</span><span class="mdot"></span><span class="mit">Decoration</span><span class="mdot"></span>
+  </div>
+</div>
+
+<!-- ===== QUALITY ===== -->
+<section class="quality">
+  <div class="quality-inner">
+    <div class="q-grid">
+      <div class="q-card rv d1">
+        <svg class="q-icon" viewBox="0 0 44 44"><g qi><rect x="8" y="18" width="28" height="18" rx="3"/><path d="M8 26 L36 26"/><path d="M14 18 L14 12 L30 12 L30 18"/><circle cx="22" cy="12" r="3"/></g></svg>
+        <h3 class="q-title">Guaranteed Quality</h3>
+        <p class="q-desc">Each piece of furniture reflects our relentless attention to detail, crafted to stand the test of time.</p>
       </div>
-      <div class="phil-accent"></div>
+      <div class="q-card rv d2">
+        <svg class="q-icon" viewBox="0 0 44 44"><g qi><path d="M8 36 C8 23 14 10 22 8 C30 10 36 23 36 36"/><path d="M15 36 C15 27 18 17 22 15 C26 17 29 27 29 36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="8" y1="36" x2="36" y2="36"/></g></svg>
+        <h3 class="q-title">Solid Woods</h3>
+        <p class="q-desc">Our furniture is made with solid woods to ensure strength, elegance, and lasting quality in every grain.</p>
+      </div>
+      <div class="q-card rv d3">
+        <svg class="q-icon" viewBox="0 0 44 44"><g qi><circle cx="22" cy="20" r="10"/><path d="M22 10 L22 6"/><path d="M22 34 L22 38"/><path d="M32 20 L36 20"/><path d="M8 20 L12 20"/><path d="M29.1 12.9 L31.9 10.1"/><path d="M12.1 29.9 L14.9 27.1"/><path d="M29.1 27.1 L31.9 29.9"/><path d="M12.1 12.9 L14.9 15.7"/><circle cx="22" cy="20" r="3.5"/></g></svg>
+        <h3 class="q-title">Eco-Conscious Design</h3>
+        <p class="q-desc">Materials meticulously selected with an eco-conscious mind, prioritizing responsibly sourced wood and recycled materials.</p>
+      </div>
     </div>
-    <div class="r-right">
-      <span class="eyebrow">Nuestra Filosofía</span>
-      <h2 class="title">Minimalismo<br>con <em>alma</em></h2>
-      <div class="rule"></div>
-      <p class="lead">Una marca de decoración nacida de la pasión de dos mujeres por el arte de habitar los espacios.</p>
-      <div style="height:24px"></div>
-      <p class="body">Creemos que el buen diseño no necesita ser complicado: líneas limpias, formas refinadas y un lujo discreto que nunca sacrifica la funcionalidad. Cada pieza es una expresión de estilo pensada para acompañarte por años.</p>
-      <p class="body">Desde la sala hasta la oficina, diseñamos ambientes acogedores, modernos y profundamente personales.</p>
-    </div>
+    <div class="q-nav"><button>←</button><button>→</button></div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section class="stats">
+<!-- ===== FEATURED PRODUCTS ===== -->
+<section class="prod-section" id="products">
+  <div class="prod-head rv"><h2 class="sec-h">Enjoy our featured products</h2></div>
+  <div class="prod-grid">
+    <article class="pc rv d1">
+      <div class="pc-img">
+        <svg viewBox="0 0 280 210"><rect pf x="18" y="78" width="164" height="94" rx="22"/><rect pf x="162" y="78" width="82" height="62" rx="14"/><rect pi x="18" y="78" width="164" height="94" rx="22"/><rect pi x="162" y="78" width="82" height="62" rx="14"/><rect pi x="28" y="88" width="72" height="68" rx="14"/><rect pi x="112" y="88" width="60" height="68" rx="14"/><rect pi x="170" y="86" width="60" height="46" rx="10"/><rect pe x="18" y="162" width="226" height="10" rx="3"/></svg>
+      </div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">LIVING ROOM, SECTIONALS</div><div class="pc-name">Victoria 2-Piece Cream Performance Boucle L-Shaped Sectional (RAF)</div><div class="pc-price">$2,199.00</div></div>
+    </article>
+    <article class="pc rv d2">
+      <div class="pc-img">
+        <svg viewBox="0 0 280 210"><ellipse pf cx="128" cy="102" rx="92" ry="28"/><ellipse pf cx="186" cy="118" rx="60" ry="19"/><ellipse pi cx="128" cy="102" rx="92" ry="28"/><ellipse pi cx="186" cy="118" rx="60" ry="19"/><line pi x1="58" y1="114" x2="58" y2="158"/><line pi x1="196" y1="112" x2="196" y2="158"/><line pi x1="113" y1="122" x2="110" y2="158"/><line pi x1="143" y1="122" x2="146" y2="158"/><line pi x1="156" y1="130" x2="155" y2="158"/><line pi x1="216" y1="130" x2="218" y2="158"/></svg>
+      </div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">COFFEE TABLES, LIVING ROOM</div><div class="pc-name">Elizabetta Washed Ash Nesting Coffee Table Set</div><div class="pc-price">$999.00</div></div>
+    </article>
+    <article class="pc rv d3">
+      <div class="pc-img dark">
+        <svg viewBox="0 0 280 210"><path pdi d="M72 62 Q72 42 92 42 L188 42 Q208 42 208 62 L208 134 L72 134 Z"/><path pdi d="M72 62 Q62 62 60 82 L60 134"/><path pdi d="M208 62 Q218 62 220 82 L220 134"/><path pdi d="M60 134 L220 134 L215 160 L65 160 Z"/><line pdi x1="80" y1="160" x2="79" y2="182"/><line pdi x1="200" y1="160" x2="201" y2="182"/></svg>
+      </div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">ACCENT CHAIRS, DINING CHAIRS, LIVING ROOM</div><div class="pc-name">Pamela Boucle Upholstered Accent Side Chair Black</div><div class="pc-price">$249.00</div></div>
+    </article>
+    <article class="pc rv d4">
+      <div class="pc-img">
+        <svg viewBox="0 0 280 210"><path pf d="M72 62 Q72 42 92 42 L188 42 Q208 42 208 62 L208 134 L72 134 Z"/><path pi d="M72 62 Q72 42 92 42 L188 42 Q208 42 208 62 L208 134 L72 134 Z"/><path pi d="M72 62 Q62 62 60 82 L60 134"/><path pi d="M208 62 Q218 62 220 82 L220 134"/><path pe d="M60 134 L220 134 L215 160 L65 160 Z"/><line pi x1="80" y1="160" x2="79" y2="182"/><line pi x1="200" y1="160" x2="201" y2="182"/></svg>
+      </div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">ACCENT CHAIRS, DINING CHAIRS, LIVING ROOM</div><div class="pc-name">Pamela Boucle Upholstered Accent Side Chair White</div><div class="pc-price">$249.00</div></div>
+    </article>
+  </div>
+  <div class="grid-link rv"><span class="gold-link">BUY BEST SELLERS &nbsp;→</span></div>
+</section>
+
+<!-- ===== FEATURED COLLECTION BANNER ===== -->
+<section class="feat-band rv">
+  <span class="sec-label">FEATURED COLLECTIONS</span>
+  <h2 class="sec-h">Compact Furniture to Maximize Your Space</h2>
+  <p>Discover smart furniture solutions designed to optimize every corner of your home, without sacrificing style or functionality.</p>
+  <a href="#shop" class="btn-gold">EXPLORE COLLECTIONS</a>
+</section>
+<div class="feat-img-strip rs">
+  <svg viewBox="0 0 600 380"><rect fi ff x="76" y="128" width="448" height="208" rx="8"/><rect fi x="76" y="98" width="448" height="40" rx="6"/><rect fi x="86" y="108" width="196" height="22" rx="3"/><rect fi x="302" y="108" width="212" height="22" rx="3"/><line fi x1="96" y1="336" x2="96" y2="370"/><line fi x1="508" y1="336" x2="508" y2="370"/><rect ff fi x="540" y="244" width="48" height="82" rx="3"/><line fi x1="558" y1="244" x2="558" y2="200"/><path fi d="M542 200 Q558 185 574 200"/><line fi x1="28" y1="336" x2="28" y2="178"/><path ff fi d="M28 205 Q8 174 28 152 Q48 174 28 194"/><path ff fi d="M28 225 Q8 206 18 186 Q38 195 34 215"/></svg>
+  <div class="fi-dots"><div class="fi-dot"></div><div class="fi-dot"></div><div class="fi-dot on"></div><div class="fi-dot"></div></div>
+</div>
+
+<!-- ===== VIDEO REVEAL 1 ===== -->
+<div class="vid-section" id="vid1">
+  <div class="vid-canvas vid-canvas-1"></div>
+  <div class="vid-art">
+    <svg viewBox="0 0 900 480">
+      <rect va vaf x="60" y="80" width="780" height="320" rx="4"/>
+      <rect va x="60" y="56" width="780" height="34" rx="3"/>
+      <rect va x="72" y="64" width="340" height="18" rx="2"/>
+      <rect va x="432" y="64" width="396" height="18" rx="2"/>
+      <rect vaf va x="80" y="110" width="340" height="210" rx="3"/>
+      <rect vaf va x="440" y="110" width="380" height="210" rx="3"/>
+      <line va x1="80" y1="400" x2="80" y2="440"/>
+      <line va x1="820" y1="400" x2="820" y2="440"/>
+      <path vah d="M88 170 Q88 140 118 140 L378 140 Q408 140 408 170 L408 290 L88 290 Z"/>
+      <path vah d="M458 170 Q458 140 488 140 L790 140 Q820 140 820 170 L820 290 L458 290 Z"/>
+      <rect vah x="100" y="152" width="148" height="126" rx="12"/>
+      <rect vah x="262" y="152" width="134" height="126" rx="12"/>
+      <rect vah x="474" y="152" width="188" height="126" rx="12"/>
+      <rect vah x="676" y="152" width="132" height="126" rx="12"/>
+    </svg>
+  </div>
+  <div class="vid-over"></div>
+  <div class="vid-particles"><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div></div>
+  <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+  <div class="vid-caption"><small>LIVING ROOM COLLECTION</small>Spaces designed<br>to inspire comfort</div>
+</div>
+
+<!-- ===== SHOP BY CATEGORY ===== -->
+<div class="shop-head-wrap rv" id="shop"><h2 class="sec-h">Shop by category</h2></div>
+<div class="cat-stack">
+  <div class="ctile ct1 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="38" y="118" width="282" height="13" rx="2"/><line ca x1="58" y1="131" x2="58" y2="222"/><line ca x1="302" y1="131" x2="302" y2="222"/><rect ca cf x="38" y="76" width="132" height="44" rx="2"/><path ca cf d="M244 152 Q244 132 264 132 L322 132 Q342 132 342 152 L342 194 L244 194 Z"/><line ca x1="244" y1="194" x2="234" y2="224"/><line ca x1="342" y1="194" x2="352" y2="224"/><path ca d="M244 157 Q244 140 264 140 L322 140 Q342 140 342 157"/></svg></div>
+    <div class="ctile-name">Office furniture</div>
+  </div>
+  <div class="ctile ct2 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="38" y="118" width="324" height="82" rx="8"/><rect ca x="38" y="98" width="324" height="28" rx="4"/><line ca x1="38" y1="118" x2="362" y2="118"/><rect ca x="48" y="111" x2="146" y2="22" width="148" height="13" rx="3"/><rect ca x="210" y="111" width="140" height="13" rx="3"/><line ca x1="56" y1="200" x2="56" y2="242"/><line ca x1="344" y1="200" x2="344" y2="242"/></svg></div>
+    <div class="ctile-name">Mattresses</div>
+  </div>
+  <div class="ctile ct3 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><path ca cf d="M38 194 Q38 130 80 118 L320 118 Q362 130 362 194 Z"/><path ca d="M58 194 Q58 146 92 138 L308 138 Q342 146 342 194"/><path ca cf d="M58 194 L342 194 L342 215 L58 215 Z"/><line ca x1="78" y1="215" x2="78" y2="248"/><line ca x1="322" y1="215" x2="322" y2="248"/><ellipse ca cf cx="200" cy="256" rx="82" ry="20"/><line ca x1="160" y1="270" x2="155" y2="290"/><line ca x1="240" y1="270" x2="245" y2="290"/></svg></div>
+    <div class="ctile-name">Living room</div>
+  </div>
+  <div class="ctile ct4 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="98" y="118" width="204" height="14" rx="4"/><line ca x1="130" y1="132" x2="130" y2="202"/><line ca x1="270" y1="132" x2="270" y2="202"/><rect ca x="52" y="128" width="42" height="52" rx="6"/><line ca x1="52" y1="180" x2="46" y2="212"/><line ca x1="94" y1="180" x2="100" y2="212"/><rect ca x="306" y="128" width="42" height="52" rx="6"/><line ca x1="306" y1="180" x2="300" y2="212"/><line ca x1="348" y1="180" x2="354" y2="212"/><circle ca cx="200" cy="88" r="20"/><line ca x1="200" y1="108" x2="200" y2="120"/></svg></div>
+    <div class="ctile-name">Dining room</div>
+  </div>
+  <div class="ctile ct5 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="48" y="100" width="304" height="162" rx="6"/><rect ca x="48" y="80" width="304" height="30" rx="4"/><rect ca x="58" y="88" width="132" height="16" rx="3"/><rect ca x="210" y="88" width="132" height="16" rx="3"/><line ca x1="68" y1="262" x2="68" y2="290"/><line ca x1="332" y1="262" x2="332" y2="290"/><rect ca cf x="362" y="198" width="36" height="62" rx="3"/></svg></div>
+    <div class="ctile-name">Decoration</div>
+  </div>
+  <div class="ctile ct6 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="80" y="110" width="180" height="130" rx="6"/><rect ca x="80" y="90" width="180" height="28" rx="4"/><rect ca x="90" y="98" width="76" height="14" rx="3"/><rect ca x="174" y="98" width="76" height="14" rx="3"/><line ca x1="98" y1="240" x2="96" y2="264"/><line ca x1="242" y1="240" x2="244" y2="264"/><path ca cf d="M290 150 Q310 130 330 130 Q350 130 350 150 L350 240 L290 240 Z"/><line ca x1="295" y1="240" x2="294" y2="264"/><line ca x1="344" y1="240" x2="346" y2="264"/></svg></div>
+    <div class="ctile-name">Children</div>
+  </div>
+  <div class="ctile ct7 rv"><div class="ctile-bg"></div><div class="ctile-over"></div>
+    <div class="ctile-art"><svg viewBox="0 0 400 280"><rect ca cf x="42" y="100" width="316" height="162" rx="8"/><rect ca x="42" y="78" width="316" height="32" rx="5"/><rect ca x="52" y="86" width="140" height="18" rx="3"/><rect ca x="208" y="86" width="140" height="18" rx="3"/><line ca x1="60" y1="262" x2="60" y2="290"/><line ca x1="340" y1="262" x2="340" y2="290"/><rect ca cf x="360" y="196" width="40" height="66" rx="3"/><line ca x1="376" y1="196" x2="376" y2="162"/><path ca d="M362 162 Q376 148 390 162"/></svg></div>
+    <div class="ctile-name">Bedroom</div>
+  </div>
+</div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testim">
+  <div class="rv">
+    <span class="sec-label">TESTIMONIALS</span>
+    <span class="stars">★★★★★</span>
+    <p class="testim-body">"Variety and affordable prices. I loved the variety of styles available. I found just what I needed for my dining room at a super reasonable price. I recommend this store 100%!"</p>
+    <div class="testim-dots"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot on"></div><div class="t-dot"></div><div class="t-dot"></div></div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat reveal d1">
-      <div class="n" data-target="8">0</div>
-      <div class="l">Colecciones</div>
+    <div class="stat-item rv d1"><div class="stat-num"><span class="cnt" data-target="12">0</span><span class="stat-suf">+</span></div><span class="stat-label">Years of experience</span></div>
+    <div class="stat-item rv d2"><div class="stat-num"><span class="cnt" data-target="3500">0</span><span class="stat-suf">+</span></div><span class="stat-label">Happy clients</span></div>
+    <div class="stat-item rv d3"><div class="stat-num"><span class="cnt" data-target="800">0</span><span class="stat-suf">+</span></div><span class="stat-label">Products available</span></div>
+    <div class="stat-item rv d4"><div class="stat-num"><span class="cnt" data-target="98">0</span><span class="stat-suf">%</span></div><span class="stat-label">Satisfaction rate</span></div>
+  </div>
+</div>
+
+<!-- ===== VIDEO REVEAL 2 ===== -->
+<div class="vid-section" id="vid2">
+  <div class="vid-canvas vid-canvas-2"></div>
+  <div class="vid-art">
+    <svg viewBox="0 0 900 480">
+      <path va vaf d="M120 310 Q120 200 165 175 L565 175 Q610 200 610 310 Z"/>
+      <path va d="M145 310 Q145 215 182 196 L542 196 Q582 215 582 310"/>
+      <path va vaf d="M145 310 L582 310 L582 345 L145 345 Z"/>
+      <line va x1="175" y1="345" x2="174" y2="390"/>
+      <line va x1="555" y1="345" x2="556" y2="390"/>
+      <rect vah x="170" y="222" width="178" height="72" rx="14"/>
+      <rect vah x="360" y="222" width="178" height="72" rx="14"/>
+      <path vah d="M660 200 Q680 170 710 170 Q740 170 760 200 L760 345 L660 345 Z"/>
+      <line va x1="672" y1="345" x2="670" y2="390"/>
+      <line va x1="748" y1="345" x2="750" y2="390"/>
+      <rect va x="650" y="138" width="120" height="24" rx="3"/>
+      <rect vaf va x="120" y="106" width="600" height="62" rx="3"/>
+    </svg>
+  </div>
+  <div class="vid-over"></div>
+  <div class="vid-particles"><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div></div>
+  <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+  <div class="vid-caption"><small>BEDROOM COLLECTION</small>Rest in spaces<br>crafted with care</div>
+</div>
+
+<!-- ===== BEST SELLERS ===== -->
+<section class="bs-section">
+  <div class="bs-head rv"><h2 class="sec-h">Enjoy our best sellers</h2></div>
+  <div class="prod-grid">
+    <article class="pc rv d1">
+      <div class="pc-img"><svg viewBox="0 0 280 210"><rect pf x="24" y="82" width="232" height="94" rx="6"/><rect pi x="24" y="82" width="232" height="94" rx="6"/><rect pi x="24" y="64" width="232" height="24" rx="4"/><rect pi x="34" y="70" width="100" height="12" rx="3"/><rect pi x="146" y="70" width="100" height="12" rx="3"/><line pi x1="42" y1="176" x2="40" y2="200"/><line pi x1="236" y1="176" x2="238" y2="200"/><rect pe x="36" y="100" width="86" height="62" rx="12"/><rect pe x="136" y="100" width="106" height="62" rx="12"/></svg></div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">BEDROOM, BEDS</div><div class="pc-name">Vienna Set King Bed 4Pcs White Glossy/Light Gray</div><div class="pc-price">$1,399.00</div></div>
+    </article>
+    <article class="pc rv d2">
+      <div class="pc-img"><svg viewBox="0 0 280 210"><rect pf x="12" y="94" width="110" height="62" rx="16"/><rect pf x="138" y="94" width="110" height="62" rx="16"/><rect pf x="234" y="94" width="42" height="62" rx="16"/><rect pi x="12" y="94" width="110" height="62" rx="16"/><rect pi x="138" y="94" width="110" height="62" rx="16"/><rect pi x="234" y="94" width="42" height="62" rx="16"/><rect pe x="12" y="148" width="264" height="8" rx="3"/><line pi x1="28" y1="156" x2="26" y2="178"/><line pi x1="108" y1="156" x2="110" y2="178"/><line pi x1="154" y1="156" x2="152" y2="178"/><line pi x1="234" y1="156" x2="236" y2="178"/></svg></div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">LIVING ROOM, SOFAS</div><div class="pc-name">Scot 3-piece Faux Leather Upholstered Sofa Set</div><div class="pc-price">$1,369.00</div></div>
+    </article>
+    <article class="pc rv d3">
+      <div class="pc-img"><svg viewBox="0 0 280 210"><rect pf x="6" y="96" width="90" height="66" rx="18" style="fill:rgba(185,145,70,.25)"/><rect pf x="104" y="96" width="90" height="66" rx="18" style="fill:rgba(185,145,70,.25)"/><rect pf x="202" y="96" width="72" height="66" rx="18" style="fill:rgba(185,145,70,.25)"/><rect pi x="6" y="96" width="90" height="66" rx="18"/><rect pi x="104" y="96" width="90" height="66" rx="18"/><rect pi x="202" y="96" width="72" height="66" rx="18"/><rect pe x="6" y="154" width="268" height="9" rx="3"/><line pi x1="22" y1="163" x2="20" y2="186"/><line pi x1="82" y1="163" x2="84" y2="186"/><line pi x1="118" y1="163" x2="116" y2="186"/><line pi x1="180" y1="163" x2="182" y2="186"/></svg></div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">LIVING ROOM, SOFAS</div><div class="pc-name">Eisha 3-piece Sofa Set Mustard Yellow Special Promotion</div><div class="pc-price">$1,799.00</div></div>
+    </article>
+    <article class="pc rv d4">
+      <div class="pc-img"><svg viewBox="0 0 280 210"><rect pf x="8" y="82" width="175" height="94" rx="22"/><rect pf x="168" y="82" width="88" height="62" rx="14"/><rect pi x="8" y="82" width="175" height="94" rx="22"/><rect pi x="168" y="82" width="88" height="62" rx="14"/><rect pi x="18" y="92" width="76" height="68" rx="14"/><rect pi x="106" y="92" width="52" height="68" rx="14"/><rect pe x="8" y="166" width="248" height="10" rx="3"/></svg></div>
+      <button class="pc-btn">ADD TO CART</button>
+      <div class="pc-meta"><div class="pc-cats">LIVING ROOM, SECTIONALS</div><div class="pc-name">Mara 4-Piece Upholstered Sectional Sofa</div><div class="pc-price">$1,799.00</div></div>
+    </article>
+  </div>
+  <div class="grid-link rv"><span class="gold-link">BUY BEST SELLERS &nbsp;→</span></div>
+</section>
+
+<!-- ===== LATEST COLLECTIONS ===== -->
+<section class="latest">
+  <div class="latest-head rv"><h2 class="sec-h">Latest collections</h2></div>
+  <div class="latest-img rs">
+    <div class="limited-tag">LIMITED OFFER</div>
+    <svg viewBox="0 0 600 380"><path fi ff d="M60 240 Q60 160 90 140 L340 140 Q370 160 370 240 Z"/><path fi d="M80 240 Q80 170 102 155 L318 155 Q342 170 342 240"/><path fi ff d="M80 240 L342 240 L342 265 L80 265 Z"/><line fi x1="100" y1="265" x2="100" y2="300"/><line fi x1="322" y1="265" x2="322" y2="300"/><rect ff fi x="390" y="200" width="60" height="88" rx="4"/><line fi x1="416" y1="200" x2="416" y2="156"/><path fi d="M396 156 Q416 138 436 156"/><rect ff fi x="390" y="248" width="60" height="12" rx="2"/></svg>
+  </div>
+</section>
+
+<!-- ===== EDITORIAL TILES ===== -->
+<section class="editorial">
+  <div class="ed-tile ed1">
+    <div class="ed-bg"></div><div class="ed-over"></div>
+    <div class="ed-art"><svg viewBox="0 0 400 280"><rect ca cf x="42" y="96" width="316" height="162" rx="8"/><rect ca x="42" y="76" width="316" height="28" rx="4"/><line ca x1="60" y1="258" x2="60" y2="286"/><line ca x1="340" y1="258" x2="340" y2="286"/><rect ca cf x="360" y="194" width="38" height="64" rx="3"/></svg></div>
+    <div class="ed-label">New collection</div>
+  </div>
+  <div class="ed-tile ed2">
+    <div class="ed-bg"></div><div class="ed-over"></div>
+    <div class="ed-art"><svg viewBox="0 0 400 280"><rect ca cf x="50" y="104" width="300" height="148" rx="6"/><rect ca x="50" y="84" width="300" height="28" rx="4"/><rect ca x="60" y="90" width="132" height="16" rx="3"/><rect ca x="204" y="90" width="136" height="16" rx="3"/><line ca x1="68" y1="252" x2="66" y2="278"/><line ca x1="332" y1="252" x2="334" y2="278"/></svg></div>
+    <div class="ed-tag">DREAM SPACES</div>
+    <div class="ed-label">Explore our new bedroom collection</div>
+  </div>
+</section>
+
+<!-- ===== VIDEO REVEAL 3 ===== -->
+<div class="vid-section" id="vid3">
+  <div class="vid-canvas vid-canvas-3"></div>
+  <div class="vid-art">
+    <svg viewBox="0 0 900 480">
+      <rect va vaf x="80" y="90" width="580" height="300" rx="6"/>
+      <rect va x="80" y="68" width="580" height="32" rx="4"/>
+      <rect va x="94" y="76" width="260" height="18" rx="3"/>
+      <rect va x="370" y="76" width="278" height="18" rx="3"/>
+      <line va x1="100" y1="390" x2="98" y2="430"/>
+      <line va x1="640" y1="390" x2="642" y2="430"/>
+      <rect vah x="94" y="120" width="260" height="186" rx="3"/>
+      <rect vah x="370" y="120" width="274" height="186" rx="3"/>
+      <rect vaf va x="120" y="140" width="200" height="144" rx="12"/>
+      <rect vaf va x="392" y="140" width="226" height="144" rx="12"/>
+      <rect va x="700" y="192" width="120" height="12" rx="2"/>
+      <rect va x="700" y="216" width="96" height="12" rx="2"/>
+      <rect va x="700" y="240" width="108" height="12" rx="2"/>
+      <rect va x="700" y="264" width="80" height="12" rx="2"/>
+      <rect va vaf x="700" y="296" width="120" height="34" rx="3"/>
+    </svg>
+  </div>
+  <div class="vid-over"></div>
+  <div class="vid-particles"><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div><div class="vp"></div></div>
+  <div class="vid-play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+  <div class="vid-caption"><small>MIAMI TROPICAL COLLECTION</small>Where warmth<br>meets elegance</div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section rv">
+  <span class="sec-label">ABOUT</span>
+  <h2 class="sec-h">The Art of Creating<br>with Purpose</h2>
+  <p>Discover how artisanal tradition and a commitment to sustainability come together in each piece, giving life to unique furniture that tells a story of dedication and respect for the environment.</p>
+  <a href="#" class="btn-gold-outline">READ ABOUT US</a>
+</section>
+
+<!-- ===== DARK BANNER ===== -->
+<div class="dark-banner rv">
+  <h2>Renew Your Home with<br>High-Quality Furniture</h2>
+  <p>Transform your space with furniture that combines design, comfort, and durability. Find options that fit your style and needs, creating unique and functional environments in every corner.</p>
+  <a href="#products" class="btn-w-outline">SHOP EVERYTHING</a>
+</div>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="faq-img rs">
+    <svg viewBox="0 0 600 380"><rect fi ff x="72" y="104" width="456" height="212" rx="10"/><rect fi x="72" y="82" width="456" height="32" rx="5"/><rect fi x="84" y="90" width="204" height="18" rx="3"/><rect fi x="300" y="90" width="218" height="18" rx="3"/><line fi x1="90" y1="316" x2="88" y2="356"/><line fi x1="510" y1="316" x2="512" y2="356"/><rect ff fi x="528" y="240" width="58" height="88" rx="4"/><rect ff fi x="538" y="248" width="36" height="12" rx="2"/><path ff fi d="M558 240 Q558 200 558 190 Q558 176 570 164 Q564 178 562 200 L564 238"/></svg>
+  </div>
+  <div class="faq-head rv"><h2 class="sec-h">Frequently asked questions</h2></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q open" data-faq="0">Is your furniture sustainable? <span class="arr">↑</span></div>
+      <div class="faq-a" style="max-height:200px;"><p>Yes, we meticulously select materials with an eco-conscious mind, prioritizing options such as responsibly sourced wood, recycled materials, and low-impact production processes.</p></div>
     </div>
-    <div class="stat reveal d2">
-      <div class="n" data-target="100" data-suffix="%">0</div>
-      <div class="l">Maderas Nobles</div>
+    <div class="faq-item">
+      <div class="faq-q" data-faq="1">What is your return policy? <span class="arr">↓</span></div>
+      <div class="faq-a"><p>We accept returns within 30 days of delivery on undamaged items in original condition. Please contact us at info@web.decotrendsmiami.com to initiate a return.</p></div>
     </div>
-    <div class="stat reveal d3">
-      <div class="n"><em>Miami</em></div>
-      <div class="l">Diseñado &amp; Curado</div>
+    <div class="faq-item">
+      <div class="faq-q" data-faq="2">Do you offer customization options for furniture? <span class="arr">↓</span></div>
+      <div class="faq-a"><p>Yes, many of our pieces are available in different upholstery options, finishes, and sizes. Contact our showroom team for custom orders.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" data-faq="3">What are your delivery times and charges? <span class="arr">↓</span></div>
+      <div class="faq-a"><p>In-stock items ship within 1–3 business days and are typically delivered within 2–3 weeks. Delivery charges depend on location and order size.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" data-faq="4">Are there any discounts or promotions available on your furniture? <span class="arr">↓</span></div>
+      <div class="faq-a"><p>Yes! We regularly run seasonal promotions and limited-time offers. Subscribe to our newsletter to be the first to know about exclusive deals.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== COLLECTIONS ===== -->
-<section class="collections" id="colecciones">
-  <div class="col-head reveal">
-    <span class="eyebrow">Catálogo</span>
-    <h2 class="title">Una colección para<br>cada <em>ambiente</em></h2>
-    <div class="rule center"></div>
-    <p class="lead" style="max-width:560px;margin:0 auto;">Algo especial para cada persona y cada ocasión.</p>
-  </div>
-  <div class="col-grid">
-
-    <article class="col-card reveal d1">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <path d="M14 56 L14 38 Q14 30 22 30 L78 30 Q86 30 86 38 L86 56"/>
-        <path d="M14 44 Q8 44 8 52 L8 62 L92 62 L92 52 Q92 44 86 44"/>
-        <path d="M22 44 L78 44 L78 50 L22 50 Z"/>
-        <line x1="18" y1="62" x2="18" y2="70"/><line x1="82" y1="62" x2="82" y2="70"/>
-      </g></svg>
-      <h3 class="col-name">Sala</h3>
-      <p class="col-desc">Sofás y conjuntos que crean un ambiente acogedor y moderno para compartir.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-    <article class="col-card reveal d2">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <path d="M12 58 L12 34 L20 34 L20 30 Q20 26 24 26 L76 26 Q80 26 80 30 L80 34 L88 34 L88 58"/>
-        <path d="M12 46 L88 46"/>
-        <path d="M20 34 L80 34 L80 46 L20 46 Z"/>
-        <line x1="14" y1="58" x2="14" y2="66"/><line x1="86" y1="58" x2="86" y2="66"/>
-      </g></svg>
-      <h3 class="col-name">Dormitorio</h3>
-      <p class="col-desc">Camas y conjuntos que combinan diseño y confort para un descanso sofisticado.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-    <article class="col-card reveal d3">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <ellipse cx="50" cy="32" rx="34" ry="9"/>
-        <path d="M22 34 L26 60"/><path d="M78 34 L74 60"/>
-        <path d="M34 38 L34 60"/><path d="M66 38 L66 60"/>
-        <path d="M30 60 L70 60"/>
-      </g></svg>
-      <h3 class="col-name">Comedor</h3>
-      <p class="col-desc">Mesas y sillas que aportan elegancia y funcionalidad con materiales de alta calidad.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-    <article class="col-card reveal d1">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <path d="M18 34 L82 34 L82 40 L18 40 Z"/>
-        <line x1="24" y1="40" x2="24" y2="62"/><line x1="76" y1="40" x2="76" y2="62"/>
-        <path d="M54 40 L54 56 L78 56"/>
-        <circle cx="38" cy="26" r="7"/>
-        <path d="M30 40 Q30 32 38 33"/>
-      </g></svg>
-      <h3 class="col-name">Oficina</h3>
-      <p class="col-desc">Escritorios y sillas ergonómicas que maximizan la productividad con estilo.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-    <article class="col-card reveal d2">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <path d="M44 30 L56 30 L60 16 L40 16 Z"/>
-        <line x1="50" y1="30" x2="50" y2="58"/>
-        <path d="M38 58 L62 58"/>
-        <path d="M50 30 Q50 30 50 30 M40 16 Q50 6 60 16"/>
-        <ellipse cx="50" cy="16" rx="10" ry="3"/>
-      </g></svg>
-      <h3 class="col-name">Lámparas</h3>
-      <p class="col-desc">Iluminación que define el carácter de cada espacio con calidez y diseño.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-    <article class="col-card reveal d3">
-      <svg class="col-icon" viewBox="0 0 100 80"><g data-s>
-        <path d="M40 60 Q34 40 50 22 Q66 40 60 60"/>
-        <path d="M50 60 L50 34"/>
-        <path d="M50 44 Q40 38 36 28"/>
-        <path d="M50 40 Q60 34 64 26"/>
-        <path d="M40 60 L60 60 L58 70 L42 70 Z"/>
-      </g></svg>
-      <h3 class="col-name">Decoración</h3>
-      <p class="col-desc">Cojines, cortinas y accesorios para personalizar y dar vida a tus espacios.</p>
-      <a class="col-link" href="#">Explorar →</a>
-    </article>
-
-  </div>
-</section>
-
-<!-- ===== TROPICAL FEATURE ===== -->
-<section class="tropical" id="tropical">
-  <div class="tropical-glow"></div>
-  <div class="trop-grid">
-    <div class="r-left">
-      <span class="eyebrow light">Edición Especial</span>
-      <h2 class="title light">Miami Tropical<br><em>Collection</em></h2>
-      <div class="rule"></div>
-      <p class="lead light">Inspirada en la luz, el verde y el ritmo relajado de Miami. Piezas para interior y exterior que traen el trópico a casa.</p>
-      <div style="height:30px"></div>
-      <a href="#visitanos" class="btn btn-primary">Descubrir la colección</a>
-    </div>
-    <div class="trop-art r-right">
-      <!-- palm in pot -->
-      <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
-        <path data-s d="M150 250 L150 130"/>
-        <path data-s d="M150 150 Q90 120 60 70 Q120 90 150 140"/>
-        <path data-s d="M150 145 Q210 115 240 65 Q180 88 150 138"/>
-        <path data-s d="M150 165 Q80 160 40 130 Q110 150 150 175"/>
-        <path data-s d="M150 160 Q220 155 260 125 Q190 145 150 170"/>
-        <path data-s d="M150 185 Q150 120 150 110 Q150 95 162 80 Q156 110 158 150"/>
-        <path data-f data-s d="M110 250 L190 250 L178 350 Q178 360 168 360 L132 360 Q122 360 122 350 Z"/>
-        <path data-s d="M110 250 L190 250 L186 272 L114 272 Z"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MATERIALS ===== -->
-<section class="materials" id="materiales">
-  <div class="mat-head reveal">
-    <span class="eyebrow">Hecho con conciencia</span>
-    <h2 class="title">Materiales nobles,<br>impacto <em>responsable</em></h2>
-  </div>
-  <div class="mat-grid">
-    <div class="mat-item reveal d1">
-      <div class="mat-num">01</div>
-      <div class="mat-divider"></div>
-      <h3>Maderas sólidas</h3>
-      <p>Cada pieza se construye con maderas macizas que garantizan resistencia, elegancia y una calidad que perdura en el tiempo.</p>
-    </div>
-    <div class="mat-item reveal d2">
-      <div class="mat-num">02</div>
-      <div class="mat-divider"></div>
-      <h3>Origen responsable</h3>
-      <p>Seleccionamos materiales con conciencia ecológica: madera de fuentes responsables y materiales reciclados siempre que es posible.</p>
-    </div>
-    <div class="mat-item reveal d3">
-      <div class="mat-num">03</div>
-      <div class="mat-divider"></div>
-      <h3>Producción de bajo impacto</h3>
-      <p>Priorizamos procesos de producción de bajo impacto, porque creemos que el diseño hermoso también debe cuidar el planeta.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== QUOTE ===== -->
-<section class="quote">
-  <div class="reveal">
-    <span class="mark">"</span>
-    <q>El buen diseño no necesita ser complicado: líneas limpias, formas refinadas y un lujo que nunca sacrifica la funcionalidad.</q>
-    <cite>DecoTrends Miami</cite>
-  </div>
-</section>
-
-<!-- ===== VISIT ===== -->
-<section class="visit" id="visitanos">
-  <div class="visit-grid">
-    <div class="r-left">
-      <span class="eyebrow">Visítanos</span>
-      <h2 class="title">Ven a conocer<br>tu próximo <em>espacio</em></h2>
-      <div class="rule"></div>
-      <p class="lead">Te esperamos en nuestro showroom de Miami para vivir cada pieza de cerca.</p>
-      <div class="visit-info" style="margin-top:34px;">
-        <div class="row">
-          <svg class="ic" viewBox="0 0 24 24"><g data-s><path d="M12 2 C7 2 4 6 4 10 C4 16 12 22 12 22 C12 22 20 16 20 10 C20 6 17 2 12 2 Z"/><circle cx="12" cy="10" r="3"/></g></svg>
-          <div><div class="k">Dirección</div><div class="v">6905 NW 77th Ave, Miami, FL 33166</div></div>
-        </div>
-        <div class="row">
-          <svg class="ic" viewBox="0 0 24 24"><g data-s><path d="M5 4 L9 4 L11 9 L8 11 C9 14 11 16 14 17 L16 14 L21 16 L21 20 Q21 21 20 21 C11 21 3 13 3 5 Q3 4 5 4 Z"/></g></svg>
-          <div><div class="k">Teléfono</div><div class="v"><a href="tel:+17869286636">+1 (786) 928-6636</a></div></div>
-        </div>
-        <div class="row">
-          <svg class="ic" viewBox="0 0 24 24"><g data-s><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L16 14"/></g></svg>
-          <div><div class="k">Envíos</div><div class="v">En stock: 1–3 días hábiles · Entrega en 2–3 semanas</div></div>
-        </div>
-      </div>
-      <div class="visit-cta">
-        <a href="tel:+17869286636" class="btn btn-primary" style="background:var(--charcoal);color:#fff;">Llamar ahora</a>
-      </div>
-    </div>
-    <div class="r-right">
-      <div class="visit-map">
-        <!-- store / building illustration -->
-        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <path data-f data-s d="M50 130 L150 60 L250 130 L250 250 L50 250 Z"/>
-          <path data-s d="M40 135 L150 55 L260 135"/>
-          <rect data-s x="90" y="170" width="50" height="80"/>
-          <rect data-s x="165" y="170" width="55" height="45"/>
-          <line data-s x1="115" y1="170" x2="115" y2="250"/>
-          <path data-s d="M150 55 L150 40"/>
-          <circle data-s cx="150" cy="35" r="5"/>
-        </svg>
-      </div>
-    </div>
-  </div>
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+  <h2 class="sec-h">Subscribe to our newsletter<br>and get special offers.</h2>
+  <form class="nl-form" onsubmit="return false">
+    <input type="email" placeholder="Your email">
+    <button type="submit">SUBSCRIBE &nbsp;↗</button>
+  </form>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer>
-  <div class="foot-grid">
-    <div>
-      <div class="foot-logo">DecoTrends</div>
-      <p class="foot-tag">Diseño de interiores con líneas limpias y materiales nobles. Hecho en Miami.</p>
-    </div>
-    <div class="foot-col">
-      <h4>Colecciones</h4>
-      <ul>
-        <li><a href="#colecciones">Sala</a></li>
-        <li><a href="#colecciones">Dormitorio</a></li>
-        <li><a href="#colecciones">Comedor</a></li>
-        <li><a href="#colecciones">Oficina</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h4>Explorar</h4>
-      <ul>
-        <li><a href="#tropical">Miami Tropical</a></li>
-        <li><a href="#colecciones">Lámparas</a></li>
-        <li><a href="#colecciones">Decoración</a></li>
-        <li><a href="#materiales">Outdoor</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h4>Contacto</h4>
-      <ul>
-        <li><a href="tel:+17869286636">+1 (786) 928-6636</a></li>
-        <li><a href="#visitanos">6905 NW 77th Ave</a></li>
-        <li><a href="#visitanos">Miami, FL 33166</a></li>
-      </ul>
+<footer id="contact">
+  <div class="foot-logo-wrap">
+    <div class="foot-logo-badge">
+      <div class="ls"><svg viewBox="0 0 50 50"><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="22" fill="#E8D5B0" font-weight="500" letter-spacing="1">DT</text></svg></div>
+      <div class="lt"><span class="lt1">DECO</span><span class="lt2">TRENDS</span></div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <p>© 2026 DecoTrends Miami · Todos los derechos reservados</p>
-    <p>Diseño · Estilo · Maestría</p>
+  <p class="foot-social-text">Follow us on our social media and stay up-to-date with the latest news, exclusive offers, and much more!</p>
+  <div class="foot-socials">
+    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path si d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect si x="2" y="2" width="20" height="20" rx="5"/><path si d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line si x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path si d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon si points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
   </div>
+  <!-- Accordion -->
+  <div class="foot-acc">
+    <div class="foot-acc-item">
+      <div class="foot-acc-head" data-acc="0">USEFUL LINKS <span class="farr">∨</span></div>
+      <div class="foot-acc-body"><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Shop</a></li><li><a href="#">Contact Us</a></li></ul></div>
+    </div>
+    <div class="foot-acc-item">
+      <div class="foot-acc-head" data-acc="1">CATEGORIES <span class="farr">∨</span></div>
+      <div class="foot-acc-body"><ul><li><a href="#">Living Room</a></li><li><a href="#">Bedrooms</a></li><li><a href="#">Dining Room</a></li><li><a href="#">Office Furniture</a></li><li><a href="#">Miami Tropical Collection</a></li><li><a href="#">Outdoor</a></li></ul></div>
+    </div>
+    <div class="foot-acc-item">
+      <div class="foot-acc-head" data-acc="2">CUSTOMER SERVICE <span class="farr">∨</span></div>
+      <div class="foot-acc-body"><ul><li><a href="#">Shipping Information</a></li><li><a href="#">Returns &amp; Exchanges</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    </div>
+  </div>
+  <!-- Contact rows -->
+  <div class="foot-contact">
+    <div class="fc-row"><div class="fc-icon"><svg viewBox="0 0 24 24"><path fci d="M12 2C7 2 4 6 4 10C4 16 12 22 12 22S20 16 20 10C20 6 17 2 12 2Z"/><circle fci cx="12" cy="10" r="3"/></svg></div><div><span class="fc-label">ADDRESS</span><div class="fc-val">6905 NW 77th Ave, Miami, FL 33166</div></div></div>
+    <div class="fc-row"><div class="fc-icon"><svg viewBox="0 0 24 24"><path fci d="M5 4L9 4L11 9L8 11C9 14 11 16 14 17L16 14L21 16L21 20Q21 21 20 21C11 21 3 13 3 5Q3 4 5 4Z"/></svg></div><div><span class="fc-label">PHONE</span><div class="fc-val"><a href="tel:+17869286636">+1 (786) 928-6636</a></div></div></div>
+    <div class="fc-row"><div class="fc-icon"><svg viewBox="0 0 24 24"><path fci d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/><polyline fci points="22,6 12,13 2,6"/></svg></div><div><span class="fc-label">EMAIL</span><div class="fc-val"><a href="mailto:info@web.decotrendsmiami.com">info@web.decotrendsmiami.com</a></div></div></div>
+    <div class="fc-row"><div class="fc-icon"><svg viewBox="0 0 24 24"><circle fci cx="12" cy="12" r="9"/><path fci d="M12 7L12 12L16 14"/></svg></div><div><span class="fc-label">WORKING HOURS</span><div class="fc-val">Monday to Saturday 10:00am–7:00pm<br>Sunday 10am–4pm</div></div></div>
+  </div>
+  <p class="foot-copy">© Copyright, Deco Trend, 2025.</p>
 </footer>
 
 <script>
-// ===== NAV blur on scroll =====
+// ===== NAV shadow =====
 const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+addEventListener('scroll', () => nav.classList.toggle('lifted', scrollY > 40), {passive:true});
 
-// ===== Reveal on scroll =====
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal,.r-left,.r-right,.r-scale').forEach(el => io.observe(el));
+// ===== DRAWER =====
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+document.getElementById('hamBtn').addEventListener('click', () => {
+  drawer.classList.add('open'); overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+[overlay, document.getElementById('drawerClose')].forEach(el => el.addEventListener('click', () => {
+  drawer.classList.remove('open'); overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}));
 
-// ===== Counter animation =====
-const cio = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.target, suf = el.dataset.suffix || '';
-    const dur = 1500, t0 = performance.now();
-    const step = (now) => {
-      const t = Math.min((now - t0) / dur, 1);
-      el.textContent = Math.floor((1 - Math.pow(1 - t, 3)) * target) + suf;
-      if (t < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-    cio.unobserve(el);
-  });
-}, { threshold: .6 });
-document.querySelectorAll('.n[data-target]').forEach(el => cio.observe(el));
+// ===== SCROLL REVEAL =====
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.13, rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.rv,.rl,.rr,.rs').forEach(el => io.observe(el));
 
-// ===== Hero parallax on furniture =====
-const furn = document.querySelector('.hero-furniture');
+// ===== HERO PARALLAX =====
+const heroBg = document.getElementById('heroBg');
 addEventListener('scroll', () => {
-  const y = scrollY;
-  if (y < innerHeight) furn.style.transform = `translateY(${40 + y * .12}px)`;
-}, { passive: true });
-</script>
+  if(scrollY < innerHeight * 1.2) heroBg.style.transform = `translateY(${scrollY * .25}px)`;
+}, {passive:true});
 
+// ===== CATEGORY TILE PARALLAX =====
+const ctiles = document.querySelectorAll('.ctile-bg');
+addEventListener('scroll', () => {
+  ctiles.forEach(bg => {
+    const r = bg.parentElement.getBoundingClientRect();
+    const off = (r.top + r.height/2 - innerHeight/2) * .06;
+    bg.style.transform = `scale(1.08) translateY(${off}px)`;
+  });
+}, {passive:true});
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const isOpen = q.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.querySelector('.arr').textContent = '↓'; x.nextElementSibling.style.maxHeight = '0'; });
+    if(!isOpen){ q.classList.add('open'); q.querySelector('.arr').textContent = '↑'; q.nextElementSibling.style.maxHeight = q.nextElementSibling.scrollHeight + 'px'; }
+  });
+});
+
+// ===== FOOTER ACCORDION =====
+document.querySelectorAll('.foot-acc-head').forEach(h => {
+  h.addEventListener('click', () => {
+    const open = h.classList.contains('open');
+    document.querySelectorAll('.foot-acc-head').forEach(x => { x.classList.remove('open'); x.querySelector('.farr').textContent = '∨'; x.nextElementSibling.style.maxHeight = '0'; });
+    if(!open){ h.classList.add('open'); h.querySelector('.farr').textContent = '∧'; h.nextElementSibling.style.maxHeight = h.nextElementSibling.scrollHeight + 'px'; }
+  });
+});
+
+// ===== VIDEO REVEAL =====
+const vidObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('vplaying'); }
+    else { e.target.classList.remove('vplaying'); }
+  });
+}, {threshold:0.22});
+document.querySelectorAll('.vid-section').forEach(v => {
+  vidObs.observe(v);
+  v.addEventListener('click', () => v.classList.toggle('vplaying'));
+});
+
+// ===== COUNTER ANIMATION =====
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    e.target.querySelectorAll('.cnt').forEach(el => {
+      const target = +el.dataset.target;
+      const dur = 1800, step = 16;
+      let start = null;
+      const tick = ts => {
+        if(!start) start = ts;
+        const pct = Math.min((ts - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - pct, 3);
+        el.textContent = Math.round(ease * target).toLocaleString();
+        if(pct < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    cntObs.unobserve(e.target);
+  });
+}, {threshold: 0.4});
+document.querySelectorAll('.stats-bar').forEach(s => cntObs.observe(s));
+
+// ===== ADD TO CART FEEDBACK =====
+document.querySelectorAll('.pc-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const orig = btn.textContent;
+    btn.textContent = 'ADDED ✓';
+    setTimeout(() => { btn.textContent = orig; }, 1600);
+  });
+});
+</script>
 </body>
 </html>
