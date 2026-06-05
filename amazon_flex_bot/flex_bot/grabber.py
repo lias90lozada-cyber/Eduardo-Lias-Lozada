@@ -5,15 +5,19 @@ from datetime import datetime, date
 from .api import FlexAPI
 from .filters import BlockFilter
 from .notifications import Notifier
+from .stats import SessionStats
 
 logger = logging.getLogger("flex_bot")
 
 
 class BlockGrabber:
-    def __init__(self, api: FlexAPI, filters: BlockFilter, notifier: Notifier, config: dict):
+    def __init__(self, api: FlexAPI, filters: BlockFilter, notifier: Notifier,
+                 config: dict, dry_run: bool = False):
         self.api = api
         self.filters = filters
         self.notifier = notifier
+        self.dry_run = dry_run
+        self.stats = SessionStats()
 
         bot_cfg = config.get("bot", {})
         self.poll_interval: int = int(bot_cfg.get("poll_interval_seconds", 30))
@@ -34,13 +38,14 @@ class BlockGrabber:
             self.today = today
             self.grabs_today = 0
             self.seen_offers.clear()
-            logger.info("Nuevo dia, contador reiniciado.")
+            logger.info("Nuevo dia — contador reiniciado.")
 
     def _sleep_interval(self) -> None:
-        interval = self.poll_interval
+        interval = float(self.poll_interval)
         if self.randomize:
             interval += random.uniform(-self.random_range, self.random_range)
-            interval = max(5, interval)
+            interval = max(5.0, interval)
+        logger.debug(f"Esperando {interval:.1f}s...")
         time.sleep(interval)
 
     def _ensure_service_areas(self) -> bool:
@@ -48,22 +53,32 @@ class BlockGrabber:
             logger.info("Buscando service areas automaticamente...")
             self.service_areas = self.api.get_service_areas()
             if not self.service_areas:
-                logger.error("No se encontraron service areas. Verifica tu ubicacion.")
+                logger.error("No se encontraron service areas.")
                 return False
-            logger.info(f"Service areas encontradas: {self.service_areas}")
+            logger.info(f"Service areas: {self.service_areas}")
         return True
 
     def _try_grab_offers(self) -> None:
+        self.stats.polls += 1
         offers = self.api.get_offers(self.service_areas)
+
         if not offers:
             logger.debug("Sin bloques disponibles.")
             return
 
-        logger.info(f"{len(offers)} bloque(s) disponible(s).")
+        self.stats.offers_seen += len(offers)
+        new_offers = [o for o in offers if o.get("offerId") not in self.seen_offers]
+        self.stats.offers_new += len(new_offers)
 
-        for offer in offers:
+        if not new_offers:
+            logger.debug(f"{len(offers)} bloques (todos ya vistos).")
+            return
+
+        logger.info(f"{len(offers)} bloque(s) — {len(new_offers)} nuevo(s).")
+
+        for offer in new_offers:
             offer_id = offer.get("offerId", "")
-            if not offer_id or offer_id in self.seen_offers:
+            if not offer_id:
                 continue
             self.seen_offers.add(offer_id)
 
@@ -71,22 +86,29 @@ class BlockGrabber:
             passes, reason = self.filters.passes(offer)
 
             if not passes:
-                logger.info(f"  SKIP [{reason}] -> {desc}")
+                self.stats.offers_skipped += 1
+                logger.info(f"  SKIP  [{reason}] {desc}")
                 continue
 
-            logger.info(f"  MATCH -> {desc}")
+            self.stats.offers_matched += 1
+            logger.info(f"  MATCH {desc}")
             self._accept_offer(offer_id, desc)
 
             if self.grabs_today >= self.max_grabs_per_day:
-                logger.info(f"Limite diario alcanzado ({self.max_grabs_per_day}). Deteniendo por hoy.")
+                logger.info(f"Limite diario ({self.max_grabs_per_day}) alcanzado.")
                 return
 
     def _accept_offer(self, offer_id: str, desc: str) -> None:
-        logger.info(f"  Intentando aceptar bloque {offer_id[:12]}...")
+        if self.dry_run:
+            logger.info(f"  [DRY-RUN] No se acepto (modo prueba)")
+            return
+
+        logger.info(f"  Aceptando bloque {offer_id[:12]}...")
         success = self.api.accept_offer(offer_id)
 
         if success:
             self.grabs_today += 1
+            self.stats.offers_accepted += 1
             ts = datetime.now().strftime("%H:%M:%S")
             msg = (
                 f"✅ BLOQUE ACEPTADO [{ts}]\n"
@@ -96,13 +118,23 @@ class BlockGrabber:
             logger.info(msg)
             self.notifier.notify(msg)
         else:
-            logger.warning(f"  No se pudo aceptar el bloque {offer_id[:12]}")
+            self.stats.offers_failed += 1
+            logger.warning(f"  No se pudo aceptar {offer_id[:12]}")
+
+    def run_once(self) -> None:
+        """Un solo ciclo de polling — util para pruebas."""
+        if self._ensure_service_areas():
+            self._try_grab_offers()
+        self.stats.print_summary()
 
     def start(self) -> None:
-        logger.info("=" * 50)
-        logger.info("Amazon Flex Bot iniciado")
-        logger.info(f"Intervalo: {self.poll_interval}s | Max/dia: {self.max_grabs_per_day}")
-        logger.info("=" * 50)
+        mode = " [DRY-RUN]" if self.dry_run else ""
+        logger.info("=" * 55)
+        logger.info(f"  Amazon Flex Bot iniciado{mode}")
+        logger.info(f"  Intervalo : {self.poll_interval}s (+/- {self.random_range}s)")
+        logger.info(f"  Max/dia   : {self.max_grabs_per_day}")
+        logger.info(f"  Areas     : {self.service_areas or 'auto'}")
+        logger.info("=" * 55)
 
         self.running = True
 
@@ -114,14 +146,15 @@ class BlockGrabber:
             self._reset_daily_counter()
 
             if self.grabs_today >= self.max_grabs_per_day:
-                logger.info(f"Limite diario ({self.max_grabs_per_day}) ya alcanzado. Esperando manana...")
+                logger.info("Limite diario alcanzado. Esperando 1h...")
                 time.sleep(3600)
                 continue
 
             try:
                 self._try_grab_offers()
             except Exception as e:
-                logger.error(f"Error inesperado: {e}")
+                self.stats.errors += 1
+                logger.error(f"Error inesperado: {e}", exc_info=True)
                 time.sleep(self.retry_interval)
                 continue
 
@@ -129,4 +162,5 @@ class BlockGrabber:
 
     def stop(self) -> None:
         self.running = False
+        self.stats.print_summary()
         logger.info("Bot detenido.")

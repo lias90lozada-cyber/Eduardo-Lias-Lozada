@@ -7,12 +7,15 @@
   "service_areas": [],
   "filters": {
     "min_pay": 18.00,
+    "min_pay_per_hour": 0.0,
     "max_duration_hours": 4,
     "min_duration_hours": 2,
     "accepted_stations": [],
     "blocked_stations": [],
     "start_time_from": "06:00",
-    "start_time_to": "22:00"
+    "start_time_to": "22:00",
+    "days_of_week": [],
+    "max_start_days_ahead": null
   },
   "bot": {
     "poll_interval_seconds": 30,
@@ -20,6 +23,16 @@
     "max_grabs_per_day": 2,
     "randomize_interval": true,
     "randomize_range_seconds": 10
+  },
+  "proxy": {
+    "enabled": false,
+    "type": "http",
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": "",
+    "rotate": false,
+    "list_file": ""
   },
   "notifications": {
     "telegram": {
