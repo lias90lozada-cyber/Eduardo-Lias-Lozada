@@ -1,0 +1,35 @@
+{
+  "credentials": {
+    "email": "TU_EMAIL@amazon.com",
+    "password": "TU_CONTRASEÑA"
+  },
+  "region": "NA",
+  "service_areas": [],
+  "filters": {
+    "min_pay": 18.00,
+    "max_duration_hours": 4,
+    "min_duration_hours": 2,
+    "accepted_stations": [],
+    "blocked_stations": [],
+    "start_time_from": "06:00",
+    "start_time_to": "22:00"
+  },
+  "bot": {
+    "poll_interval_seconds": 30,
+    "retry_on_error_seconds": 60,
+    "max_grabs_per_day": 2,
+    "randomize_interval": true,
+    "randomize_range_seconds": 10
+  },
+  "notifications": {
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": ""
+    },
+    "discord": {
+      "enabled": false,
+      "webhook_url": ""
+    }
+  }
+}
